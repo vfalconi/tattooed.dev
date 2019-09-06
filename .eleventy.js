@@ -76,6 +76,10 @@ module.exports = function(eleventyConfig) {
 		return collection[collection.length - 1].date;
 	});
 
+	eleventyConfig.addNunjucksShortcode('currentTime', () => {
+		return DateTime.local().toFormat('dd LLL yyyy');
+	});
+
 	passthroughCopies.forEach(copy => eleventyConfig.addPassthroughCopy(copy));
 
 	eleventyConfig.addPlugin(pluginRss);
