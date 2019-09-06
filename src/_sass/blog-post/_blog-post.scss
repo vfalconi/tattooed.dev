@@ -1,0 +1,40 @@
+.blog-post {
+	// parent element
+	line-height: 1.7;
+
+	// paragraphs
+	& > p {
+		margin-top: rem(32);
+		margin-bottom: rem(32);
+	}
+
+	// Section headings
+	& > h2 {
+		color: $blogPostSectionHeading;
+		letter-spacing: .02em;
+		font-size: rem(32);
+		text-shadow: rem(2) rem(2) $blogPostSectionHeadingShadow;
+	}
+
+	// lists
+	ol,
+	ul {
+		margin: 0;
+		padding: 0;
+	}
+
+	li + li { margin-top: rem(13); }
+
+	sup { font-weight: bold; }
+}
+
+.back-link {
+	display: inline-block;
+	margin-top: rem(16);
+	margin-left: rem(16);
+	font-size: em(14);
+}
+
+@import 'blog-header';
+@import 'blog-footnotes';
+@import 'blog-images';

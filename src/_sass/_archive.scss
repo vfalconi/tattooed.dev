@@ -1,0 +1,33 @@
+@supports (display: flex) and (not (display: grid)) {
+
+}
+
+@supports (display: grid) {
+
+}
+
+.archive-section {
+	display: flex;
+}
+
+.archive-section + .archive-section {
+	border-top: 1px solid $blogSummaryBorder;
+	margin-top: rem(32);
+	padding-top: rem(32);
+}
+
+.archive-section-heading { margin-top: 0; }
+
+.blog-summary-wrapper {
+	margin-left: rem(32);
+}
+
+.blog-summary + .blog-summary {
+	border-top: 1px solid $blogSummaryBorder;
+	margin-top: rem(24);
+	padding-top: rem(24);
+}
+
+.blog-summary-heading {
+	margin-top: 0;
+}

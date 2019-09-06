@@ -1,0 +1,21 @@
+@media screen and (prefers-reduced-motion: no-preference) {
+	.homepage-image__spiral {
+		transform-origin: center center;
+		animation-name: spiral;
+		animation-duration: 6s;
+		animation-timing-function: linear;
+		animation-iteration-count: infinite;
+	}
+
+	@keyframes spiral {
+		0% {
+			stroke: $homepageSpiralStrokeAnimationStart;
+			transform: rotate(0deg);
+		}
+		50% { stroke: $homepageSpiralStrokeAnimationMiddle; }
+		100% {
+			stroke: $homepageSpiralStrokeAnimationEnd;
+			transform: rotate(360deg);
+		}
+	}
+}

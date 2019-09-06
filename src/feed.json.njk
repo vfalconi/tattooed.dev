@@ -1,0 +1,21 @@
+---
+permalink: feed.json
+---
+{
+  "title": "{{ site.title }}",
+  "subtitle": "{{ site.feed.subtitle }}",
+  "link": "{{ site.feed.id }}",
+  "feed": "{{ site.feed.url }}",
+  "author": "{{ site.author.name }}",
+  "entries" : [
+    {% for post in collections.blogPosts %}
+    {% set absolutePostUrl %}{{ post.url | url | absoluteUrl(site.url) }}{% endset %}
+    {
+      "title": "{{ post.title }}",
+      "link": "{{ absolutePostUrl }}",
+      "updated": "{{ post.published_at | RSSTimeFormat }}"
+    }{% if not loop.last %},{% else %}{%- endif -%}
+
+  {% endfor %}
+  ]
+}

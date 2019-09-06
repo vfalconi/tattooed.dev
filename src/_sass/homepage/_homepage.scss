@@ -1,0 +1,76 @@
+@import 'homepage-animations';
+@import 'homepage-header-layout';
+
+.homepage-header {
+	width: max-content;
+	padding: rem(32) rem(32) 0;
+	margin: 0 auto;
+	box-sizing: border-box;
+}
+
+.homepage-image-wrapper {
+	max-width: rem(250);
+}
+
+.homepage-image {
+	background-color: $homepageImageBackground;
+	border: 6px solid $homepageImageBorder;
+	border-radius: 50%;
+	overflow: hidden;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.homepage-image__spiral {
+	fill: none;
+	stroke: $homepageSpiralStroke;
+	stroke-width: 30;
+	stroke-linecap: round;
+}
+
+.homepage-heading-wrapper {
+	@media (min-width: rem(578)) {
+		transform: rotate(-4deg);
+		transform-origin: top right;
+	}
+}
+
+.homepage-heading,
+.homepage-subheading {
+	background-color: $homepageHeadingBackground;
+	box-shadow: rem(4) rem(4) $homepageHeadingShadow;
+	padding-right: rem(16);
+	padding-left: rem(16);
+	width: max-content;
+	color: $homepageHeading;
+	font-family: monospace;
+}
+
+.homepage-heading {
+	font-size: em(48);
+}
+
+.homepage-subheading {
+	font-size: em(32);
+	font-weight: bold;
+}
+
+
+
+.homepage-section {
+	padding: 0 rem(32);
+}
+
+.homepage-section + .homepage-section { margin-top: rem(32); }
+
+
+
+.homepage-bio {
+	background-color: $homepageBioBG;
+	border: 2px solid $homepageBioBorder;
+	font-size: em(24);
+	padding: rem(32);
+
+	p { margin: 0; }
+	p + p { margin-top: rem(16); }
+}

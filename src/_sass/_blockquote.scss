@@ -1,0 +1,24 @@
+.quote {
+	background-color: $blockquoteBG;
+	color: $blockquoteText;
+	line-height: 1.65;
+	padding: rem(32);
+	margin-top: rem(48);
+	margin-bottom: rem((48 + 8));
+	box-shadow: rem(8) rem(8) $blockquoteShadow;
+	width: calc(100% - #{rem(8)});
+	box-sizing: border-box;
+
+	blockquote { margin: 0; }
+
+	figcaption {
+		margin-top: rem(24);
+		text-align: right;
+	}
+
+	a {
+		color: $blockquoteLink;
+		&:hover,
+		&:focus { color: $blockquoteLinkHover; }
+	}
+}

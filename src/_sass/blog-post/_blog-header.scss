@@ -1,0 +1,29 @@
+.blog-header {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: rem(32);
+	padding-bottom: rem(32);
+	border-bottom: rem(2) solid $blogPostHeaderBorder;
+	text-align: center;
+	align-items: center;
+	color: $blogPostHeaderText;
+}
+
+.blog-header__heading {
+	color: $blogPostHeading;
+	font-size: em(48);
+	line-height: 1.3;
+	text-shadow: rem(2) rem(2) $blogPostHeadingShadow;
+}
+
+.blog-header__dateline {
+	margin: 0 0 rem(16);
+	font-style: italic;
+}
+
+.blog-header__description {
+	margin: 0;
+	font-size: em(24);
+	font-weight: bold;
+	max-width: rem(480); // 640*.75
+}

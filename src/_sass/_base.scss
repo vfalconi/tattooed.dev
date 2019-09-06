@@ -1,0 +1,21 @@
+:root { font-size: 16px; }
+
+body {
+	background-color: $bodyBG;
+	color: $bodyText;
+	font-family: "OpenSans", sans-serif;
+}
+
+a {
+	color: $linkColor;
+
+	&:focus,
+	&:hover { color: $linkColor--hover; }
+}
+
+.more-link { float: right; }
+.highlighted {
+	font-weight: bold;
+	color: $highlightedColor;
+	font-style: italic;
+}

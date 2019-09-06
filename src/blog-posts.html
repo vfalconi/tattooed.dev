@@ -1,0 +1,73 @@
+---
+pagination:
+  data: collections.blogPosts
+  size: 1
+  alias: post
+  addAllPagesToCollections: true
+permalink: '{{ post.url }}'
+layout: base
+---
+<a href="/" class="back-link">← home</a>
+<div class="single-column h-entry">
+	<header class="blog-header">
+		<h1 class="blog-header__heading p-name">{{ post.title }}</h1>
+		<p class="blog-header__dateline">
+			<time class="dt-published" datetime="{{ post.published_at | machineTime }}">{{ post.published_at | htmlDateString }}</time>
+			{% if post.updated %}<time class="dt-updated" datetime="{{ post.updated | machineTime }}">, and updated {{ post.updated | htmlDateString }}</time>{% endif %}
+		</p>
+		{% if post.description %}<p class="blog-header__description p-summary">{{ post.description }}</p>{% endif %}
+	</header>
+
+	<main class="blog-post e-content">
+		{{ post.parsed }}
+		{% if post.footnotes %}
+			<section class="blog-post__foonotes" id="footnotes">
+				<h2 class="blog-post__footnote-heading">Footnotes</h2>
+				<ol>
+					{% for note in post.footnotes %}
+						<li><div id="note{{ forloop.index }}">{{ note }}</div></li>
+					{% endfor %}
+				</ol>
+			</section>
+		{% endif %}
+	</main>
+</div>
+<script type="application/ld+json">
+	{
+		"@context":"http://schema.org",
+		"@type":"BlogPosting",
+		"@id":"{{ permalink }}",
+		"dateCreated": "{{ post.published_at | machineTime }}",
+		"datePublished": "{{ post.published_at | machineTime }}",
+		{% if modified %}"dateModified": "{{ modified | machineTime }}",{% endif %}
+		"mainEntityOfPage": {
+			"@type": "WebPage",
+			"@id": "https://tattooed.dev"
+		},
+		"headline":"{{ post.title }}",
+		"description":"{{ post.description }}",
+		"articleSection": "posts",
+		"image": {
+			"@type": "ImageObject",
+			"url": "{{ post.cover_image.url | default: site.ogp.image }}"
+		},
+		"author": [
+			{
+				"@type": "Person",
+				"name": "Vince Falconi"
+			}
+		],
+		"creator": [
+			"Vince Falconi"
+		],
+		"publisher": {
+			"@type": "Organization",
+			"name": "Vince Falconi",
+			"logo": {
+				"@type": "imageObject",
+				"url": "https://tattooed.dev/assets/img/small-profile-picture.jpg",
+				"width": "100"
+			}
+		}
+	}
+</script>

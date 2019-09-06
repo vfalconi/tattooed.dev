@@ -1,0 +1,9 @@
+/* TEAM */
+
+Owner: Vince Falconi
+Site: http://www.vincefalconi.com
+Twitter: @vincefalconi
+
+/* SITE */
+Last Update: 2019/05/18
+Standards: HTML5, CSS3
