@@ -1,9 +1,9 @@
 /* TEAM */
 
 Owner: Vince Falconi
-Site: http://www.vincefalconi.com
+Site: https://tattooed.dev
 Twitter: @vincefalconi
 
 /* SITE */
-Last Update: 2019/05/18
+Last Update: 2019/09/06
 Standards: HTML5, CSS3
