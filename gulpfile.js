@@ -16,8 +16,8 @@ gulp.task('css', function() {
 });
 
 // javascript
-gulp.task('js-fathom', function() {
-  return gulp.src("./src/_js/fathom.js")
+gulp.task('javascript', function() {
+  return gulp.src("./src/_js/*.js")
     .pipe(uglify())
     .pipe(gulp.dest(gulpBuildPath));
 });
@@ -25,11 +25,11 @@ gulp.task('js-fathom', function() {
 // watcher
 gulp.task("watch", function() {
   gulp.watch('./src/_sass/**/*.scss', gulp.parallel('css'));
-	gulp.watch('./src/_js/fathom.js', gulp.parallel('js-fathom'));
+	gulp.watch('./src/_js/**/*.js', gulp.parallel('javascript'));
 });
 
 // build
 gulp.task('build', gulp.parallel(
 	'css',
-  'js-fathom'
+  'javascript'
 ));
