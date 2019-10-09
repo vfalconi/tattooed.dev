@@ -11,11 +11,11 @@ layout: base
 <div class="single-column h-entry">
 	<header class="blog-header">
 		<h1 class="blog-header__heading p-name">{{ post.title }}</h1>
+		{% if post.description %}<p class="blog-header__description p-summary">{{ post.description }}</p>{% endif %}
 		<p class="blog-header__dateline">
 			<time class="dt-published" datetime="{{ post.published_at | machineTime }}">{{ post.published_at | htmlDateString }}</time>
 			{% if post.updated %}<time class="dt-updated" datetime="{{ post.updated | machineTime }}">, and updated {{ post.updated | htmlDateString }}</time>{% endif %}
 		</p>
-		{% if post.description %}<p class="blog-header__description p-summary">{{ post.description }}</p>{% endif %}
 	</header>
 
 	<main class="blog-post e-content">

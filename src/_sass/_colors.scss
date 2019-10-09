@@ -23,6 +23,9 @@ $highlightedColor: $pink;
 $pageHeadingColor: $pink;
 $pageHeadingShadow: $black;
 
+$inlineCodeBG: $black;
+$inlineCodeText: $pink;
+
 // --------------------
 // component palettes
 // --------------------
@@ -73,3 +76,9 @@ $socialIconBackgroundHover: $green;
 // site footer
 $siteFooterBackground: $black;
 $siteFooterText: $white;
+
+
+
+// tables
+$tableHeaderBorder: $yellow;
+$tableCellBorder: $mutedBlue;

@@ -1,0 +1,16 @@
+table { width: 100%; }
+
+thead { border-bottom: 1px solid $tableHeaderBorder; }
+
+thead th {
+	text-align: left;
+	padding: rem(8) 0;
+}
+
+tbody td {
+	padding: rem(8) 0;
+}
+
+tbody tr + tr td {
+	border-top: 1px solid $tableCellBorder;
+}
