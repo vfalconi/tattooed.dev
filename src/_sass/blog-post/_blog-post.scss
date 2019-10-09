@@ -4,8 +4,7 @@
 
 	// paragraphs
 	& > p {
-		margin-top: rem(32);
-		margin-bottom: rem(32);
+		margin: rem(24) 0;
 	}
 
 	// Section headings
@@ -14,6 +13,7 @@
 		letter-spacing: .02em;
 		font-size: rem(32);
 		text-shadow: rem(2) rem(2) $blogPostSectionHeadingShadow;
+		margin-top: rem(64);
 	}
 
 	// lists
