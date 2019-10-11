@@ -8,7 +8,7 @@ const passthroughCopies = require('./passthroughCopy');
 
 module.exports = function(eleventyConfig) {
 	eleventyConfig.addTransform("htmlmin", function(content, outputPath) {
-    if( outputPath.endsWith(".html") && process.env.ENVIRONMENT !== 'development' ) {
+    if( outputPath.endsWith(".html") && process.env.BUILD_ENVIRONMENT !== 'development' ) {
       let minified = htmlmin.minify(content, {
         useShortDoctype: true,
         removeComments: true,
@@ -27,7 +27,7 @@ module.exports = function(eleventyConfig) {
 	});
 
 	eleventyConfig.addCollection('blogPosts', async function(collection) {
-		collection = await fetch(process.env.BLOG_ENDPOINT).then(resp => {
+		collection = await fetch(process.env.BUILD_BLOG_ENDPOINT).then(resp => {
 			if (resp.ok) return resp.json();
 			throw new Error('network error');
 		}).then(resp => {
@@ -95,7 +95,7 @@ module.exports = function(eleventyConfig) {
 		dynamicPartials: true,
     dir: {
       input: "src",
-			output: process.env.BUILD_PATH,
+			output: process.env.BUILD_DIR,
 			layouts: "_layouts"
     }
 	};
