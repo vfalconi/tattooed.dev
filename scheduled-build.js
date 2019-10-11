@@ -52,7 +52,8 @@ let results = null;
 
 			// run the npm script
 			await exec(`npm run-script build >> ${process.env.BUILD_LOG_DIR}/${buildLogTimestamp}.log`, {
-				cwd: process.env.BUILD_SCRIPT_PATH
+				cwd: process.env.BUILD_SCRIPT_PATH,
+				uid: 1000
 			});
 
 			// update/write the build lock
