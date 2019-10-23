@@ -1,29 +1,16 @@
-// This is weird, but hear me out.
-// Since the script runs via cron, I need to tell it where things are. But sometimes
-// I need to run the script locally (testing, etc), and I *don't* need to give it a
-// path for the dotenv config file. This lets me do that without much thinking.
-const configPath = () => {
-	let definedPath = process.argv.slice(2).find((arg) => arg.substr(0,11) === 'configPath=');
-	if (definedPath) return definedPath.split('=')[1];
-	return null;
-};
-
-require("dotenv").config({
-	path: configPath()
-});
+require("dotenv").config();
+const cron = require('node-cron');
+const shell = require('shelljs');
 const fs = require('fs');
-const { exec } = require('child_process');
 const { DateTime } = require("luxon");
 const fetch = require('node-fetch');
 const hash = require('object-hash');
 const buildLock = (fs.existsSync('build.lock') ? fs.readFileSync('build.lock', 'utf8') : null);
 const buildTime = DateTime.local().toLocaleString(DateTime.DATETIME_MED);
-const buildLogTimestamp = DateTime.local().toFormat('yyyy-LL-dd--HH.mm.ss');
-const buildLogDirExists = fs.existsSync(process.env.BUILD_LOG_DIR);
-let entriesHash = null;
 let results = null;
+let entriesHash = null;
 
-(async () => {
+cron.schedule('*/15 * * * *', async () => {
 	// fetch the entries (in JSON) from the CMS for comparison purposes
 	// i send the CMS a header that contains the build environment, because i use it
 	// to determine whether to include drafts/pending entries or leave them out
@@ -47,19 +34,12 @@ let results = null;
 		entriesHash = hash(apiResponse);
 
 		if (entriesHash !== buildLock) {
-			// does the directory for the npm output log exist? if not, make it
-			if (!buildLogDirExists) await fs.mkdirSync(process.env.BUILD_LOG_DIR);
-
-			// run the npm script
-			await exec(`npm run-script build >> ${process.env.BUILD_LOG_DIR}/${buildLogTimestamp}.log`, {
-				cwd: process.env.BUILD_SCRIPT_PATH,
-				uid: 1000
-			});
+			await shell.exec(`npm run-script build`);
 
 			// update/write the build lock
 			await fs.writeFileSync('build.lock', entriesHash);
 
-			results = `build script ran, log: ${process.env.BUILD_LOG_DIR}/${buildLogTimestamp}.log`;
+			results = `build script ran`;
 		} else {
 			results = 'no build, lock matched response';
 		}
@@ -84,4 +64,4 @@ let results = null;
 		console.groupEnd();
 	console.groupEnd();
 	console.log('========================================================================');
-})();
+});
