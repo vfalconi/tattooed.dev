@@ -7,7 +7,10 @@
 }
 
 
-.footnote { position: relative; }
+.footnote {
+	position: relative;
+	font-size: em(14, 18);
+}
 
 .footnote::before {
 	content: '';

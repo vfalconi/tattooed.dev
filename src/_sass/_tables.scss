@@ -1,6 +1,8 @@
 table {
 	width: 100%;
 	table-layout: fixed;
+	border-collapse: collapse;
+	font-size: em(16, 18);
 }
 
 thead { border-bottom: 1px solid var(--darkBlue); }
@@ -8,6 +10,7 @@ thead { border-bottom: 1px solid var(--darkBlue); }
 thead th {
 	text-align: left;
 	padding: rem(8) 0;
+	color: var(--darkBlue)
 }
 
 tbody td {
@@ -16,5 +19,5 @@ tbody td {
 }
 
 tbody tr + tr td {
-	border-top: 1px solid var(--mutedBlue);
+	border-top: 1px solid var(--silver);
 }
