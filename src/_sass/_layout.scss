@@ -1,6 +1,12 @@
-.single-column {
-	max-width: rem(640);
+[role="main"] {
+	padding-right: rem(32);
+	padding-left: rem(32);
+}
+
+
+
+.container {
 	margin-right: auto;
 	margin-left: auto;
-	padding: rem(32);
+	max-width: rem(750);
 }

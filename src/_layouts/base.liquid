@@ -37,15 +37,13 @@
 
 	{{ content }}
 	<footer class="site-footer">
-		<div class="site-footer-container">
-			<p class="site-footer-content">Unless otherwise noted, blog posts are licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, and code samples are licensed under <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>.</p>
-			<ul class="social-profiles">
-				<li class="social-icon social-icon--twitter"><a href="https://twitter.com/{{ site.profiles.twitter }}" class="social-icon-text">Twitter</a></li>
-				<li class="social-icon social-icon--github"><a href="https://www.github.com/{{ site.profiles.github }}" class="social-icon-text">GitHub</a></li>
-				<li class="social-icon social-icon--keybase"><a href="https://keybase.io/{{ site.profiles.keybase }}" class="social-icon-text">Keybase</a></li>
-				<li class="social-icon social-icon--rss"><a href="/feed.xml" class="social-icon-text">RSS</a></li>
-			</ul>
-		</div>
+		<ul class="social-profiles" role="navigation">
+			<li class="social-icon social-icon--twitter"><a href="https://twitter.com/{{ site.profiles.twitter }}" class="social-icon-text">Twitter</a></li>
+			<li class="social-icon social-icon--github"><a href="https://www.github.com/{{ site.profiles.github }}" class="social-icon-text">GitHub</a></li>
+			<li class="social-icon social-icon--keybase"><a href="https://keybase.io/{{ site.profiles.keybase }}" class="social-icon-text">Keybase</a></li>
+			<li class="social-icon social-icon--rss"><a href="/feed.xml" class="social-icon-text">RSS</a></li>
+		</ul>
+		<p class="site-footer-content">Blog posts are licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, and code samples are licensed under <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>.</p>
 	</footer>
 	<script src="/assets/fathom.js"></script>
 </body>

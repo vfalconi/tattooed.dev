@@ -1,0 +1,47 @@
+:root {
+	--blogHeadingSize: #{em(54, 18)};
+	--blogSubheadingSize: #{em(24, 18)};
+
+	@media screen and (min-width: rem(425)) {
+		--blogHeadingSize: #{em(72, 18)};
+		--blogSubheadingSize: #{em(30, 18)};
+	}
+
+	@media screen and (min-width: rem(700)) {
+		--blogHeadingSize: #{em(90, 18)};
+		--blogSubheadingSize: #{em(36, 18)};
+	}
+}
+
+.blog-header {
+	margin-bottom: rem(32);
+}
+
+.blog-heading {
+	font-size: var(--blogHeadingSize);
+	line-height: 1.1;
+	color: var(--pink);
+	font-weight: 900;
+	margin: 0;
+
+
+}
+
+.blog-details {
+	font-style: italic;
+	color: var(--mutedBlue);
+	margin-top: rem(32);
+}
+
+.blog-description {
+	font-size: em(28, 18);
+	margin-bottom: rem(16);
+}
+
+.blog-dateline { margin: 0; }
+
+.blog-post h2:not([class]) {
+	font-size: var(--blogSubheadingSize);
+}
+
+.blog-post h3:not([class]) { font-size: em(18, 18); }

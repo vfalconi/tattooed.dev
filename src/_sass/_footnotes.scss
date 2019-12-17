@@ -1,0 +1,27 @@
+.blog-footnotes {
+	margin-top: rem(64);
+}
+
+.blog-footnotes-heading {
+	font-size: em(18, 18);
+}
+
+
+.footnote { position: relative; }
+
+.footnote::before {
+	content: '';
+	display: block;
+	height: rem(14);
+	width: rem(14);
+	background-color: var(--mutedBlue);
+	-webkit-mask: url(/assets/img/arrow.svg);
+	mask: url(/assets/img/arrow.svg);
+	position: absolute;
+	top: rem(7);
+	left: rem(-48);
+	opacity: 0;
+	transition: opacity .2s linear;
+}
+
+.footnote:target::before { opacity: 1; }

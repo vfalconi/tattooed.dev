@@ -96,7 +96,8 @@ module.exports = function(eleventyConfig) {
     dir: {
       input: "src",
 			output: process.env.BUILD_DIR,
-			layouts: "_layouts"
+			includes: './_partials',
+			layouts: "./_layouts"
     }
 	};
 }

@@ -7,31 +7,37 @@ pagination:
 permalink: '{{ post.url }}'
 layout: base
 ---
-<a href="/" class="back-link">← home</a>
-<div class="single-column h-entry">
-	<header class="blog-header">
-		<h1 class="blog-header__heading p-name">{{ post.title }}</h1>
-		{% if post.description %}<p class="blog-header__description p-summary">{{ post.description }}</p>{% endif %}
-		<p class="blog-header__dateline">
-			<time class="dt-published" datetime="{{ post.published_at | machineTime }}">{{ post.published_at | htmlDateString }}</time>
-			{% if post.updated %}<time class="dt-updated" datetime="{{ post.updated | machineTime }}">, and updated {{ post.updated | htmlDateString }}</time>{% endif %}
-		</p>
-	</header>
+<header class="page-header">
+	{% include site-nav %}
+</header>
+<main role="main">
+	<article class="h-entry container">
+		<header class="blog-header">
+			<h1 class="blog-heading p-name">{{ post.title }}</h1>
+			<div class="blog-details">
+				<p class="blog-dateline">
+					<time class="dt-published" datetime="{{ post.published_at | machineTime }}">{{ post.published_at | htmlDateString }}</time>
+					{% if post.updated %}<time class="dt-updated" datetime="{{ post.updated | machineTime }}">, and updated {{ post.updated | htmlDateString }}</time>{% endif %}
+				</p>
+				{% if post.description %}<p class="blog-description p-summary">{{ post.description }}</p>{% endif %}
+			</div>
+		</header>
 
-	<main class="blog-post e-content">
-		{{ post.parsed }}
-		{% if post.footnotes %}
-			<section class="blog-post__foonotes" id="footnotes">
-				<h2 class="blog-post__footnote-heading">Footnotes</h2>
-				<ol>
-					{% for note in post.footnotes %}
-						<li><div id="note{{ forloop.index }}">{{ note }}</div></li>
-					{% endfor %}
-				</ol>
-			</section>
-		{% endif %}
-	</main>
-</div>
+		<div class="blog-post e-content">
+			{{ post.parsed }}
+			{% if post.footnotes %}
+				<section class="blog-footnotes" id="footnotes">
+					<h2 class="blog-footnotes-heading">Footnotes</h2>
+					<ol>
+						{% for note in post.footnotes %}
+							<li class="footnote" id="note{{ forloop.index }}">{{ note }}</li>
+						{% endfor %}
+					</ol>
+				</section>
+			{% endif %}
+			</div>
+	</article>
+</main>
 <script type="application/ld+json">
 	{
 		"@context":"http://schema.org",

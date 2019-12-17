@@ -2,17 +2,22 @@ require("dotenv").config();
 const gulp = require("gulp");
 const sass = require("gulp-sass");
 const uglify = require('gulp-uglify');
+const minify = require('gulp-minify');
 const concat = require('gulp-concat');
+const merge = require('merge-stream');
 const gulpBuildPath = `${process.env.BUILD_DIR}/assets/`;
 
 // css
 gulp.task('css', function() {
-  return gulp.src('./src/_sass/*.scss')
-    .pipe(sass({
-      outputStyle: 'compressed'
-    })
-    .on('error', sass.logError))
-    .pipe(gulp.dest(gulpBuildPath));
+	const normalize = gulp.src('./node_modules/normalize.css/normalize.css');
+	const siteStyles = gulp.src('./src/_sass/styles.scss');
+
+	return merge(normalize, siteStyles)
+		.pipe(concat('styles.css'))
+		.pipe(sass({
+			outputStyle: 'compressed'
+		}))
+		.pipe(gulp.dest(gulpBuildPath));
 });
 
 // javascript

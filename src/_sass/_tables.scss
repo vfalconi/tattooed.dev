@@ -1,6 +1,9 @@
-table { width: 100%; }
+table {
+	width: 100%;
+	table-layout: fixed;
+}
 
-thead { border-bottom: 1px solid $tableHeaderBorder; }
+thead { border-bottom: 1px solid var(--darkBlue); }
 
 thead th {
 	text-align: left;
@@ -8,9 +11,10 @@ thead th {
 }
 
 tbody td {
-	padding: rem(8) 0;
+	padding: rem(8) rem(12) rem(8) 0;
+	font-size: em(13);
 }
 
 tbody tr + tr td {
-	border-top: 1px solid $tableCellBorder;
+	border-top: 1px solid var(--mutedBlue);
 }
