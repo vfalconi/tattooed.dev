@@ -2,23 +2,28 @@
 layout: base
 title: "blog archive"
 ---
+<header class="page-header">
+	{% include sigil--main %}
+	{% include site-nav %}
+</header>
 
-<div class="single-column">
-	<h1 class="page-heading">Blog Archive</h1>
-	{% for post in collections.blogPosts %}
-		{% assign currentDate = post.date | date: "%Y" %}
-		{% if currentDate != myDate %}
-			{% unless forloop.first %}</div></section>{% endunless %}
-			<section class="archive-section">
-				<h2 class="archive-section-heading">{{ currentDate }}</h2>
-				{% assign myDate = currentDate %}
-				<div class="blog-summary-wrapper">
-		{% endif %}
-			<article class="blog-summary">
-				<h3 class="blog-summary-heading"><a href="/{{ post.permalink }}">{{ post.title }}</a></h3>
-				{% if post.description %}<p>{{ post.description }}</p>{% endif %}
-				<time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d" }}</time>
-			</article>
-		{% if forloop.last %}</section>{% endif %}
-	{% endfor %}
-</div>
+<main role="main">
+	<div class="container">
+		<h1 class="page-heading">Blog Archive</h1>
+		{% for post in collections.blogPosts %}
+			{% assign currentDate = post.date | date: "%Y" %}
+			{% if currentDate != myDate %}
+				{% unless forloop.first %}</div></section>{% endunless %}
+				<section class="archive-section">
+					<h2 class="archive-section-heading">{{ currentDate }}</h2>
+					{% assign myDate = currentDate %}
+					<div class="blog-summary-wrapper">
+			{% endif %}
+				<article class="summary">
+					<h3 class="summary-heading"><a href="/{{ post.permalink }}"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d" }}</time>: {{ post.title }}</a></h3>
+					{% if post.description %}<p>{{ post.description }}</p>{% endif %}
+				</article>
+			{% if forloop.last %}</section>{% endif %}
+		{% endfor %}
+	</div>
+</main>

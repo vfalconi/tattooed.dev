@@ -1,0 +1,5 @@
+ul:not([class]):not([style]),
+ol:not([class]):not([style]) {
+	margin: rem(18) 0;
+	padding-left: rem(48);
+}

@@ -1,15 +1,19 @@
+// normalize.css is added at build-time
 @import 'fn';
-@import 'colors';
 @import 'fonts';
-@import 'normalize';
+
 @import 'base';
 
-@import 'layout';
 @import 'archive';
-@import 'headings';
-@import 'homepage/homepage';
-@import 'blog-post/blog-post';
 @import 'blockquote';
-@import 'tables';
-@import 'social-icons';
+@import 'blog-post';
+@import 'footnotes';
+@import 'layout';
+@import 'lists';
+@import 'page-header';
+@import 'post-summary';
+@import 'sigil';
 @import 'site-footer';
+@import 'site-navigation';
+@import 'social-icons';
+@import 'tables';

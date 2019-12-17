@@ -1,20 +1,9 @@
 .site-footer {
-	font-size: em(14);
-	margin-top: rem(64);
-	padding: rem(32);
-	background-color: $siteFooterBackground;
-	color: $siteFooterText;
-}
-
-.site-footer-container {
-	display: flex;
-	align-items: center;
-	max-width: rem(640);
-	margin-right: auto;
-	margin-left: auto;
-}
-
-.site-footer-content {
-	margin: 0;
-	flex: 1 1 auto;
+	font-size: em(12, 18);
+	text-align: center;
+	padding: rem(32) rem(64);
+	margin: rem(128) auto 0;
+	border-top: 1px solid var(--paleBlue);
+	max-width: rem(750);
+	box-sizing: border-box;
 }
