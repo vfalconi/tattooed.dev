@@ -1,31 +1,22 @@
 ---
 layout: base
 ---
-
-
-<header class="page-header">
-	{% include sigil--main %}
-	{% include site-nav %}
-</header>
-
-<main role="main">
-	<div class="container">
-		<h2 class="section-heading">Recent Posts</h2>
-		{% assign posts = collections.blogPosts | reverse %}
-		{% for post in posts %}
-			{% if forloop.index <= 3 and post.rssOnly != true %}
-				<article class="summary">
-					<h3 class="summary-heading"><a href="{{ post.url }}"><time datetime="{{ post.date | machineTime }}">{{ post.date | htmlDateString }}</time>: {{ post.title }}</a></h3>
-					{% if post.description %}<p>{{ post.description }}</p>{% endif %}
-					<div><a href="{{ post.url }}">Read post</a></div>
-				</article>
-			{% endif %}
-		{% endfor %}
-		<div class="more-link">
-			<a href="/wrote">Blog archive</a>
-		</div>
+<div class="container">
+	<h2 class="section-heading">Recent Posts</h2>
+	{% assign posts = collections.blogPosts | reverse %}
+	{% for post in posts %}
+		{% if forloop.index <= 3 and post.rssOnly != true %}
+			<article class="summary">
+				<h3 class="summary-heading"><a href="{{ post.url }}">{{ post.title }}</a></h3>
+				{% if post.description %}<p class="summary-description">{{ post.description }}</p>{% endif %}
+				<p class="summary-dateline"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d" }}</time></p>
+			</article>
+		{% endif %}
+	{% endfor %}
+	<div class="more-link">
+		<a href="/wrote">Blog archive</a>
 	</div>
-</main>
+</div>
 
 <script type="application/ld+json">
 	{

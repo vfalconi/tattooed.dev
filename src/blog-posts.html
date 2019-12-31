@@ -7,73 +7,86 @@ pagination:
 permalink: '{{ post.url }}'
 layout: base
 ---
-<header class="page-header">
-	{% include site-nav %}
-</header>
-<main role="main">
-	<article class="h-entry container">
-		<header class="blog-header">
-			<h1 class="blog-heading p-name">{{ post.title }}</h1>
-			<div class="blog-details">
-				<p class="blog-dateline">
-					<time class="dt-published" datetime="{{ post.published_at | machineTime }}">{{ post.published_at | htmlDateString }}</time>
-					{% if post.updated %}<time class="dt-updated" datetime="{{ post.updated | machineTime }}">, and updated {{ post.updated | htmlDateString }}</time>{% endif %}
-				</p>
-				{% if post.description %}<p class="blog-description p-summary">{{ post.description }}</p>{% endif %}
-			</div>
-		</header>
+<article class="h-entry container">
+	<header class="blog-header">
+		<h1 class="blog-heading p-name">{{ post.title }}</h1>
+		<div class="blog-details">
+			<p class="blog-dateline">
+				<time class="dt-published" datetime="{{ post.published_at | machineTime }}">{{ post.published_at | htmlDateString }}</time>
+				{% if post.updated %}<time class="dt-updated" datetime="{{ post.updated | machineTime }}">, and updated {{ post.updated | htmlDateString }}</time>{% endif %}
+			</p>
+			{% if post.description %}<p class="blog-description p-summary">{{ post.description }}</p>{% endif %}
+		</div>
+	</header>
 
-		<div class="blog-post e-content">
-			{{ post.parsed }}
-			{% if post.footnotes %}
-				<section class="blog-footnotes" id="footnotes">
-					<h2 class="blog-footnotes-heading">Footnotes</h2>
-					<ol>
-						{% for note in post.footnotes %}
-							<li class="footnote" id="note{{ forloop.index }}">{{ note }}</li>
-						{% endfor %}
-					</ol>
-				</section>
-			{% endif %}
-			</div>
-	</article>
-</main>
+	<div class="blog-post e-content">
+		{{ post.parsed }}
+		{% if post.footnotes %}
+			<section class="blog-footnotes" id="footnotes">
+				<h2 class="blog-footnotes-heading">Footnotes</h2>
+				<ol>
+					{% for note in post.footnotes %}
+						<li class="footnote" id="note{{ forloop.index }}">{{ note }}</li>
+					{% endfor %}
+				</ol>
+			</section>
+		{% endif %}
+		</div>
+</article>
 <script type="application/ld+json">
 	{
-		"@context":"http://schema.org",
-		"@type":"BlogPosting",
-		"@id":"{{ permalink }}",
-		"dateCreated": "{{ post.published_at | machineTime }}",
-		"datePublished": "{{ post.published_at | machineTime }}",
-		{% if modified %}"dateModified": "{{ modified | machineTime }}",{% endif %}
-		"mainEntityOfPage": {
-			"@type": "WebPage",
-			"@id": "https://tattooed.dev"
+		"@context": "https://schema.org",
+		"@graph": [{
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [{
+				"@type": "ListItem",
+				"position": 1,
+				"name": "Wrote",
+				"item": "https://tattooed.dev/wrote"
+			},{
+				"@type": "ListItem",
+				"position": 1,
+				"name": "{{ post.title }}",
+				"item": "https://tattooed.dev/{{ post.permalink }}"
+			}]
 		},
-		"headline":"{{ post.title }}",
-		"description":"{{ post.description }}",
-		"articleSection": "posts",
-		"image": {
-			"@type": "ImageObject",
-			"url": "{{ post.cover_image.url | default: site.ogp.image }}"
-		},
-		"author": [
-			{
-				"@type": "Person",
-				"name": "Vince Falconi"
+		{
+			"@context":"http://schema.org",
+			"@type":"BlogPosting",
+			"@id":"https://tattooed.dev/{{ post.permalink }}",
+			"dateCreated": "{{ post.published_at | machineTime }}",
+			"datePublished": "{{ post.published_at | machineTime }}",
+			{% if modified %}"dateModified": "{{ modified | machineTime }}",{% endif %}
+			"mainEntityOfPage": {
+				"@type": "WebPage",
+				"@id": "https://tattooed.dev"
+			},
+			"headline":"{{ post.title }}",
+			"description":"{{ post.description }}",
+			"articleSection": "posts",
+			"image": {
+				"@type": "ImageObject",
+				"url": "{{ post.cover_image.url | default: site.ogp.image }}"
+			},
+			"author": [
+				{
+					"@type": "Person",
+					"name": "Vince Falconi"
+				}
+			],
+			"creator": [
+				"Vince Falconi"
+			],
+			"publisher": {
+				"@type": "Organization",
+				"name": "Vince Falconi",
+				"logo": {
+					"@type": "imageObject",
+					"url": "https://tattooed.dev/assets/img/small-profile-picture.jpg",
+					"width": "100"
+				}
 			}
-		],
-		"creator": [
-			"Vince Falconi"
-		],
-		"publisher": {
-			"@type": "Organization",
-			"name": "Vince Falconi",
-			"logo": {
-				"@type": "imageObject",
-				"url": "https://tattooed.dev/assets/img/small-profile-picture.jpg",
-				"width": "100"
-			}
-		}
+		}]
 	}
 </script>

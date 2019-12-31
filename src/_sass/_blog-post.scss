@@ -22,7 +22,6 @@
 	line-height: 1.1;
 	color: var(--pink);
 	font-weight: 900;
-	margin: 1em 0 0;
 }
 
 .blog-details {
@@ -43,3 +42,10 @@
 }
 
 .blog-post h3:not([class]) { font-size: em(18, 18); }
+
+img:not([style]):not([class]) {
+	display: block;
+	margin: 0 auto;
+	border: 1px solid var(--paleBlue);
+	padding: rem(16);
+}

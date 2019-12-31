@@ -34,8 +34,13 @@
 	<script src="/assets/prism.js" defer></script>
 </head>
 <body>
-
-	{{ content }}
+	<header class="page-header">
+		{% include sigil--main %}
+		{% include site-nav %}
+	</header>
+	<main role="main">
+		{{ content }}
+	</main>
 	<footer class="site-footer">
 		<ul class="social-profiles" role="navigation">
 			<li class="social-icon social-icon--twitter"><a href="https://twitter.com/{{ site.profiles.twitter }}" class="social-icon-text">Twitter</a></li>
