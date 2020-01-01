@@ -15,5 +15,19 @@ ol:not([class]):not([style]) {
 	}
 }
 
-.flat-list--two-column { columns: 2; }
-.flat-list--three-column { columns: 3; }
+.flat-list--two-column {
+	@media screen and (min-width: rem(400)) {
+		columns: 2;
+	}
+}
+
+.flat-list--three-column {
+
+	@media screen and (min-width: rem(400)) {
+		columns: 2;
+	}
+
+	@media screen and (min-width: rem(600)) {
+		columns: 3;
+	}
+}
