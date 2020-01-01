@@ -3,3 +3,17 @@ ol:not([class]):not([style]) {
 	margin: rem(18) 0;
 	padding-left: rem(48);
 }
+
+.flat-list {
+	margin: rem(18) 0;
+	padding-left: 0;
+	list-style: none;
+
+	li {
+		margin-left: rem(18);
+		text-indent: rem(-18);
+	}
+}
+
+.flat-list--two-column { columns: 2; }
+.flat-list--three-column { columns: 3; }
