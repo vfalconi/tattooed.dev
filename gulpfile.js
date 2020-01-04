@@ -1,40 +1,46 @@
-require("dotenv").config();
-const gulp = require("gulp");
-const sass = require("gulp-sass");
-const uglify = require('gulp-uglify');
-const minify = require('gulp-minify');
+require('dotenv').config();
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const uglifyjs = require('uglify-es');
 const concat = require('gulp-concat');
 const merge = require('merge-stream');
+const composer = require('gulp-uglify/composer');
+const tiny = composer(uglifyjs, console);
+const pipeline = require('readable-stream').pipeline;
 const gulpBuildPath = `${process.env.BUILD_DIR}/assets/`;
 
 // css
-gulp.task('css', function() {
+gulp.task('css', () => {
 	const normalize = gulp.src('./node_modules/normalize.css/normalize.css');
 	const siteStyles = gulp.src('./src/_sass/styles.scss');
 
-	return merge(normalize, siteStyles)
-		.pipe(concat('styles.css'))
-		.pipe(sass({
+	return pipeline(
+		merge(normalize, siteStyles),
+		concat('styles.css'),
+		sass({
 			outputStyle: 'compressed'
-		}))
-		.pipe(gulp.dest(gulpBuildPath));
+		}),
+		gulp.dest(gulpBuildPath)
+	);
 });
 
 // javascript
-gulp.task('javascript', function() {
-  return gulp.src("./src/_js/*.js")
-    .pipe(uglify())
-    .pipe(gulp.dest(gulpBuildPath));
+gulp.task('javascript', () => {
+	return pipeline(
+		gulp.src(['./src/_js/*.js', '!./src/_js/sw.js']),
+		tiny(),
+		gulp.dest(gulpBuildPath)
+	);
 });
 
 // watcher
-gulp.task("watch", function() {
-  gulp.watch('./src/_sass/**/*.scss', gulp.parallel('css'));
+gulp.task('watch', () => {
+	gulp.watch('./src/_sass/**/*.scss', gulp.parallel('css'));
 	gulp.watch('./src/_js/**/*.js', gulp.parallel('javascript'));
 });
 
 // build
 gulp.task('build', gulp.parallel(
 	'css',
-  'javascript'
+	'javascript'
 ));
