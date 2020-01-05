@@ -1,0 +1,42 @@
+.toggle {
+	background-color: var(--darkBlue);
+	position: relative;
+	max-width: rem(200);
+	border-radius: 4px;
+	margin: rem(16) auto 0;
+}
+
+.toggle-labels {
+	display: flex;
+	position: relative;
+	padding: rem(8);
+	text-align: center;
+}
+
+.toggle-label {
+	flex: 1 0 50%;
+}
+
+.toggle-input {
+	opacity: 0;
+	position: absolute;
+	z-index: -1;
+}
+
+.toggle-indicator {
+	position: absolute;
+	top: rem(8);
+	left: rem(8);
+	right: 50%;
+	bottom: rem(8);
+	background-color: var(--paleBlue);
+	border-radius: 4px;
+	z-index: 0;
+	transition: transform .2s cubic-bezier(0, 0, .3, 1);
+}
+
+.toggle-input--a:checked ~ .toggle-indicator { transform: translateX(0%); }
+.toggle-input--b:checked ~ .toggle-indicator { transform: translateX(100%); }
+
+.toggle-input--a:checked ~ .toggle-labels [for="toggle--b"],
+.toggle-input--b:checked ~ .toggle-labels [for="toggle--a"] { color: var(--paleBlue); }
