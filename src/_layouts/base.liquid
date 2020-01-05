@@ -30,14 +30,13 @@
 	<meta name="twitter:title" content="{{ post.title | default: site.ogp.title }}" />
 	<meta name="twitter:description" content="{{ post.description | default: site.ogp.description }}" />
 	<meta name="twitter:image" content="{{ site.url }}{{ post.cover_image.uri | default: site.ogp.image }}" />
-	<link rel="stylesheet" type="text/css" href="/assets/prism.css" />
-	<script src="/assets/prism.js" defer></script>
+
 </head>
 <body>
 	<header class="page-header">
 		{% include sigil--main %}
-		{% include site-nav %}
 	</header>
+	{% include site-nav %}
 	<main role="main">
 		{{ content }}
 	</main>

@@ -51,4 +51,12 @@ code {
 
 .highlighted {
 	font-weight: 900;
+	color: var(--mutedBlue);
+}
+
+.homepage-portrait {
+	display: block;
+	margin: 0 auto;
+	border: 8px solid var(--paleBlue);
+	border-radius: 50%;
 }
