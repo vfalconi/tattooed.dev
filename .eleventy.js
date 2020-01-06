@@ -5,8 +5,17 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 const fetch = require('node-fetch');
 const { DateTime } = require("luxon");
 const passthroughCopies = require('./passthroughCopy');
+const { filemtime } = require('./lib/filemtime');
 
 module.exports = function(eleventyConfig) {
+	eleventyConfig.addShortcode('timestamp', (publicPath) => {
+		if (process.env.BUILD_ENVIRONMENT === 'production') {
+			const serverPath = process.env.BUILD_DIR + publicPath;
+			return filemtime(publicPath, serverPath);
+		}
+		return publicPath;
+	});
+
 	eleventyConfig.addTransform("htmlmin", function(content, outputPath) {
     if( outputPath.endsWith(".html") && process.env.BUILD_ENVIRONMENT !== 'development' ) {
       let minified = htmlmin.minify(content, {

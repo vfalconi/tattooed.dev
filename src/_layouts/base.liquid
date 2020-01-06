@@ -2,7 +2,7 @@
 <html lang="en" prefix="og: http://ogp.me/ns#">
 <head>
 	<link rel="dns-prefetch" href="https://stats.vincefalconi.com" />
-	<link rel="stylesheet" type="text/css" href="/assets/styles.css" />
+	<link rel="stylesheet" type="text/css" href="{% timestamp '/assets/styles.css' %}" />
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>{% if post.title %}{{ post.title | downcase }} | {% endif %}{{ site.title }}</title>
@@ -49,6 +49,6 @@
 		</ul>
 		<p class="site-footer-content">Blog posts are licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, and code samples are licensed under <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>.</p>
 	</footer>
-	<script src="/assets/fathom.js"></script>
+	<script src="{% timestamp '/assets/fathom.js' %}"></script>
 </body>
 </html>
