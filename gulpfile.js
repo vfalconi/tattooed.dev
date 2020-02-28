@@ -8,6 +8,7 @@ const composer = require('gulp-uglify/composer');
 const tiny = composer(uglifyjs, console);
 const pipeline = require('readable-stream').pipeline;
 const gulpBuildPath = `${process.env.BUILD_DIR}/assets/`;
+const rootPath = process.env.BUILD_DIR;
 
 // css
 gulp.task('css', () => {
@@ -33,14 +34,24 @@ gulp.task('javascript', () => {
 	);
 });
 
+gulp.task('serviceworker', () => {
+	return pipeline(
+		gulp.src(['./src/_js/sw.js']),
+		tiny(),
+		gulp.dest(rootPath)
+	);
+});
+
 // watcher
 gulp.task('watch', () => {
 	gulp.watch('./src/_sass/**/*.scss', gulp.parallel('css'));
-	gulp.watch('./src/_js/**/*.js', gulp.parallel('javascript'));
+	gulp.watch(['./src/_js/**/*.js', '!./src/_js/sw.js'], gulp.parallel('javascript'));
+	gulp.watch('./src/_js/sw.js', gulp.parallel('serviceworker'));
 });
 
 // build
 gulp.task('build', gulp.parallel(
 	'css',
-	'javascript'
+	'javascript',
+	'serviceworker',
 ));
