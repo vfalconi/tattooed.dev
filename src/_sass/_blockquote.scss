@@ -1,18 +1,24 @@
 .quote {
 	background-color: var(--white);
 	color: var(--black);
-	line-height: 1.65;
 	padding: rem(32);
 	margin-top: rem(48);
+	margin-left: 0;
+	margin-right: 0;
 	margin-bottom: rem((48 + 8));
 	box-sizing: border-box;
-	border: 9px solid var(--silver);
-	font-size: 120%;
+	border: 4px solid var(--silver);
+	box-shadow: 14px 14px var(--limeGreen);
+	width: calc(100% - 14px);
 
 	blockquote { margin: 0; }
 
 	figcaption {
 		margin-top: rem(24);
 		text-align: right;
+	}
+
+	@media (min-width: rem(750)) {
+
 	}
 }
