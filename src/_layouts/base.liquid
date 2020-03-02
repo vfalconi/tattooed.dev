@@ -4,7 +4,13 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<script src="{% timestamp '/assets/head.js' %}" async></script>
+	{% if includePrism %}
+		<script src="{% timestamp '/assets/prism.js' %}" async></script>
+	{% endif %}
 	<link rel="stylesheet" type="text/css" href="{% timestamp '/assets/styles.css' %}" />
+	{% if includePrism %}
+		<link rel="stylesheet" type="text/css" href="{% timestamp '/assets/prism.css' %}" />
+	{% endif %}
 	<link rel="preconnect dns-prefetch" href="https://stats.vincefalconi.com" />
 
 	<title>{% if post.title %}{{ post.title | downcase }} | {% endif %}{{ site.title }}</title>
@@ -35,6 +41,7 @@
 
 </head>
 <body>
+
 	<header class="page-header">
 		{% include sigil--main %}
 	</header>
