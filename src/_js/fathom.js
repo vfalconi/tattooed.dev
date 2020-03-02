@@ -6,6 +6,6 @@
 	m=f.getElementsByTagName('script')[0];
 	o.async=1; o.src=t; o.id='fathom-script';
 	m.parentNode.insertBefore(o,m)
-})(document, window, '//stats.tattooed.dev/tracker.js', 'fathom');
+})(document, window, 'https://stats.tattooed.dev/tracker.js', 'fathom');
 fathom('set', 'siteId', 'VSTYP');
 fathom('trackPageview');
