@@ -59,4 +59,8 @@ code {
 	margin: 0 auto;
 	border: 8px solid var(--paleBlue);
 	border-radius: 50%;
+	max-width: 100%;
+	width: rem(300);
+	height: auto;
+	box-sizing: border-box;
 }
