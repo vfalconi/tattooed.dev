@@ -9,10 +9,10 @@ const { filemtime } = require('./lib/filemtime');
 
 module.exports = function(eleventyConfig) {
 	eleventyConfig.addShortcode('timestamp', (publicPath) => {
-		if (process.env.BUILD_ENVIRONMENT === 'production') {
+		/*if (process.env.BUILD_ENVIRONMENT === 'production') {
 			const serverPath = process.env.BUILD_DIR + publicPath;
 			return filemtime(publicPath, serverPath);
-		}
+		}*/
 		return publicPath;
 	});
 
