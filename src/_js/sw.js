@@ -41,7 +41,6 @@ const refresh = (response) => {
 }
 
 self.addEventListener('install', evt => {
-	console.log('installing serviceworker');
 	evt.waitUntil(caches.open(version).then(cache => cache.addAll(staticAssets)));
 });
 
@@ -50,7 +49,6 @@ self.addEventListener('fetch', evt => {
 	const requestUrl = new URL(request.url);
 
 	if (staticAssets.includes(requestUrl.pathname)) {
-		console.log(`sw is serving the asset: ${request.url}`);
 		evt.respondWith(fromCache(request));
 		evt.waitUntil(update(request).then(refresh));
 	}
