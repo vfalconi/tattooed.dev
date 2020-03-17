@@ -8,7 +8,8 @@
 }
 
 .site-nav {
-	margin: 0;
+	margin: 0 auto;
+	max-width: rem(750);
 	padding-left: 0;
 	list-style: none;
 	display: flex;

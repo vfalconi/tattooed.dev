@@ -42,15 +42,15 @@
 </head>
 <body>
 
-	<header class="page-header">
+	<div class="page-header" aria-hidden="true">
 		{% include sigil--main %}
-	</header>
+	</div>
 	{% include site-nav %}
 	<main role="main">
 		{{ content }}
 	</main>
 	<footer class="site-footer">
-		<ul class="social-profiles" role="navigation">
+		<ul class="social-profiles" role="navigation" aria-label="Social profiles">
 			<li class="social-icon social-icon--twitter"><a href="https://twitter.com/{{ site.profiles.twitter }}" class="social-icon-text">Twitter</a></li>
 			<li class="social-icon social-icon--github"><a href="https://www.github.com/{{ site.profiles.github }}" class="social-icon-text">GitHub</a></li>
 			<li class="social-icon social-icon--keybase"><a href="https://keybase.io/{{ site.profiles.keybase }}" class="social-icon-text">Keybase</a></li>
