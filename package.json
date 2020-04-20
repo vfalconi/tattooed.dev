@@ -18,11 +18,12 @@
 	"dependencies": {
 		"@11ty/eleventy-plugin-rss": "^1.0.7",
 		"dotenv": "^8.2.0",
+		"gulp": "^4.0.2",
 		"gulp-concat": "^2.6.1",
 		"gulp-sass": "^4.0.2",
 		"gulp-uglify": "^3.0.2",
 		"html-minifier": "^4.0.0",
-		"luxon": "^1.21.3",
+		"luxon": "^1.23.0",
 		"marked": "^0.7.0",
 		"merge-stream": "^2.0.0",
 		"node-cron": "^2.0.3",
@@ -32,8 +33,5 @@
 		"shelljs": "^0.8.3",
 		"uglify-es": "^3.3.9"
 	},
-	"devDependencies": {
-		"@11ty/eleventy": "^0.9.0",
-		"gulp": "^4.0.2"
-	}
+	"devDependencies": {}
 }
