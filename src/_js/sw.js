@@ -1,4 +1,4 @@
-const version = 'v1::static';
+const version = 'v2::static';
 const staticAssets = [
 	'/assets/prism.css',
 	'/assets/prism.js',
@@ -13,7 +13,6 @@ const staticAssets = [
 	'/assets/fonts/lato/LatoLatin-Black.woff2',
 	'/assets/fonts/lato/LatoLatin-Black.woff',
 	'/assets/img/portrait-bizness.jpg',
-	'/assets/img/portrait-lolz.jpg',
 ];
 const fromCache = (request) => {
 	return caches.open(version).then(cache => cache.match(request));
