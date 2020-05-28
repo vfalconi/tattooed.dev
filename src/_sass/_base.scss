@@ -26,7 +26,10 @@ body {
 
 a {
 	color: var(--darkPink);
-	&:hover { color: var(--mutedBlue); }
+
+	&:hover {
+		color: var(--mutedBlue);
+	}
 }
 
 .more-link {
@@ -63,4 +66,28 @@ code {
 	width: rem(300);
 	height: auto;
 	box-sizing: border-box;
+}
+
+.skip-link:not(:focus):not(:active) {
+	clip: rect(0 0 0 0);
+	clip-path: inset(100%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+.skip-link {
+	background-color: var(--darkBlue);
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	display: block;
+	z-index: 999999;
+	text-align: center;
+	padding: 3rem;
+	margin: 2rem;
+	font-size: em(48, 18);
 }

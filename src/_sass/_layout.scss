@@ -8,6 +8,7 @@
 
 
 [role="main"] {
+	padding-top: #{rem(150)};
 	display: grid;
 	grid-template-columns: var(--main-grid);
 	grid-column-gap: var(--grid-gap);
