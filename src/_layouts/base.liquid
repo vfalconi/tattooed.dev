@@ -41,11 +41,19 @@
 
 </head>
 <body>
-
-	<div class="page-header" aria-hidden="true">
-		{% include sigil--main %}
-	</div>
-	{% include site-nav %}
+	<header role="banner" class="page-header">
+		<a href="/">
+			<div class="header-mark">
+				{% include sigil--main %}
+			</div>
+		</a>
+		<nav role="navigation" class="site-nav-wrapper" aria-label="Site navigation">
+			<ul class="site-nav">
+				<li class="nav-item"><a href="/wrote" class="nav-link">Blog</a></li>
+				<li class="nav-item"><a href="/about" class="nav-link">About</a></li>
+			</ul>
+		</nav>
+	</header>
 	<main role="main">
 		{{ content }}
 	</main>

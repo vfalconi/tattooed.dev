@@ -1,21 +1,30 @@
 .sigil {
-	max-width: rem(300);
-	margin: 0 auto;
+	width: 120px;
+	margin: 0;
 	display: block;
-
-	@media (max-width: rem(750)) {
-		width: 150px;
-	}
 }
 
-.triangle_outline { fill: var(--black); }
-.triangle_shape { fill: url(#triangleGradient); }
-.triangle-stop1 { stop-color: var(--pink); }
-.triangle-stop2 { stop-color: var(--black); }
+.triangle_outline {
+	fill: var(--black);
+}
+
+.triangle_shape {
+	fill: url(#triangleGradient);
+}
+
+.triangle-stop1 {
+	stop-color: var(--pink);
+}
+
+.triangle-stop2 {
+	stop-color: var(--black);
+}
 
 .open-hand_shape,
 .horn-hand_shape,
-.horn-hand_thumb { fill: var(--lightBlue); }
+.horn-hand_thumb {
+	fill: var(--lightBlue);
+}
 
 .horn-hand_outline,
 .open-hand_outline {
@@ -23,30 +32,59 @@
 	stroke-width: 2;
 }
 
-.horn-hand_fingernail { fill: var(--darkBlue); }
-.horn-hand_fingernail-outline { fill: var(--black); }
+.horn-hand_fingernail {
+	fill: var(--darkBlue);
+}
+
+.horn-hand_fingernail-outline {
+	fill: var(--black);
+}
 
 .horn-hand_outline {
 	stroke-width: 2;
 	stroke: var(--black);
 }
 
-.finger-line { fill: var(--black); }
-.palm-line { fill: var(--darkBlue); }
+.finger-line {
+	fill: var(--black);
+}
 
-.orbit_shape { fill: var(--limeGreen); }
-.orbit_outline { fill: var(--black) }
+.palm-line {
+	fill: var(--darkBlue);
+}
 
-#sigil_spiral { fill: var(--black); }
+.orbit_shape {
+	fill: var(--limeGreen);
+}
 
-.sigil:hover #open-hand { opacity: 0; }
-#horn-hand { opacity: 0; }
-.sigil:hover #horn-hand { opacity: 1; }
+.orbit_outline {
+	fill: var(--black)
+}
+
+#sigil_spiral {
+	fill: var(--black);
+}
+
+.sigil:hover #open-hand {
+	opacity: 0;
+}
+
+#horn-hand {
+	opacity: 0;
+}
+
+.sigil:hover #horn-hand {
+	opacity: 1;
+}
 
 @media not screen and (prefers-reduced-motion: reduce) {
-	#open-hand { transition: opacity .02s linear; }
+	#open-hand {
+		transition: opacity .02s linear;
+	}
 
-	#horn-hand { transition: opacity .02s linear; }
+	#horn-hand {
+		transition: opacity .02s linear;
+	}
 
 	.sigil:hover #sigil_spiral {
 		animation: rotateSpiral linear 1.5s;
@@ -65,6 +103,7 @@
 			opacity: 1;
 			transform: rotate(0deg) scale(1);
 		}
+
 		to {
 			opacity: 0;
 			transform: rotate(360deg) scale(0);
@@ -72,7 +111,12 @@
 	}
 
 	@keyframes rotateOrbits {
-		from { transform: rotate(0deg) scale(1); }
-		to { transform: rotate(360deg) scale(0); }
+		from {
+			transform: rotate(0deg) scale(1);
+		}
+
+		to {
+			transform: rotate(360deg) scale(0);
+		}
 	}
 }
