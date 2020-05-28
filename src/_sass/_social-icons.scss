@@ -1,49 +1,10 @@
 .social-profiles {
 	display: flex;
-	justify-content: space-between;
 	list-style: none;
-	margin: 0 auto;
+	margin: 0;
 	padding: 0;
-	max-width: rem(160);
 }
 
-.social-icon { padding-left: 0; }
-
-@supports (mask: none) or (-webkit-mask: none) {
-	.social-icon {
-		position: relative;
-		width: rem(28);
-		height: rem(28);
-		background-color: var(--black);
-		transition: background-color .15s linear;
-
-		&:hover { background-color: var(--pink); }
-	}
-
-	.social-icon-text {
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		overflow: hidden;
-		text-indent: 100vw;
-	}
-
-	.social-icon--twitter {
-		-webkit-mask: url(/assets/img/twitter.svg);
-		mask: url(/assets/img/twitter.svg);
-	}
-	.social-icon--github {
-		-webkit-mask: url(/assets/img/github.svg);
-		mask: url(/assets/img/github.svg);
-	}
-	.social-icon--keybase {
-		-webkit-mask: url(/assets/img/keybase.svg);
-		mask: url(/assets/img/keybase.svg);
-	}
-	.social-icon--rss {
-		-webkit-mask: url(/assets/img/rss.svg);
-		mask: url(/assets/img/rss.svg);
-	}
+.social-profile {
+	margin-right: rem(16);
 }

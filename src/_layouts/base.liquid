@@ -58,15 +58,25 @@
 		{{ content }}
 	</main>
 	<footer class="site-footer">
-		<nav role="navigation" aria-label="Social profiles">
+		<nav role="navigation" class="social-nav" aria-label="Social profiles">
 			<ul class="social-profiles">
-				<li class="social-icon social-icon--twitter"><a href="https://twitter.com/{{ site.profiles.twitter }}" class="social-icon-text">Twitter</a></li>
-				<li class="social-icon social-icon--github"><a href="https://www.github.com/{{ site.profiles.github }}" class="social-icon-text">GitHub</a></li>
-				<li class="social-icon social-icon--keybase"><a href="https://keybase.io/{{ site.profiles.keybase }}" class="social-icon-text">Keybase</a></li>
-				<li class="social-icon social-icon--rss"><a href="/feed.xml" class="social-icon-text">RSS</a></li>
+				<li class="social-profile social-profile--twitter">
+					<a href="https://twitter.com/{{ site.profiles.twitter }}">Twitter</a>
+				</li>
+				<li class="social-profile social-profile--github">
+					<a href="https://github.com/{{ site.profiles.github }}">GitHub</a>
+				</li>
+				<li class="social-profile social-profile--keybase">
+					<a href="https://keybase.io/{{ site.profiles.keybase }}">Keybase</a>
+				</li>
+				<li class="social-profile social-profile--rss">
+					<a href="/feed.xml">RSS</a>
+				</li>
 			</ul>
 		</nav>
-		<p class="site-footer-content">Blog posts are licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, and code samples are licensed under <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>.</p>
+		<div class="site-footer-content">
+			<p>Blog posts are licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, and code samples are licensed under <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>.</p>
+		</div>
 	</footer>
 	<script src="{% timestamp '/assets/fathom.js' %}"></script>
 </body>
