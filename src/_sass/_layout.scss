@@ -1,12 +1,20 @@
+:root {
+	--grid-max-width: #{rem(1500)};
+	--grid-offset: #{rem(128)};
+	--grid-gap: #{rem(32)};
+	--main-grid: [full-start] calc(100vw - var(--grid-max-width)) [full-content-start sidebar-start] repeat(2, 1fr) [sidebar-end main-content-start] repeat(6, 1fr) [main-content-end full-content-end] calc(100vw - var(--grid-max-width)) [full-end];
+}
+
+
+
 [role="main"] {
-	padding-right: rem(32);
-	padding-left: rem(32);
+	display: grid;
+	grid-template-columns: var(--main-grid);
+	grid-column-gap: var(--grid-gap);
 }
 
 
 
 .container {
-	margin-right: auto;
-	margin-left: auto;
-	max-width: rem(750);
+	grid-area: main-content;
 }
