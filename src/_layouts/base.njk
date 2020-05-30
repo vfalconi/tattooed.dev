@@ -13,19 +13,19 @@
 	{% endif %}
 	<link rel="preconnect dns-prefetch" href="https://stats.vincefalconi.com" />
 
-	<title>{% if post.title %}{{ post.title | downcase }} | {% endif %}{{ site.title }}</title>
+	<title>{% if title %}{{ title | lower }} | {% endif %}{{ site.title }}</title>
 	<meta name="description" content="{{ site.description }}">
 	<meta name="viewport" content="width=device-width">
 	<link rel="author" type="text/plain" href="{{ site.url }}/humans.txt" />
-	<link rel="canonical" href="{{ site.url }}/{{ post.permalink }}" />
+	<link rel="canonical" href="{{ site.url }}/{{ permalink }}" />
 	<link rel="alternate" type="application/rss+xml" href="https://tattooed.dev/feed.xml" />
 
 	<meta property="og:type" content="website" />
-	<meta property="og:title" content="{{ post.title | default: site.ogp.title }}" />
-	<meta property="og:url" content="{{ site.url }}/{{ post.permalink | default: '' }}" />
-	<meta property="og:image" content="{{ site.url }}{{ post.cover_image.uri | default: site.ogp.image }}" />
+	<meta property="og:title" content="{{ title | default(site.ogp.title) }}" />
+	<meta property="og:url" content="{{ site.url }}/{{ permalink | default('') }}" />
+	<meta property="og:image" content="{{ site.url }}{{ cover_image.uri | default(site.ogp.image) }}" />
 	<meta property="og:site_name" content="{{ site.ogp.title }}" />
-	<meta property="og:description" content="{{ post.description | default: site.ogp.description }}" />
+	<meta property="og:description" content="{{ description | default(site.ogp.description) }}" />
 	<meta property="og:locale" content="en_US" />
 
 	{% if post.cover_image.uri %}
@@ -35,9 +35,9 @@
 	{% endif %}
 	<meta name="twitter:site" content="@vincefalconi" />
 	<meta name="twitter:creator" content="@vincefalconi" />
-	<meta name="twitter:title" content="{{ post.title | default: site.ogp.title }}" />
-	<meta name="twitter:description" content="{{ post.description | default: site.ogp.description }}" />
-	<meta name="twitter:image" content="{{ site.url }}{{ post.cover_image.uri | default: site.ogp.image }}" />
+	<meta name="twitter:title" content="{{ title | default(site.ogp.title) }}" />
+	<meta name="twitter:description" content="{{ description | default(site.ogp.description) }}" />
+	<meta name="twitter:image" content="{{ site.url }}{{ cover_image.uri | default(site.ogp.image) }}" />
 
 </head>
 <body>
@@ -51,12 +51,12 @@
 		</nav>
 		<div class="header-mark">
 			<a href="/">
-				{% include sigil--main %}
+				{% include 'sigil--main.njk' %}
 			</a>
 		</div>
 	</header>
 	<main role="main" id="content">
-		{{ content }}
+		{{ content|safe }}
 	</main>
 	<footer class="site-footer">
 		<nav role="navigation" class="social-nav" aria-label="Social profiles">
