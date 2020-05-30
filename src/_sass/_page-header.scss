@@ -14,7 +14,6 @@
 
 .header-mark {
 	grid-column: right-sidebar;
-	grid-row: 1;
 	padding: rem(16);
 	box-sizing: border-box;
 }
@@ -23,6 +22,5 @@
 	display: flex;
 	align-items: flex-end;
 	grid-column: main-content;
-	grid-row: 1;
 	justify-content: flex-end;
 }
