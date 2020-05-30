@@ -1,13 +1,13 @@
-require("dotenv").config();
+require('dotenv').config();
 const md = require('marked');
-const htmlmin = require("html-minifier");
-const pluginRss = require("@11ty/eleventy-plugin-rss");
+const htmlmin = require('html-minifier');
+const pluginRss = require('@11ty/eleventy-plugin-rss');
 const fetch = require('node-fetch');
-const { DateTime } = require("luxon");
+const { DateTime } = require('luxon');
 const passthroughCopies = require('./passthroughCopy');
 const { filemtime } = require('./lib/filemtime');
 
-module.exports = function(eleventyConfig) {
+module.exports = function (eleventyConfig) {
 	eleventyConfig.addShortcode('timestamp', (publicPath) => {
 		/*if (process.env.BUILD_ENVIRONMENT === 'production') {
 			const serverPath = process.env.BUILD_DIR + publicPath;
@@ -16,34 +16,43 @@ module.exports = function(eleventyConfig) {
 		return publicPath;
 	});
 
-	eleventyConfig.addTransform("htmlmin", function(content, outputPath) {
-    if( outputPath.endsWith(".html") && process.env.BUILD_ENVIRONMENT !== 'development' ) {
-      let minified = htmlmin.minify(content, {
-        useShortDoctype: true,
-        removeComments: true,
-        collapseWhitespace: true
-      });
-      return minified;
-    }
+	eleventyConfig.addTransform('htmlmin', function (content, outputPath) {
+		if (
+			outputPath.endsWith('.html') &&
+			process.env.BUILD_ENVIRONMENT !== 'development'
+		) {
+			let minified = htmlmin.minify(content, {
+				useShortDoctype: true,
+				removeComments: true,
+				collapseWhitespace: true,
+			});
+			return minified;
+		}
 
-    return content;
-  });
-
-	eleventyConfig.addCollection('highlightedBlogPosts', function(collection) {
-		return collection.getAllSorted().reverse().filter(item => {
-			return item.data.highlighted === true
-		});
+		return content;
 	});
 
-	eleventyConfig.addCollection('blogPosts', async function(collection) {
-		collection = await fetch(process.env.BUILD_BLOG_ENDPOINT).then(resp => {
-			if (resp.ok) return resp.json();
-			throw new Error('network error');
-		}).then(resp => {
-			return resp.entries;
-		}).catch(err => console.log(err));
+	eleventyConfig.addCollection('highlightedBlogPosts', function (collection) {
+		return collection
+			.getAllSorted()
+			.reverse()
+			.filter((item) => {
+				return item.data.highlighted === true;
+			});
+	});
 
-		collection.map(post => {
+	eleventyConfig.addCollection('blogPosts', async function (collection) {
+		collection = await fetch(process.env.BUILD_BLOG_ENDPOINT)
+			.then((resp) => {
+				if (resp.ok) return resp.json();
+				throw new Error('network error');
+			})
+			.then((resp) => {
+				return resp.entries;
+			})
+			.catch((err) => console.log(err));
+
+		collection.map((post) => {
 			post.published_at = new Date(post.published_at);
 			post.parsed = md(post.post);
 
@@ -60,13 +69,13 @@ module.exports = function(eleventyConfig) {
 
 	// https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
 	eleventyConfig.addFilter('htmlDateString', (dateObj) => {
-		const date = (dateObj instanceof Date ? dateObj : new Date(dateObj));
+		const date = dateObj instanceof Date ? dateObj : new Date(dateObj);
 		const format = 'LLLL d, yyyy';
 		const options = { zone: 'utc' };
 		return DateTime.fromJSDate(date, options).toFormat(format);
 	});
 	eleventyConfig.addFilter('machineTime', (dateObj) => {
-		const date = (dateObj instanceof Date ? dateObj : new Date(dateObj));
+		const date = dateObj instanceof Date ? dateObj : new Date(dateObj);
 		const format = 'yyyy-LL-dd';
 		const options = { zone: 'utc' };
 		return DateTime.fromJSDate(date, options).toFormat(format);
@@ -77,7 +86,7 @@ module.exports = function(eleventyConfig) {
 	eleventyConfig.addFilter('machineTimeISO', (dateObj) => {
 		return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toISO();
 	});
-	eleventyConfig.addFilter('apiRSSLastUpdated', collection => {
+	eleventyConfig.addFilter('apiRSSLastUpdated', (collection) => {
 		if (!collection || !collection.length) {
 			throw new Error('Collection is empty.');
 		}
@@ -89,7 +98,7 @@ module.exports = function(eleventyConfig) {
 		return DateTime.local().toFormat('dd LLL yyyy');
 	});
 
-	passthroughCopies.forEach(copy => eleventyConfig.addPassthroughCopy(copy));
+	passthroughCopies.forEach((copy) => eleventyConfig.addPassthroughCopy(copy));
 
 	eleventyConfig.addPlugin(pluginRss);
 
@@ -97,11 +106,11 @@ module.exports = function(eleventyConfig) {
 		templateFormats: ['njk', 'html'],
 		passthroughFileCopy: true,
 		dynamicPartials: true,
-    dir: {
-      input: "src",
+		dir: {
+			input: 'src',
 			output: process.env.BUILD_DIR,
 			includes: './_partials',
-			layouts: "./_layouts"
-    }
+			layouts: './_layouts',
+		},
 	};
-}
+};
