@@ -99,16 +99,14 @@ module.exports = function (eleventyConfig) {
 		return str.startsWith(needle);
 	});
 	eleventyConfig.addFilter('trim', (str, chr = null) => {
-		if (typeof str !== 'string') return str;
+		if (typeof str !== 'string' || (chr !== null && typeof chr !== 'string'))
+			return str;
 		if (chr === null) return str.trim;
-		if (chr !== null && typeof chr === 'string') {
-			let result = str;
-			if (str.startsWith(chr)) result = result.slice(chr.length);
-			if (str.endsWith(chr))
-				result = result.slice(0, result.length - chr.length);
-			return result;
-		}
-		return str;
+
+		let result = str;
+		if (str.startsWith(chr)) result = result.slice(chr.length);
+		if (str.endsWith(chr)) result = result.slice(0, result.length - chr.length);
+		return result;
 	});
 
 	eleventyConfig.addNunjucksShortcode('currentTime', () => {
