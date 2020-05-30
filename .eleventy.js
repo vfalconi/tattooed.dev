@@ -94,12 +94,7 @@ module.exports = function(eleventyConfig) {
 	eleventyConfig.addPlugin(pluginRss);
 
 	return {
-		templateFormats: [
-			'md',
-			'njk',
-			'html',
-			'liquid'
-		],
+		templateFormats: ['njk', 'html'],
 		passthroughFileCopy: true,
 		dynamicPartials: true,
     dir: {
