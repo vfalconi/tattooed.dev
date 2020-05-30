@@ -91,3 +91,12 @@ code {
 	margin: 2rem;
 	font-size: em(48, 18);
 }
+
+.sprites {
+	display: none;
+}
+
+svg {
+	display: block;
+	max-width: 300px;
+}
