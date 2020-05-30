@@ -1,3 +1,9 @@
+---
+navLinks: [
+	{ label: 'Blog', href: '/wrote' },
+	{ label: 'About', href: '/about' }
+]
+---
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns#">
 <head>
@@ -45,12 +51,21 @@
 	<header role="banner" class="page-header">
 		<nav role="navigation" class="site-nav-wrapper" aria-label="Site navigation">
 			<ul class="site-nav">
-				<li class="nav-item"><a href="/wrote" class="nav-link">Blog</a></li>
-				<li class="nav-item"><a href="/about" class="nav-link">About</a></li>
+				{% for link in navLinks %}
+					{% set linkClass = 'nav-link' %}
+					{% set ariaCurrent = '' %}
+					{% if post.slug|default(permalink)|trim('/')|startsWith(link.href|trim('/')) %}
+						{% set linkClass = linkClass ~ ' nav-link--current-section' %}
+					{% endif %}
+					{% if post.slug|default(permalink)|trim('/') == link.href|trim('/') %}
+						{% set ariaCurrent = 'aria-current' %}
+					{% endif %}
+					<li class="nav-item"><a href="{{ link.href }}" class="{{ linkClass }}" {{ ariaCurrent }}>{{ link.label }}</a></li>
+				{% endfor %}
 			</ul>
 		</nav>
 		<div class="header-mark">
-			<a href="/">
+			<a href="/" {%if permalink == '/' %}aria-current{% endif %}>
 				{% include 'sigil--main.njk' %}
 			</a>
 		</div>

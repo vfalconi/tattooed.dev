@@ -56,6 +56,8 @@ module.exports = function (eleventyConfig) {
 			post.published_at = new Date(post.published_at);
 			post.parsed = md(post.post);
 
+			post.slug = post.url;
+
 			if (post.footnotes) {
 				post.footnotes.forEach((note, i) => {
 					post.footnotes[i] = md(note);
@@ -92,6 +94,21 @@ module.exports = function (eleventyConfig) {
 		}
 
 		return collection[collection.length - 1].date;
+	});
+	eleventyConfig.addFilter('startsWith', (str, needle) => {
+		return str.startsWith(needle);
+	});
+	eleventyConfig.addFilter('trim', (str, chr = null) => {
+		if (typeof str !== 'string') return str;
+		if (chr === null) return str.trim;
+		if (chr !== null && typeof chr === 'string') {
+			let result = str;
+			if (str.startsWith(chr)) result = result.slice(chr.length);
+			if (str.endsWith(chr))
+				result = result.slice(0, result.length - chr.length);
+			return result;
+		}
+		return str;
 	});
 
 	eleventyConfig.addNunjucksShortcode('currentTime', () => {
