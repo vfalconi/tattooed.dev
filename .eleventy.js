@@ -5,7 +5,6 @@ const pluginRss = require('@11ty/eleventy-plugin-rss');
 const fetch = require('node-fetch');
 const { DateTime } = require('luxon');
 const passthroughCopies = require('./passthroughCopy');
-const { filemtime } = require('./lib/filemtime');
 
 module.exports = function (eleventyConfig) {
 	eleventyConfig.addShortcode('timestamp', (publicPath) => {
