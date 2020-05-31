@@ -49,16 +49,15 @@ navLinks: [
 <body>
 	<a class="skip-link" href="#content">Skip to content</a>
 	{% include 'sprites.svg' %}
+	{% set shapeIndex = 0 %}
+	{% set shapes = [
+		{ viewbox: '3.996 215.179 127.756 111.334', id: 'shape1' },
+		{ viewbox: '164.192 122.52 138.425 76.728', id: 'shape2' },
+		{ viewbox: '3.996 8.874 161.815 85.194', id: 'shape3' }
+	] %}
 	<header role="banner" class="page-header">
 		<nav role="navigation" class="site-nav-wrapper" aria-label="Site navigation">
-			{% set shapes = [
-				{ viewbox: '3.996 215.179 127.756 111.334', id: 'shape1' },
-				{ viewbox: '164.192 122.52 138.425 76.728', id: 'shape2' },
-				{ viewbox: '3.996 8.874 161.815 85.194', id: 'shape3' }
-			] %}
-
 			<ul class="site-nav">
-				{% set shapeIndex = 0 %}
 				{% for link in navLinks %}
 					{% set shape = shapes[shapeIndex] %}
 					{% set linkClass = 'nav-link' %}
