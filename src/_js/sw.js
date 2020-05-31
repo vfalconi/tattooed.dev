@@ -3,7 +3,6 @@ const staticAssets = [
 	'/assets/prism.css',
 	'/assets/prism.js',
 	'/assets/fathom.js',
-	'/assets/image-toggle.js',
 	'/assets/fonts/lato/LatoLatin-Regular.woff2',
 	'/assets/fonts/lato/LatoLatin-Regular.woff',
 	'/assets/fonts/lato/LatoLatin-Italic.woff2',
