@@ -71,7 +71,7 @@ navLinks: [
 					<li class="nav-item">
 						<a href="{{ link.href }}" class="{{ linkClass }}" {{ ariaCurrent }}>
 							<span>{{ link.label }}</span>
-							<svg class="nav-link-shape" viewBox="{{ shape.viewbox }}"><use xlink:href="#{{ shape.id }}"></use></svg>
+							<svg class="nav-link-shape" viewBox="{{ shape.viewbox }}" role="presentation"><use href="#{{ shape.id }}"></use></svg>
 						</a>
 					</li>
 
