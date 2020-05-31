@@ -5,12 +5,14 @@ table {
 	font-size: em(16, 18);
 }
 
-thead { border-bottom: 1px solid var(--darkBlue); }
+thead {
+	border-bottom: 1px solid var(--tableHeadBorderColor);
+}
 
 thead th {
 	text-align: left;
 	padding: rem(8) 0;
-	color: var(--darkBlue)
+	color: var(--tableHeadCellColor);
 }
 
 tbody td {
@@ -18,6 +20,6 @@ tbody td {
 	font-size: em(13);
 }
 
-tbody tr + tr td {
-	border-top: 1px solid var(--silver);
+tbody tr+tr td {
+	border-top: 1px solid var(--tableBodyBorderColor);
 }

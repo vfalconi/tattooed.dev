@@ -20,13 +20,13 @@
 .blog-heading {
 	font-size: var(--blogHeadingSize);
 	line-height: 1.1;
-	color: var(--pink);
+	color: var(--blogHeadingColor); // pink
 	font-weight: 900;
 }
 
 .blog-details {
 	font-style: italic;
-	color: var(--mutedBlue);
+	color: var(--blogSummaryColor); // mutedBlue
 	margin-top: rem(32);
 }
 
@@ -35,19 +35,25 @@
 	margin-bottom: rem(16);
 }
 
-.blog-dateline { margin: 0; }
+.blog-dateline {
+	margin: 0;
+	color: var(--datelineColor);
+}
 
 .blog-post h2:not([class]) {
 	font-size: var(--blogSubheadingSize);
 }
 
-.blog-post h3:not([class]) { font-size: em(18, 18); }
+.blog-post h3:not([class]) {
+	font-size: em(18, 18);
+}
 
 .blog-post img:not([style]):not([class]) {
 	display: block;
 	margin: 0 auto;
-	border: 1px solid var(--paleBlue);
+	border: 1px solid var(--imageBorderColor);
 	padding: rem(16);
-	max-width: 100%;
+	width: 100%;
+	height: auto;
 	box-sizing: border-box;
 }

@@ -5,7 +5,7 @@
 }
 
 .triangle_outline {
-	fill: var(--black);
+	fill: var(--sigil-triangle-outline); //black
 }
 
 .triangle_shape {
@@ -13,56 +13,56 @@
 }
 
 .triangle-stop1 {
-	stop-color: var(--pink);
+	stop-color: var(--triangle-stop1); // pink
 }
 
 .triangle-stop2 {
-	stop-color: var(--black);
+	stop-color: var(--triangle-stop2); // black
 }
 
 .open-hand_shape,
 .horn-hand_shape,
 .horn-hand_thumb {
-	fill: var(--lightBlue);
+	fill: var(--hands-skin); //lightBlue
 }
 
 .horn-hand_outline,
 .open-hand_outline {
-	stroke: var(--black);
+	stroke: var(--hands-outline); //black
 	stroke-width: 2;
 }
 
 .horn-hand_fingernail {
-	fill: var(--darkBlue);
+	fill: var(--hand-fingernail); // darkBlue
 }
 
 .horn-hand_fingernail-outline {
-	fill: var(--black);
+	fill: var(--hand-fingernail-outline); // black
 }
 
 .horn-hand_outline {
 	stroke-width: 2;
-	stroke: var(--black);
+	stroke: var(--hands-outline); // black
 }
 
 .finger-line {
-	fill: var(--black);
+	fill: var(--finger-line); // black
 }
 
 .palm-line {
-	fill: var(--darkBlue);
+	fill: var(--palm-line); // darkBlue
 }
 
 .orbit_shape {
-	fill: var(--limeGreen);
+	fill: var(--orbit-fill); //limeGreen
 }
 
 .orbit_outline {
-	fill: var(--black)
+	fill: var(--orbit-outline) // black
 }
 
 #sigil_spiral {
-	fill: var(--black);
+	fill: var(--spiral); // black
 }
 
 .sigil:hover #open-hand {

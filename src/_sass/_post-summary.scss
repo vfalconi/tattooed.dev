@@ -1,4 +1,4 @@
-.summary + .summary {
+.summary+.summary {
 	margin-top: rem(40);
 }
 
@@ -10,7 +10,7 @@
 .summary-dateline {
 	font-style: italic;
 	font-weight: bold;
-	color: var(--darkBlue);
+	color: var(--datelineColor);
 	margin-top: rem(4);
 	margin-bottom: 0;
 }

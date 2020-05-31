@@ -1,0 +1,68 @@
+:root {
+	// light mode
+
+	// colors
+	--white: #ffffff;
+	--silver: #cccccc;
+	--black: #111111;
+	--pink: #ff1493;
+	--darkPink: #DB00B0;
+	--yellow: #ffde00;
+	--green: #6cff00;
+	--limeGreen: #adff2f;
+	--darkBlue: #063243;
+	--darkerBlue: #00212e;
+	--lightBlue: #00b8ff;
+	--mutedBlue: #33758e;
+	--paleBlue: #a3b7d0;
+
+	// uses
+	--bodyBG: var(--white);
+	--bodyText: var(--black);
+	--site-footer-bg: var(--darkBlue);
+	--site-footer-text: var(--silver);
+	--site-footer-link--hover: var(--yellow);
+	--linkColor: var(--darkPink);
+	--linkColor--hover: var(--mutedBlue);
+	--codeBgColor: var(--silver);
+	--highlightedColor: var(--mutedBlue);
+	--imageBorderColor: var(--paleBlue);
+	--skipLinkBgColor: var(--darkBlue);
+	--quoteBgColor: var(--white);
+	--quoteTextColor: var(--black);
+	--quoteBorderColor: var(--silver);
+	--quoteBoxShadowColor: var(--limeGreen);
+	--blogHeadingColor: var(--pink);
+	--blogSummaryColor: var(--mutedBlue);
+	--footnoteArrowColor: var(--mutedBlue);
+	--pageHeaderBgColor: var(--white);
+	--pageHeaderBorderColor: var(--silver);
+	--pageHeaderBoxShadowColor: var(--white);
+	--datelineColor: var(--darkBlue);
+	--siteNavBgColor: var(--white);
+	--siteNavLinkColor: var(--black);
+	--siteNavLinkColor--hover: var(--black);
+	--siteNavShapeColor: var(--pink);
+	--tableHeadBorderColor: var(--darkBlue);
+	--tableHeadCellColor: var(--darkBlue);
+	--tableBodyBorderColor: var(--silver);
+
+	--sigil-triangle-outline: var(--black);
+	--triangle-stop1: var(--pink);
+	--triangle-stop2: var(--black);
+	--hands-skin: var(--lightBlue);
+	--hands-outline: var(--black);
+	--hand-fingernail: var(--darkBlue);
+	--hand-fingernail-outline: var(--black);
+	--hands-outline: var(--black);
+	--finger-line: var(--black);
+	--palm-line: var(--darkBlue);
+	--orbit-fill: var(--limeGreen);
+	--orbit-outline: var(--black);
+	--spiral: var(--black);
+}
+
+// dark mode
+@media (prefers-color-scheme: dark) {
+	@import 'colors-dark';
+}

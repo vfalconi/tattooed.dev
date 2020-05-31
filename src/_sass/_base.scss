@@ -1,18 +1,4 @@
 :root {
-	// Colors
-	--white: #ffffff;
-	--silver: #cccccc;
-	--black: #111111;
-	--pink: #ff1493;
-	--darkPink: #DB00B0;
-	--yellow: #ffde00;
-	--green: #6cff00;
-	--limeGreen: #adff2f;
-	--darkBlue: #063243;
-	--lightBlue: #00b8ff;
-	--mutedBlue: #33758e;
-	--paleBlue: #a3b7d0;
-
 	font-size: 16px;
 }
 
@@ -25,10 +11,10 @@ body {
 }
 
 a {
-	color: var(--darkPink);
+	color: var(--linkColor);
 
 	&:hover {
-		color: var(--mutedBlue);
+		color: var(--linkColor--hover);
 	}
 }
 
@@ -42,7 +28,7 @@ a {
 }
 
 code {
-	background-color: var(--silver);
+	background-color: var(--codeBgColor);
 	font-size: em(14, 18);
 	line-height: 1.29;
 	border-radius: rem(4);
@@ -54,13 +40,13 @@ code {
 
 .highlighted {
 	font-weight: 900;
-	color: var(--mutedBlue);
+	color: var(--highlightedColor);
 }
 
 .homepage-portrait {
 	display: block;
 	margin: 0 auto;
-	border: 8px solid var(--paleBlue);
+	border: 8px solid var(--imageBorderColor);
 	border-radius: 50%;
 	max-width: 100%;
 	width: rem(300);
@@ -79,7 +65,7 @@ code {
 }
 
 .skip-link {
-	background-color: var(--darkBlue);
+	background-color: var(--skipLinkBgColor);
 	position: fixed;
 	top: 0;
 	left: 0;

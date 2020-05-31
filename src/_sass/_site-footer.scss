@@ -1,7 +1,7 @@
 .site-footer {
 	font-size: em(14, 18);
-	background-color: var(--darkBlue);
-	color: var(--silver);
+	background-color: var(--site-footer-bg);
+	color: var(--site-footer-text);
 	display: grid;
 	grid-template-columns: var(--main-grid);
 	grid-column-gap: var(--grid-gap);
@@ -11,7 +11,7 @@
 	padding-bottom: rem(64);
 
 	a:hover {
-		color: var(--yellow);
+		color: var(--site-footer-link--hover);
 	}
 }
 

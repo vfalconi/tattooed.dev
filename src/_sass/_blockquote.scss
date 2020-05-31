@@ -1,24 +1,24 @@
 .quote {
-	background-color: var(--white);
-	color: var(--black);
+	background-color: var(--quoteBgColor);
+	color: var(--quoteTextColor);
 	padding: rem(32);
 	margin-top: rem(48);
 	margin-left: 0;
 	margin-right: 0;
 	margin-bottom: rem((48 + 8));
 	box-sizing: border-box;
-	border: 4px solid var(--silver);
-	box-shadow: 14px 14px var(--limeGreen);
+	border: 4px solid var(--quoteBorderColor);
+	box-shadow: 14px 14px var(--quoteBoxShadowColor);
 	width: calc(100% - 14px);
 
-	blockquote { margin: 0; }
+	blockquote {
+		margin: 0;
+	}
 
 	figcaption {
 		margin-top: rem(24);
 		text-align: right;
 	}
 
-	@media (min-width: rem(750)) {
-
-	}
+	@media (min-width: rem(750)) {}
 }

@@ -3,12 +3,12 @@
 	display: grid;
 	grid-template-columns: var(--main-grid);
 	grid-column-gap: var(--grid-gap);
-	background-color: white;
+	background-color: var(--pageHeaderBgColor);
 	position: sticky;
 	top: 0;
 	z-index: 1;
-	border-bottom: 1px solid var(--silver);
-	box-shadow: rem(2) rem(2) 10px var(--white);
+	border-bottom: 1px solid var(--pageHeaderBorderColor);
+	box-shadow: rem(2) rem(2) 10px var(--pageHeaderBoxShadowColor);
 	overflow: hidden;
 }
 
