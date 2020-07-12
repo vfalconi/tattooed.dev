@@ -8,3 +8,11 @@
 .social-profile {
 	margin-right: rem(16);
 }
+
+.social-icon svg {
+	fill: var(--socialIconFill);
+}
+
+.social-icon:hover svg {
+	fill: var(--socialIconFill--hover);
+}
