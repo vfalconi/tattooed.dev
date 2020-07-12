@@ -10,6 +10,10 @@
 	padding-top: rem(64);
 	padding-bottom: rem(64);
 
+	a {
+		color: var(--site-footer-link);
+	}
+
 	a:hover {
 		color: var(--site-footer-link--hover);
 	}
