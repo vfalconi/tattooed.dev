@@ -53,6 +53,12 @@ navLinks: [
 	{ viewbox: '3.996 8.874 161.815 85.194', id: 'shape3' }
 ] %}
 <header role="banner" class="page-header">
+	<div class="header-mark">
+		<a href="/" {%if permalink == '/' %}aria-current{% endif %}>
+			{# TODO: add default fills to sigil to prevent unstyledness #}
+			{% include 'sigil--main.njk' %}
+		</a>
+	</div>
 	<nav role="navigation" class="site-nav-wrapper" aria-label="Site navigation">
 		<ul class="site-nav">
 			{% for link in navLinks %}
@@ -80,12 +86,6 @@ navLinks: [
 			{% endfor %}
 		</ul>
 	</nav>
-	<div class="header-mark">
-		<a href="/" {%if permalink == '/' %}aria-current{% endif %}>
-			{# TODO: add default fills to sigil to prevent unstyledness #}
-			{% include 'sigil--main.njk' %}
-		</a>
-	</div>
 </header>
 <main role="main" id="content">
 	{{ content|safe }}

@@ -1,8 +1,6 @@
 .page-header {
+	display: flex;
 	box-sizing: border-box;
-	display: grid;
-	grid-template-columns: var(--main-grid);
-	grid-column-gap: var(--grid-gap);
 	background-color: var(--pageHeaderBgColor);
 	position: sticky;
 	top: 0;
@@ -13,7 +11,6 @@
 }
 
 .header-mark {
-	grid-column: right-sidebar;
 	padding: rem(16);
 	box-sizing: border-box;
 }
@@ -21,6 +18,9 @@
 .site-nav-wrapper {
 	display: flex;
 	align-items: flex-end;
-	grid-column: main-content;
 	justify-content: flex-end;
+
+	@media screen and (min-width: rem(655)) {
+		grid-column: main-content;
+	}
 }

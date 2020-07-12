@@ -2,7 +2,7 @@
 	--grid-max-width: #{rem(1200)};
 	--grid-offset: #{rem(128)};
 	--grid-gap: #{rem(32)};
-	--main-grid: [full-start] calc(100vw - var(--grid-max-width)) [full-content-start left-sidebar-start] repeat(2, 1fr) [left-sidebar-end main-content-start] repeat(6, 1fr) [main-content-end right-sidebar-start] repeat(2, 1fr) [right-sidebar-end full-content-end] 1fr [full-end];
+	--main-grid: [full-start] 1fr [full-content-start left-sidebar-start] repeat(2, 1fr) [left-sidebar-end main-content-start] repeat(6, 1fr) [main-content-end right-sidebar-start] repeat(2, 1fr) [right-sidebar-end full-content-end] calc(100vw - var(--grid-max-width)) [full-end];
 }
 
 
@@ -17,5 +17,9 @@
 
 
 .container {
-	grid-area: main-content;
+	grid-area: full-content;
+
+	@media screen and (min-width: rem(755)) {
+		grid-area: main-content;
+	}
 }
