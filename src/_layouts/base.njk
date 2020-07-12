@@ -6,117 +6,112 @@ navLinks: [
 ---
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns#">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<script src="{% timestamp '/assets/head.js' %}" async></script>
-	{% if includePrism %}
-		<script src="{% timestamp '/assets/prism.js' %}" async></script>
-	{% endif %}
-	<link rel="stylesheet" type="text/css" href="{% timestamp '/assets/styles.css' %}" />
-	{% if includePrism %}
-		<link rel="stylesheet" type="text/css" href="{% timestamp '/assets/prism.css' %}" />
-	{% endif %}
-	<link rel="preconnect dns-prefetch" href="https://stats.vincefalconi.com" />
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script src="{% timestamp '/assets/head.js' %}" async></script>
+{% if includePrism %}
+	<script src="{% timestamp '/assets/prism.js' %}" async></script>
+{% endif %}
+<link rel="stylesheet" type="text/css" href="{% timestamp '/assets/styles.css' %}" />
+{% if includePrism %}
+	<link rel="stylesheet" type="text/css" href="{% timestamp '/assets/prism.css' %}" />
+{% endif %}
+<link rel="preconnect dns-prefetch" href="https://stats.vincefalconi.com" />
 
-	<title>{% if title %}{{ title | lower }} | {% endif %}{{ site.title }}</title>
-	<meta name="description" content="{{ site.description }}">
-	<meta name="viewport" content="width=device-width">
-	<link rel="author" type="text/plain" href="{{ site.url }}/humans.txt" />
-	<link rel="canonical" href="{{ site.url }}/{{ permalink }}" />
-	<link rel="alternate" type="application/rss+xml" href="https://tattooed.dev/feed.xml" />
+<title>{% if title %}{{ title | lower }} | {% endif %}{{ site.title }}</title>
+<meta name="description" content="{{ site.description }}">
+<meta name="viewport" content="width=device-width">
+<link rel="author" type="text/plain" href="{{ site.url }}/humans.txt" />
+<link rel="canonical" href="{{ site.url }}/{{ permalink }}" />
+<link rel="alternate" type="application/rss+xml" href="https://tattooed.dev/feed.xml" />
 
-	<meta property="og:type" content="website" />
-	<meta property="og:title" content="{{ title | default(site.ogp.title) }}" />
-	<meta property="og:url" content="{{ site.url }}/{{ permalink | default('') }}" />
-	<meta property="og:image" content="{{ site.url }}{{ cover_image.uri | default(site.ogp.image) }}" />
-	<meta property="og:site_name" content="{{ site.ogp.title }}" />
-	<meta property="og:description" content="{{ description | default(site.ogp.description) }}" />
-	<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{{ title | default(site.ogp.title) }}" />
+<meta property="og:url" content="{{ site.url }}/{{ permalink | default('') }}" />
+<meta property="og:image" content="{{ site.url }}{{ cover_image.uri | default(site.ogp.image) }}" />
+<meta property="og:site_name" content="{{ site.ogp.title }}" />
+<meta property="og:description" content="{{ description | default(site.ogp.description) }}" />
+<meta property="og:locale" content="en_US" />
 
-	{% if post.cover_image.uri %}
-		<meta name="twitter:card" content="summary_large_image" />
-	{% else %}
-		<meta name="twitter:card" content="summary" />
-	{% endif %}
-	<meta name="twitter:site" content="@vincefalconi" />
-	<meta name="twitter:creator" content="@vincefalconi" />
-	<meta name="twitter:title" content="{{ title | default(site.ogp.title) }}" />
-	<meta name="twitter:description" content="{{ description | default(site.ogp.description) }}" />
-	<meta name="twitter:image" content="{{ site.url }}{{ cover_image.uri | default(site.ogp.image) }}" />
+{% if post.cover_image.uri %}
+	<meta name="twitter:card" content="summary_large_image" />
+{% else %}
+	<meta name="twitter:card" content="summary" />
+{% endif %}
+<meta name="twitter:site" content="@vincefalconi" />
+<meta name="twitter:creator" content="@vincefalconi" />
+<meta name="twitter:title" content="{{ title | default(site.ogp.title) }}" />
+<meta name="twitter:description" content="{{ description | default(site.ogp.description) }}" />
+<meta name="twitter:image" content="{{ site.url }}{{ cover_image.uri | default(site.ogp.image) }}" />
 
-</head>
-<body>
-	<a class="skip-link" href="#content">Skip to content</a>
-	{% include 'sprites.svg' %}
-	{% set shapeIndex = 0 %}
-	{% set shapes = [
-		{ viewbox: '3.996 215.179 127.756 111.334', id: 'shape1' },
-		{ viewbox: '164.192 122.52 138.425 76.728', id: 'shape2' },
-		{ viewbox: '3.996 8.874 161.815 85.194', id: 'shape3' }
-	] %}
-	<header role="banner" class="page-header">
-		<nav role="navigation" class="site-nav-wrapper" aria-label="Site navigation">
-			<ul class="site-nav">
-				{% for link in navLinks %}
-					{% set shape = shapes[shapeIndex] %}
-					{% set linkClass = 'nav-link' %}
-					{% set ariaCurrent = '' %}
-					{% if post.slug|default(permalink)|trim('/')|startsWith(link.href|trim('/')) %}
-						{% set linkClass = linkClass ~ ' nav-link--current-section' %}
-					{% endif %}
-					{% if post.slug|default(permalink)|trim('/') == link.href|trim('/') %}
-						{% set ariaCurrent = 'aria-current' %}
-					{% endif %}
-					<li class="nav-item">
-						<a href="{{ link.href }}" class="{{ linkClass }}" {{ ariaCurrent }}>
-							<span>{{ link.label }}</span>
-							<svg class="nav-link-shape" viewBox="{{ shape.viewbox }}" role="presentation"><use href="#{{ shape.id }}"></use></svg>
-						</a>
-					</li>
+<a class="skip-link" href="#content">Skip to content</a>
+{% include 'sprites.svg' %}
+{% set shapeIndex = 0 %}
+{% set shapes = [
+	{ viewbox: '3.996 215.179 127.756 111.334', id: 'shape1' },
+	{ viewbox: '164.192 122.52 138.425 76.728', id: 'shape2' },
+	{ viewbox: '3.996 8.874 161.815 85.194', id: 'shape3' }
+] %}
+<header role="banner" class="page-header">
+	<nav role="navigation" class="site-nav-wrapper" aria-label="Site navigation">
+		<ul class="site-nav">
+			{% for link in navLinks %}
+				{% set shape = shapes[shapeIndex] %}
+				{% set linkClass = 'nav-link' %}
+				{% set ariaCurrent = '' %}
+				{% if post.slug|default(permalink)|trim('/')|startsWith(link.href|trim('/')) %}
+					{% set linkClass = linkClass ~ ' nav-link--current-section' %}
+				{% endif %}
+				{% if post.slug|default(permalink)|trim('/') == link.href|trim('/') %}
+					{% set ariaCurrent = 'aria-current' %}
+				{% endif %}
+				<li class="nav-item">
+					<a href="{{ link.href }}" class="{{ linkClass }}" {{ ariaCurrent }}>
+						<span>{{ link.label }}</span>
+						<svg class="nav-link-shape" viewBox="{{ shape.viewbox }}" role="presentation"><use href="#{{ shape.id }}"></use></svg>
+					</a>
+				</li>
 
-					{% if loop.index === (shapes|length) %}
-						{% set shapeIndex = 0 %}
-					{% else %}
-						{% set shapeIndex = shapeIndex + 1 %}
-					{% endif %}
-				{% endfor %}
-			</ul>
-		</nav>
-		<div class="header-mark">
-			<a href="/" {%if permalink == '/' %}aria-current{% endif %}>
-				{# TODO: add default fills to sigil to prevent unstyledness #}
-				{% include 'sigil--main.njk' %}
-			</a>
-		</div>
-	</header>
-	<main role="main" id="content">
-		{{ content|safe }}
-	</main>
-	<footer class="site-footer">
-		<nav role="navigation" class="social-nav" aria-label="Social profiles">
-			<ul class="social-profiles">
-				<li class="social-profile">
-					<a href="https://twitter.com/{{ site.profiles.twitter }}">Twitter</a>
-				</li>
-				<li class="social-profile">
-					<a href="https://github.com/{{ site.profiles.github }}">GitHub</a>
-				</li>
-				<li class="social-profile">
-					<a href="https://keybase.io/{{ site.profiles.keybase }}">Keybase</a>
-				</li>
-				<li class="social-profile">
-					<a href="/feed.xml">RSS</a>
-				</li>
-				<li class="social-profile">
-					<a href="/uses/">Uses</a>
-				</li>
-			</ul>
-		</nav>
-		<div class="site-footer-content">
-			<p>Blog posts are licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, and code samples are licensed under <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>.</p>
-		</div>
-	</footer>
-	<script src="{% timestamp '/assets/fathom.js' %}"></script>
-</body>
-</html>
+				{% if loop.index === (shapes|length) %}
+					{% set shapeIndex = 0 %}
+				{% else %}
+					{% set shapeIndex = shapeIndex + 1 %}
+				{% endif %}
+			{% endfor %}
+		</ul>
+	</nav>
+	<div class="header-mark">
+		<a href="/" {%if permalink == '/' %}aria-current{% endif %}>
+			{# TODO: add default fills to sigil to prevent unstyledness #}
+			{% include 'sigil--main.njk' %}
+		</a>
+	</div>
+</header>
+<main role="main" id="content">
+	{{ content|safe }}
+</main>
+<footer class="site-footer">
+	<nav role="navigation" class="social-nav" aria-label="Social profiles">
+		<ul class="social-profiles">
+			<li class="social-profile">
+				<a href="https://twitter.com/{{ site.profiles.twitter }}">Twitter</a>
+			</li>
+			<li class="social-profile">
+				<a href="https://github.com/{{ site.profiles.github }}">GitHub</a>
+			</li>
+			<li class="social-profile">
+				<a href="https://keybase.io/{{ site.profiles.keybase }}">Keybase</a>
+			</li>
+			<li class="social-profile">
+				<a href="/feed.xml">RSS</a>
+			</li>
+			<li class="social-profile">
+				<a href="/uses/">Uses</a>
+			</li>
+		</ul>
+	</nav>
+	<div class="site-footer-content">
+		<p>Blog posts are licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, and code samples are licensed under <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>.</p>
+	</div>
+</footer>
+<script src="{% timestamp '/assets/fathom.js' %}"></script>
