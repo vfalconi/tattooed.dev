@@ -62,8 +62,3 @@
 	--orbit-outline: var(--black);
 	--spiral: var(--black);
 }
-
-// dark mode
-@media (prefers-color-scheme: dark) {
-	@import 'colors-dark';
-}
