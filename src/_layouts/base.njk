@@ -44,7 +44,7 @@ navLinks: [
 <meta name="twitter:description" content="{{ description | default(site.ogp.description) }}" />
 <meta name="twitter:image" content="{{ site.url }}{{ cover_image.uri | default(site.ogp.image) }}" />
 
-<a class="skip-link" href="#content">Skip to content</a>
+<a class="skip-link" href="#content">Skip to main content</a>
 {% include 'sprites.svg' %}
 {% set shapeIndex = 0 %}
 {% set shapes = [
@@ -54,7 +54,7 @@ navLinks: [
 ] %}
 <header role="banner" class="page-header">
 	<div class="header-mark">
-		<a href="/" {%if permalink == '/' %}aria-current{% endif %}>
+		<a href="/" {%if permalink == '/' %}aria-current{% endif %} aria-label="home">
 			{# TODO: add default fills to sigil to prevent unstyledness #}
 			{% include 'sigil--main.njk' %}
 		</a>
@@ -74,7 +74,7 @@ navLinks: [
 				<li class="nav-item">
 					<a href="{{ link.href }}" class="{{ linkClass }}" {{ ariaCurrent }}>
 						<span>{{ link.label }}</span>
-						<svg class="nav-link-shape" viewBox="{{ shape.viewbox }}" role="presentation"><use href="#{{ shape.id }}"></use></svg>
+						<svg class="nav-link-shape" viewBox="{{ shape.viewbox }}" role="presentation" aria-hidden="true"><use href="#{{ shape.id }}"></use></svg>
 					</a>
 				</li>
 
@@ -94,33 +94,28 @@ navLinks: [
 	<nav role="navigation" class="social-nav" aria-label="Social profiles">
 		<ul class="social-profiles">
 			<li class="social-profile">
-				<a href="https://twitter.com/{{ site.profiles.twitter }}" class="social-icon">
-					<svg viewBox="0 0 24 24" width="24" height="24" role="presentation" aria-hidden><use href="#twitter"></use></svg>
-					<span>twitter</span>
+				<a href="https://twitter.com/{{ site.profiles.twitter }}" class="social-icon" aria-label="twitter">
+					<svg viewBox="0 0 24 24" width="24" height="24" role="presentation" aria-hidden="true"><use href="#twitter"></use></svg>
 				</a>
 			</li>
 			<li class="social-profile">
-				<a href="https://github.com/{{ site.profiles.github }}" class="social-icon">
-					<svg viewBox="0 0 24 24" width="24" height="24" role="presentation" aria-hidden><use href="#github"></use></svg>
-					<span>github</span>
+				<a href="https://github.com/{{ site.profiles.github }}" class="social-icon" aria-label="github">
+					<svg viewBox="0 0 24 24" width="24" height="24" role="presentation" aria-hidden="true"><use href="#github"></use></svg>
 				</a>
 			</li>
 			<li class="social-profile">
-				<a href="https://keybase.io/{{ site.profiles.keybase }}" class="social-icon">
-					<svg viewBox="0 0 24 24" width="24" height="24" role="presentation" aria-hidden><use href="#keybase"></use></svg>
-					<span>keybase</span>
+				<a href="https://keybase.io/{{ site.profiles.keybase }}" class="social-icon" aria-label="keybase">
+					<svg viewBox="0 0 24 24" width="24" height="24" role="presentation" aria-hidden="true"><use href="#keybase"></use></svg>
 				</a>
 			</li>
 			<li class="social-profile">
-				<a href="/feed.xml" class="social-icon">
-					<svg viewBox="0 0 24 24" width="24" height="24" role="presentation" aria-hidden><use href="#rss"></use></svg>
-					<span>rss</span>
+				<a href="/feed.xml" class="social-icon" aria-label="rss">
+					<svg viewBox="0 0 24 24" width="24" height="24" role="presentation" aria-hidden="true"><use href="#rss"></use></svg>
 				</a>
 			</li>
 			<li class="social-profile">
-				<a href="/uses/" class="social-icon">
-					<svg viewBox="0 0 24 24" width="24" height="24" role="presentation" aria-hidden><use href="#uses"></use></svg>
-					<span>uses</span>
+				<a href="/uses/" class="social-icon" aria-label="uses">
+					<svg viewBox="0 0 24 24" width="24" height="24" role="presentation" aria-hidden="true"><use href="#uses"></use></svg>
 				</a>
 			</li>
 		</ul>
