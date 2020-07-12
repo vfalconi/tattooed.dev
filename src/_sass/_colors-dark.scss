@@ -8,7 +8,7 @@
 	--gray: #505c61;
 
 	// uses
-	--bodyBG: var(--blueGray);
+	--bodyBG: var(--darkBlue);
 	--bodyText: var(--white);
 
 	--site-footer-bg: var(--black);
@@ -36,8 +36,8 @@
 
 	--footnoteArrowColor: var(--mutedBlue);
 
-	--pageHeaderBgColor: var(--blueGray);
-	--pageHeaderBorderColor: var(--paleBlue);
+	--pageHeaderBgColor: var(--darkBlue);
+	--pageHeaderBorderColor: var(--lightBlue);
 	--pageHeaderBoxShadowColor: var(--blueGray);
 
 	--datelineColor: var(--white);
@@ -50,11 +50,11 @@
 	--tableHeadCellColor: var(--darkBlue);
 	--tableBodyBorderColor: var(--silver);
 
-	--sigil-triangle-outline: var(--darkBlue);
-	--hands-outline: var(--darkBlue);
-	--hand-fingernail-outline: var(--darkBlue);
-	--hands-outline: var(--darkBlue);
-	--finger-line: var(--darkBlue);
-	--orbit-outline: var(--darkBlue);
-	--spiral: var(--darkBlue);
+	--sigil-triangle-outline: var(--black);
+	--hands-outline: var(--black);
+	--hand-fingernail-outline: var(--black);
+	--hands-outline: var(--black);
+	--finger-line: var(--black);
+	--orbit-outline: var(--black);
+	--spiral: var(--lightBlue);
 }
