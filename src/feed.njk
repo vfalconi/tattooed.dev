@@ -18,7 +18,11 @@ permalink: feed.xml
     <link href="{{ absolutePostUrl }}"/>
     <updated>{{ post.published_at | RSSTimeFormat }}</updated>
     <id>{{ absolutePostUrl }}</id>
-    <content type="html">{{ post.parsed }}</content>
+    <content type="html">
+			{{ post.parsed }}
+			{% set replySubject = 're: ' ~ post.title %}
+			<a href="mailto:comments@tattooed.dev?subject={{ replySubject|urlencode }}">Reply to this post</a>
+		</content>
 		<webfeeds:featuredImage url="{{ site.url ~ post.cover_image.uri }}" />
   </entry>
   {% endfor %}
