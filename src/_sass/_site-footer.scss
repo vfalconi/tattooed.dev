@@ -1,4 +1,5 @@
 .site-footer {
+	position: relative;
 	font-size: em(14, 18);
 	background-color: var(--site-footer-bg);
 	color: var(--site-footer-text);
@@ -19,4 +20,12 @@
 .social-nav,
 .site-footer-content {
 	grid-column: wide;
+}
+
+#tentacle {
+	position: absolute;
+	bottom: 100%;
+	right: 0;
+	transform: translateY(#{rem(17)}) translateX(#{rem(-100)});
+	width: rem(500);
 }
