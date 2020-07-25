@@ -2,9 +2,6 @@
 	font-size: em(14, 18);
 	background-color: var(--site-footer-bg);
 	color: var(--site-footer-text);
-	display: grid;
-	grid-template-columns: var(--main-grid);
-	grid-column-gap: var(--grid-gap);
 	box-sizing: border-box;
 	margin-top: rem(64);
 	padding-top: rem(64);
@@ -21,5 +18,5 @@
 
 .social-nav,
 .site-footer-content {
-	grid-column: main-content;
+	grid-column: wide;
 }

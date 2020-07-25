@@ -14,7 +14,8 @@
 }
 
 .blog-header {
-	margin-bottom: rem(32);
+	margin: rem(128) 0;
+	grid-column: wide;
 }
 
 .blog-heading {
@@ -25,19 +26,23 @@
 }
 
 .blog-details {
+	grid-column: left-sidebar;
 	font-style: italic;
 	color: var(--blogSummaryColor); // mutedBlue
-	margin-top: rem(32);
 }
 
 .blog-description {
 	font-size: em(28, 18);
 	margin-bottom: rem(16);
+	color: var(--blogSummaryColor);
 }
 
 .blog-dateline {
-	margin: 0;
 	color: var(--datelineColor);
+}
+
+.blog-post {
+	grid-column: right-content;
 }
 
 .blog-post h2:not([class]) {

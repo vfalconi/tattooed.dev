@@ -11,14 +11,14 @@ layout: base
 <article class="h-entry container">
 	<header class="blog-header">
 		<h1 class="blog-heading p-name">{{ post.title }}</h1>
-		<div class="blog-details">
-			<p class="blog-dateline">
-				<time class="dt-published" datetime="{{ post.published_at | machineTime }}">{{ post.published_at | htmlDateString }}</time>
-				{% if post.updated %}<time class="dt-updated" datetime="{{ post.updated | machineTime }}">, and updated {{ post.updated | htmlDateString }}</time>{% endif %}
-			</p>
-			{% if post.description %}<p class="blog-description p-summary">{{ post.description }}</p>{% endif %}
-		</div>
+		{% if post.description %}<p role="doc-subtitle" class="blog-description p-summary">{{ post.description }}</p>{% endif %}
 	</header>
+
+	<div class="blog-details">
+		<p class="blog-dateline">
+			<time class="dt-published" datetime="{{ post.published_at | machineTime }}">This was originally published on {{ post.published_at | htmlDateString }}</time>{% if post.updated %}<time class="dt-updated" datetime="{{ post.updated | machineTime }}">, and updated {{ post.updated | htmlDateString }}</time>{% endif %}.
+		</p>
+	</div>
 
 	<div class="blog-post e-content">
 		{{ post.parsed }}
@@ -32,7 +32,7 @@ layout: base
 				</ol>
 			</section>
 		{% endif %}
-		</div>
+	</div>
 </article>
 <script type="application/ld+json">
 	{

@@ -4,12 +4,15 @@ permalink: wrote/
 title: "blog archive"
 ---
 <div class="container">
-	<h1 class="page-heading">Blog Archive</h1>
+	<header class="wide">
+		<h1 class="page-heading">Blog Archive</h1>
+	</header>
+
 	{% for post in collections.blogPosts %}
 		{% assign currentDate = post.date | date: "%Y" %}
 		{% if currentDate != myDate %}
 			{% unless forloop.first %}</div></section>{% endunless %}
-			<section class="archive-section">
+			<section class="archive-section left-content">
 				<h2 class="archive-section-heading">{{ currentDate }}</h2>
 				{% assign myDate = currentDate %}
 				<div class="blog-summary-wrapper">

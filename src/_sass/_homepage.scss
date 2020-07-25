@@ -1,0 +1,18 @@
+.intro-message {
+	grid-column: right-content;
+	font-size: 120%;
+	grid-row: 1;
+}
+
+.intro-picture {
+	grid-column: left-sidebar / center-content;
+	grid-row: 1;
+}
+
+.intro-img {
+	border-radius: 50%;
+}
+
+.recent-posts {
+	grid-column: right-content;
+}

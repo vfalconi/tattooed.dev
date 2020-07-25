@@ -3,31 +3,31 @@ layout: base
 permalink: /
 ---
 <div class="container">
-	<div class="mo">
-		<div class="mo-body">
-			<h1>Hi. I'm Vince Falconi.</h1>
-			<p>I have a lot of tattoos, and I'm a developer. By these powers combined, I work to make the web <b class="highlighted">fast</b>, <b class="highlighted">secure</b>, and <b class="highlighted">accessible</b>.</p>
-		</div>
-		<div class="mo-media">
-			<picture>
-				<source srcset="/assets/img/portrait-bizniss.jpg 1x, /assets/img/portrait-bizniss-15x.jpg 1.5x, /assets/img/portrait-bizniss-2x.jpg 2x" />
-				<img class="homepage-portrait" src="/assets/img/portrait-bizniss.jpg" alt="A bald man in a white t-shirt and black hoodie, smiling at the camera." width="200" height="200" loading="lazy" />
-			</picture>
-		</div>
+	<picture class="intro-picture">
+		<source srcset="/assets/img/portrait-bizniss.jpg 1x, /assets/img/portrait-bizniss-15x.jpg 1.5x, /assets/img/portrait-bizniss-2x.jpg 2x" />
+		<img class="intro-img" src="/assets/img/portrait-bizniss.jpg" alt="A bald man in a white t-shirt and black hoodie, smiling at the camera." width="200" height="200" loading="lazy" />
+	</picture>
+
+	<div class="intro-message">
+		<h1>Hi. I'm Vince Falconi.</h1>
+		<p>I have a lot of tattoos, and I'm a developer. By these powers combined, I work to make the web <b class="highlighted">fast</b>, <b class="highlighted">secure</b>, and <b class="highlighted">accessible</b>.</p>
 	</div>
-	<h2 class="section-heading">Recent Posts</h2>
-	{% assign posts = collections.blogPosts | reverse %}
-	{% for post in posts %}
-		{% if forloop.index <= 3 and post.rssOnly != true %}
-			<article class="summary">
-				<h3 class="summary-heading"><a href="{{ post.url }}">{{ post.title }}</a></h3>
-				{% if post.description %}<p class="summary-description">{{ post.description }}</p>{% endif %}
-				<p class="summary-dateline"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d" }}</time></p>
-			</article>
-		{% endif %}
-	{% endfor %}
-	<div class="more-link">
-		<a href="/wrote">Blog archive</a>
+
+	<div class="recent-posts">
+		<h2 class="section-heading">Recent Posts</h2>
+		{% assign posts = collections.blogPosts | reverse %}
+		{% for post in posts %}
+			{% if forloop.index <= 3 and post.rssOnly != true %}
+				<article class="summary">
+					<h3 class="summary-heading"><a href="{{ post.url }}">{{ post.title }}</a></h3>
+					{% if post.description %}<p class="summary-description">{{ post.description }}</p>{% endif %}
+					<p class="summary-dateline"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d" }}</time></p>
+				</article>
+			{% endif %}
+		{% endfor %}
+		<div class="more-link">
+			<a href="/wrote">Blog archive</a>
+		</div>
 	</div>
 </div>
 
