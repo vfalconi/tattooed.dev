@@ -63,12 +63,20 @@ navLinks: [
 				{% set shape = shapes[shapeIndex] %}
 				{% set linkClass = 'nav-link' %}
 				{% set ariaCurrent = '' %}
-				{% if post.slug|default(permalink)|trim('/')|startsWith(link.href|trim('/')) %}
+				{% set postURL = post.slug|default(permalink) %}
+				{% set trimmedLinkHref = link.href|trim('/') %}
+				{% set isHomepage = (postURL == '/' and link.href == '/') %}
+				{% set isSectionRoot = (postURL|startsWith(trimmedLinkHref) and trimmedLinkHref != '') %}
+				{% set isCurrent = (postURL|trim('/') == trimmedLinkHref) %}
+
+				{% if isHomepage or isSectionRoot %}
 					{% set linkClass = linkClass ~ ' nav-link--current-section' %}
 				{% endif %}
-				{% if post.slug|default(permalink)|trim('/') == link.href|trim('/') %}
+
+				{% if isCurrent %}
 					{% set ariaCurrent = 'aria-current' %}
 				{% endif %}
+
 				<li class="nav-item">
 					<a href="{{ link.href }}" class="{{ linkClass }}" {{ ariaCurrent }}>
 						{{ link.label }}
