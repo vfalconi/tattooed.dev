@@ -6,9 +6,16 @@
 }
 
 .container {
-	display: grid;
-	grid-template-columns: var(--root-grid);
-	grid-gap: var(--grid-gap);
+	@media screen and (max-width: rem(607)) {
+		padding-right: var(--grid-gap);
+		padding-left: var(--grid-gap);
+	}
+
+	@media screen and (min-width: rem(608)) {
+		display: grid;
+		grid-template-columns: var(--root-grid);
+		grid-gap: var(--grid-gap);
+	}
 }
 
 // DELETE BEFORE COMMIT

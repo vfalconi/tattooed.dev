@@ -1,5 +1,6 @@
 .site-footer {
 	position: relative;
+	z-index: -2;
 	font-size: em(14, 18);
 	background-color: var(--site-footer-bg);
 	color: var(--site-footer-text);
@@ -28,4 +29,5 @@
 	right: 0;
 	transform: translateY(#{rem(17)}) translateX(#{rem(-100)});
 	width: rem(500);
+	z-index: -1;
 }
