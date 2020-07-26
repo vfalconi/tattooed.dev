@@ -19,7 +19,17 @@ gulp.task('css', () => {
 		merge(normalize, siteStyles),
 		concat('styles.css'),
 		sass({
-			outputStyle: 'compressed'
+			outputStyle: 'compressed',
+		}),
+		gulp.dest(gulpBuildPath)
+	);
+});
+
+gulp.task('buildPrismCss', () => {
+	return pipeline(
+		gulp.src('./node_modules/prismjs/themes/prism-tomorrow.css'),
+		sass({
+			outputStyle: 'compressed',
 		}),
 		gulp.dest(gulpBuildPath)
 	);
@@ -35,23 +45,22 @@ gulp.task('javascript', () => {
 });
 
 gulp.task('serviceworker', () => {
-	return pipeline(
-		gulp.src(['./src/_js/sw.js']),
-		tiny(),
-		gulp.dest(rootPath)
-	);
+	return pipeline(gulp.src(['./src/_js/sw.js']), tiny(), gulp.dest(rootPath));
 });
 
 // watcher
 gulp.task('watch', () => {
+	gulp.parallel('buildPrismCss');
 	gulp.watch('./src/_sass/**/*.scss', gulp.parallel('css'));
-	gulp.watch(['./src/_js/**/*.js', '!./src/_js/sw.js'], gulp.parallel('javascript'));
+	gulp.watch(
+		['./src/_js/**/*.js', '!./src/_js/sw.js'],
+		gulp.parallel('javascript')
+	);
 	gulp.watch('./src/_js/sw.js', gulp.parallel('serviceworker'));
 });
 
 // build
-gulp.task('build', gulp.parallel(
-	'css',
-	'javascript',
-	'serviceworker',
-));
+gulp.task(
+	'build',
+	gulp.parallel('css', 'buildPrismCss', 'javascript', 'serviceworker')
+);
