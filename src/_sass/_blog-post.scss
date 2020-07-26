@@ -13,8 +13,6 @@
 	}
 }
 
-// TODO: FIX LAYOUT WHEN CODE SNIPPETS PRESENT
-
 .blog-header {
 	grid-column: wide;
 }
@@ -43,7 +41,15 @@
 }
 
 .blog-post {
+	display: contents;
+}
+
+.blog-post>* {
 	grid-column: right-content;
+}
+
+.blog-post [class*="language-"] {
+	grid-column: wide;
 }
 
 .blog-post h2:not([class]) {
