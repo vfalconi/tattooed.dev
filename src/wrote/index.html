@@ -20,7 +20,7 @@ title: "blog archive"
 			<article class="summary">
 				<h3 class="summary-heading"><a href="/{{ post.permalink }}">{{ post.title }}</a></h3>
 				{% if post.description %}<p class="summary-description">{{ post.description }}</p>{% endif %}
-				<p class="summary-dateline"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d" }}</time></p>
+				<p class="summary-dateline"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %e" }}</time></p>
 			</article>
 		{% if forloop.last %}</section>{% endif %}
 	{% endfor %}
