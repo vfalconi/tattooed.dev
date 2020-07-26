@@ -14,18 +14,22 @@
 	grid-column: 2 / -1;
 	grid-row: 1 / 3;
 	align-self: end;
+	justify-self: end;
+	width: max-content;
 	background-color: var(--introHeadingBG);
 	color: var(--introHeading);
 	margin: 0;
 	transform: translateY(#{rem(32)});
 	padding: rem(16);
+	box-shadow: rem(8) rem(8) var(--introHeadingShadow);
+	letter-spacing: .1rem;
 }
 
 .intro-message {
 	grid-column: 2 / -1;
 	grid-row: 3;
 	font-size: 120%;
-	padding: rem(16);
+	padding: rem(32) rem(16);
 }
 
 .intro-picture {
@@ -38,9 +42,10 @@
 	display: block;
 	max-width: 100%;
 	height: auto;
-	box-shadow: rem(16) rem(16) var(--introShadow);
+	box-shadow: rem(8) rem(8) var(--introShadow);
+	transform: rotate(-4deg);
 }
 
 .recent-posts {
-	grid-column: 2 / 8;
+	grid-column: 2 / 10;
 }
