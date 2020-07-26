@@ -5,6 +5,11 @@
 	--root-grid: [full-start left-gutter-start] minmax(var(--grid-gap), var(--grid-offset)) [left-gutter-end wide-start left-sidebar-start left-content-start] repeat(4, 1fr) [left-sidebar-end right-content-start center-content-start] repeat(6, 1fr) [center-content-end left-content-end right-sidebar-start] repeat(4, 1fr) [right-content-end right-sidebar-end wide-end right-gutter-start] calc(100vw - var(--grid-max-width)) [right-gutter-end full-end];
 }
 
+main {
+	position: relative;
+	z-index: 9999;
+}
+
 .container {
 	@media screen and (max-width: rem(607)) {
 		padding-right: var(--grid-gap);
