@@ -23,6 +23,12 @@
 	padding: rem(16);
 	box-shadow: rem(8) rem(8) var(--introHeadingShadow);
 	letter-spacing: .1rem;
+	text-shadow: rem(2) rem(2) var(--introHeadingShadow);
+
+	background-image: radial-gradient(rgba(0, 0, 0, .5) 20%, transparent 20%);
+	background-position: 0 0;
+	background-size: rem(4) rem(4);
+	background-repeat: round;
 }
 
 .intro-message {
