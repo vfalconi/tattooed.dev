@@ -7,7 +7,7 @@
 
 .nav-item {
 	flex: 0 0 auto;
-	margin-left: rem(32);
+	margin-right: rem(32);
 }
 
 .nav-link {
@@ -19,6 +19,7 @@
 	z-index: 0;
 	transition: transform 0.2s linear;
 	display: inline-block;
+	line-height: 1;
 }
 
 .nav-link--current-section,
@@ -47,7 +48,7 @@
 .nav-link:focus .nav-link-shape,
 .nav-link:hover .nav-link-shape {
 	transform: translateY(0) scale(1.2) rotate(180deg);
-	opacity: 1;
+	opacity: .5;
 }
 
 .link-shape {

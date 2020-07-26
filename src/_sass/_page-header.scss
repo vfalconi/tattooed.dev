@@ -1,31 +1,20 @@
 .page-header {
 	box-sizing: border-box;
 	background-color: var(--pageHeaderBgColor);
+	margin-bottom: rem(32);
 	border-bottom: 1px solid var(--pageHeaderBorderColor);
 	overflow: hidden;
-	margin-bottom: rem(32);
-}
-
-.nav-wrapper {
-	display: flex;
-	grid-column: wide;
 }
 
 .header-mark {
-	padding: rem(8) 0;
-	transition: transform .15s linear;
-
-	&:hover {
-		transform: rotate(16deg);
-	}
+	grid-row: 1;
+	grid-column: 2;
+	padding: rem(16) 0;
+	transform: scale(1.4) translateX(#{rem(-32)});
 }
 
 .site-nav-wrapper {
-	display: flex;
-	align-items: flex-end;
-	justify-content: flex-end;
-
-	@media screen and (min-width: rem(655)) {
-		grid-column: main-content;
-	}
+	grid-row: 1;
+	grid-column: 3;
+	align-self: end;
 }
