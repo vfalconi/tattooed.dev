@@ -27,7 +27,7 @@ a {
 	font-size: em(24);
 }
 
-code {
+code:not([class]) {
 	background-color: var(--codeBgColor);
 	font-size: em(14, 18);
 	line-height: 1.29;
