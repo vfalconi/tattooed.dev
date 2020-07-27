@@ -1,11 +1,17 @@
 (() => {
 	const list = [
-		'tattoo-collector',
-		'weightlifter',
-		'gardener',
-		'home cook',
-		'rescuer of Princess Zelda',
-		'lover of horror',
+		'a tattoo-collector',
+		'a weightlifter',
+		'a gardener',
+		'a home cook',
+		'a rescuer of Princess Zelda',
+		'a lover of horror',
+		'a fan of obnoxious colors',
+		'01101001 01101110 01110011 01110101 01100110 01100110 01100101 01110010 01100001 01100010 01101100 01100101',
+		'a gentle breeze on an October afternoon',
+		'definitely not a time traveller',
+		'always interested in hearing about your favorite monospace font',
+		'a hockey fan',
 	];
 	const descriptionSpans = document.querySelectorAll('[data-description]');
 	const descriptionSet = new Set();
