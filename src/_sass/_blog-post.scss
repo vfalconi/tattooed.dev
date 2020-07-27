@@ -21,6 +21,7 @@
 	font-size: var(--blogHeadingSize);
 	line-height: 1.1;
 	color: var(--blogHeadingColor); // pink
+	text-shadow: -1px 1px var(--blogHeadingShadow);
 	font-weight: 900;
 }
 
