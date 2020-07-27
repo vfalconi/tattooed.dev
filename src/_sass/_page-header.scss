@@ -4,18 +4,30 @@
 	margin-bottom: rem(64);
 	border-bottom: 1px solid var(--pageHeaderBorderColor);
 	overflow: hidden;
+
+	@media screen and (max-width: rem(737)) {
+		display: flex;
+		flex-direction: column;
+	}
 }
 
 .header-mark {
 	grid-row: 1;
 	grid-column: 2;
 	padding: rem(16) 0;
-	transform: scale(1.4) translateX(#{rem(-32)});
-	opacity: .5;
+	align-self: center;
+	width: min-content;
+
+	@media screen and (min-width: rem(738)) {
+		transform: scale(1.4) translateX(#{rem(-32)});
+	}
 }
 
 .site-nav-wrapper {
 	grid-row: 1;
 	grid-column: 3;
-	align-self: end;
+
+	@media screen and (min-width: rem(738)) {
+		align-self: end;
+	}
 }

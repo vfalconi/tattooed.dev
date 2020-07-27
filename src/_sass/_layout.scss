@@ -11,12 +11,12 @@ main {
 }
 
 .container {
-	@media screen and (max-width: rem(607)) {
+	@media screen and (max-width: rem(737)) {
 		padding-right: var(--grid-gap);
 		padding-left: var(--grid-gap);
 	}
 
-	@media screen and (min-width: rem(608)) {
+	@media screen and (min-width: rem(738)) {
 		display: grid;
 		grid-template-columns: var(--root-grid);
 		grid-gap: var(--grid-gap);
