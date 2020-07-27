@@ -1,0 +1,27 @@
+.page-heading,
+.section-heading {
+	background-image: radial-gradient(rgba(0, 0, 0, .5) 20%, transparent 20%);
+	background-position: 0;
+	background-size: rem(4) rem(4);
+	background-repeat: round;
+	line-height: 1;
+}
+
+.page-heading {
+	width: max-content;
+	background-color: var(--introHeadingBG);
+	color: var(--introHeading);
+	padding: rem(16);
+	box-shadow: rem(8) rem(8) var(--introHeadingShadow);
+	letter-spacing: .1rem;
+	text-shadow: rem(2) rem(2) var(--introHeadingShadow);
+}
+
+.section-heading {
+	width: max-content;
+	background-color: var(--sectionHeadingBG);
+	color: var(--sectionHeading);
+	padding: rem(16);
+	box-shadow: rem(-4) rem(4) var(--sectionHeadingShadow);
+	text-shadow: rem(-2) rem(2) var(--sectionHeadingShadow);
+}
