@@ -37,9 +37,6 @@
 	max-width: 100%;
 	height: auto;
 	box-shadow: rem(8) rem(8) var(--introShadow);
-	transform: rotate(-4deg);
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
 }
 
 .recent-posts {
