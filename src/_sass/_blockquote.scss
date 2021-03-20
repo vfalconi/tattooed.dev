@@ -7,8 +7,8 @@
 	margin-right: 0;
 	margin-bottom: rem((48 + 8));
 	box-sizing: border-box;
-	border: 4px solid var(--quoteBorderColor);
-	box-shadow: rem(8) rem(8) var(--quoteBoxShadowColor);
+	box-shadow: rem(4) rem(4) var(--bodyBG), rem(8) rem(8) var(--quoteBoxShadowColor),
+	rem(-4) rem(-4) var(--bodyBG), rem(-8) rem(-8) var(--quoteBoxShadowColor);
 	width: calc(100% - #{rem(8)});
 
 	blockquote {

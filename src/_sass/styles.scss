@@ -2,23 +2,18 @@
 @import 'fn';
 @import 'fonts';
 
-@import 'base';
 @import 'colors';
+@import 'base';
 @import 'layout';
+@import '_homepage';
 
-@import 'archive';
-@import 'blockquote';
-@import 'blog-post';
-@import 'code-snippets';
-@import 'footnotes';
-@import 'headings';
-@import 'homepage';
-@import 'lists';
-@import 'media-object';
-@import 'page-header';
-@import 'post-summary';
-@import 'sigil';
-@import 'site-footer';
-@import 'site-navigation';
-@import 'social-icons';
-@import 'tables';
+@import '_blockquote';
+@import '_blog-post';
+@import '_code-snippets';
+@import '_footnotes';
+@import '_lists';
+@import '_site-footer';
+@import '_page-header';
+@import '_post-summary';
+@import '_site-navigation';
+@import '_social-icons';

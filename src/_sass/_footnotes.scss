@@ -1,33 +1,18 @@
-.blog-footnotes {
-	grid-column: right-content;
-	overflow: hidden;
-}
-
-.blog-footnotes-heading {
+.footnotes-heading {
 	font-size: em(18, 18);
 }
 
+.footnotes-list {
+	padding-left: 0;
+}
 
 .footnote {
 	position: relative;
 	font-size: em(14, 18);
+	transition: color .1s linear;
+	margin-bottom: rem(24);
 }
 
-.footnote:before {
-	content: '';
-	display: block;
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	z-index: -1;
-	opacity: 0;
-	background-color: var(--yellow);
-	transform: scale(1.2);
-	transition: opacity .1s linear;
-}
-
-.footnote:target:before {
-	opacity: 1;
+.footnote:target {
+	color: var(--footnotesHighlightColor);
 }

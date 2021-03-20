@@ -1,20 +1,10 @@
 .site-footer {
 	position: relative;
 	font-size: em(14, 18);
-	background-color: var(--site-footer-bg);
-	color: var(--site-footer-text);
 	box-sizing: border-box;
 	margin-top: rem(64);
 	padding-top: rem(64);
 	padding-bottom: rem(64);
-
-	a {
-		color: var(--site-footer-link);
-	}
-
-	a:hover {
-		color: var(--site-footer-link--hover);
-	}
 }
 
 .social-nav,
@@ -22,12 +12,14 @@
 	grid-column: wide;
 }
 
+.site-footer-content {
+	color: var(--siteFooterColor);
+}
+
 #tentacle {
-	position: absolute;
-	bottom: 100%;
+	position: fixed;
+	top: 0;
 	right: 0;
-	transform: translateY(3%);
-	margin-right: rem(100);
-	margin-left: rem(20);
+	z-index: -1;
 	max-width: rem(500);
 }

@@ -1,0 +1,94 @@
+<svg viewport="0 0 1144 526" xmlns="http://www.w3.org/2000/svg">
+	<style type="text/css">
+		.st0{fill:#FEE728;stroke:#6ACCE6;stroke-miterlimit:10;}
+</style>
+	<defs>
+		<pattern id="stars" x="0" y="0" width="1144" height="526" patternUnits="userSpaceOnUse">
+			<circle class="st0" cx="26.1" cy="60.6" r="2.5" />
+			<circle class="st0" cx="91.6" cy="56.6" r="1" />
+			<circle class="st0" cx="62.2" cy="73.4" r="2.5" />
+			<circle class="st0" cx="397.435" cy="139.562" r="1.2" />
+			<circle class="st0" cx="449.635" cy="146.962" r="1" />
+			<circle class="st0" cx="419.135" cy="142.062" r="3.9" />
+			<circle class="st0" cx="127.7" cy="69.4" r="1" />
+			<circle class="st0" cx="317.5" cy="68.3" r="0.6" />
+			<circle class="st0" cx="324.6" cy="42.4" r="1.5" />
+			<circle class="st0" cx="422.37" cy="74.753" r="0.6" />
+			<circle class="st0" cx="486.135" cy="70.279" r="1" />
+			<circle class="st0" cx="289" cy="106.9" r="2.5" />
+			<circle class="st0" cx="330.6" cy="141.8" r="1" />
+			<circle class="st0" cx="69.4" cy="338" r="1" />
+			<circle class="st0" cx="72.1" cy="329.3" r="1" />
+			<circle class="st0" cx="53" cy="343.5" r="1.8" />
+			<circle class="st0" cx="674.214" cy="282.306" r="1" />
+			<circle class="st0" cx="692.114" cy="297.306" r="1" />
+			<circle class="st0" cx="658.114" cy="260.206" r="2" />
+			<circle class="st0" cx="700.114" cy="285.306" r="2" />
+			<circle class="st0" cx="672.914" cy="292.906" r="2" />
+			<circle class="st0" cx="189.3" cy="40.9" r="2" />
+			<circle class="st0" cx="65.6" cy="158" r="1" />
+			<circle class="st0" cx="164.3" cy="156" r="1" />
+			<circle class="st0" cx="526" cy="291.4" r="1" />
+			<circle class="st0" cx="372.2" cy="280.3" r="1" />
+			<circle class="st0" cx="304.1" cy="277.4" r="1" />
+			<circle class="st0" cx="378.7" cy="229.2" r="1" />
+			<circle class="st0" cx="518.2" cy="366.3" r="1" />
+			<circle class="st0" cx="559.5" cy="24.1" r="1" />
+			<circle class="st0" cx="220.7" cy="105.5" r="1" />
+			<circle class="st0" cx="73.1" cy="221.2" r="1" />
+			<circle class="st0" cx="132.4" cy="383.6" r="1" />
+			<circle class="st0" cx="350" cy="370.7" r="1" />
+			<circle class="st0" cx="423.5" cy="318.9" r="1" />
+			<circle class="st0" cx="29.3" cy="520.9" r="1" />
+			<circle class="st0" cx="112.7" cy="480.2" r="1" />
+			<circle class="st0" cx="86.6" cy="413.2" r="1" />
+			<circle class="st0" cx="568.8" cy="453" r="1" />
+			<circle class="st0" cx="449.4" cy="398.4" r="1" />
+			<circle class="st0" cx="395" cy="16.9" r="1" />
+			<circle class="st0" cx="235.5" cy="18.9" r="1" />
+			<circle class="st0" cx="17.9" cy="118.8" r="1" />
+			<circle class="st0" cx="181.6" cy="285.7" r="1" />
+			<circle class="st0" cx="369.1" cy="176.4" r="1" />
+			<circle class="st0" cx="1081.36" cy="276.502" r="1.2" transform="matrix(0, 1, -1, 0, 1358.753906, -869.053589)" />
+			<circle class="st0" cx="1133.56" cy="283.902" r="1" transform="matrix(0, 1, -1, 0, 1358.753906, -869.053589)" />
+			<circle class="st0" cx="1103.06" cy="279.002" r="3.9" transform="matrix(0, 1, -1, 0, 1352.623535, -867.010132)" />
+			<circle class="st0" cx="889.26" cy="150.602" r="1" transform="matrix(0, 1, -1, 0, 1309.334473, -780.712891)" />
+			<circle class="st0" cx="861.16" cy="169.602" r="2.5" transform="matrix(0, 1, -1, 0, 1247.545898, -779.199463)" />
+			<circle class="st0" cx="902.76" cy="204.502" r="1" transform="matrix(0, 1, -1, 0, 1364.884277, -591.553772)" />
+			<circle class="st0" cx="1098.16" cy="354.102" r="1" transform="matrix(0, 1, -1, 0, 1097.042603, -672.359863)" />
+			<circle class="st0" cx="944.36" cy="343.002" r="1" transform="matrix(0, 1, -1, 0, 1363.55603, -767.2453)" />
+			<circle class="st0" cx="876.26" cy="340.102" r="1" transform="matrix(0, 1, -1, 0, 1262.712036, -730.507996)" />
+			<circle class="st0" cx="950.86" cy="291.902" r="1" transform="matrix(0, 1, -1, 0, 1044.482178, -658.65271)" />
+			<circle class="st0" cx="995.66" cy="381.602" r="1" transform="matrix(0, 1, -1, 0, 1140.920288, -621.501404)" />
+			<circle class="st0" cx="941.26" cy="239.102" r="1" transform="matrix(0, 1, -1, 0, 1062.873291, -554.845703)" />
+			<circle class="st0" cx="430.809" cy="93.264" r="1" />
+			<circle class="st0" cx="237.468" cy="255.193" r="2" />
+			<circle class="st0" cx="676.115" cy="83.632" r="0.6" transform="matrix(0, -1, 1, 0, 155.988388, 882.620178)" />
+			<circle class="st0" cx="683.215" cy="57.732" r="1.5" transform="matrix(0, -1, 1, 0, 553.28479, 765.960266)" />
+			<circle class="st0" cx="689.615" cy="64.632" r="0.6" transform="matrix(0, -1, 1, 0, 155.988388, 882.620178)" />
+			<circle class="st0" cx="675.715" cy="103.232" r="1" transform="matrix(0, -1, 1, 0, 155.988388, 882.620178)" />
+			<circle class="st0" cx="844.401" cy="14.565" r="0.6" transform="matrix(0, 1, -1, 0, 854.065979, -751.036011)" />
+			<circle class="st0" cx="815.901" cy="53.165" r="2.5" transform="matrix(0, 1, -1, 0, 854.065979, -751.036011)" />
+			<circle class="st0" cx="857.501" cy="88.065" r="1" transform="matrix(0, 1, -1, 0, 854.065979, -751.036011)" />
+			<circle class="st0" cx="747.601" cy="51.765" r="1" transform="matrix(0, 1, -1, 0, 854.065979, -751.036011)" />
+			<circle class="st0" cx="317.5" cy="68.3" r="0.6" transform="matrix(1, 0, 0, 1, 157.179256, 87.816372)" />
+			<circle class="st0" cx="289" cy="106.9" r="2.5" transform="matrix(1, 0, 0, 1, 157.179256, 87.816372)" />
+			<circle class="st0" cx="330.6" cy="141.8" r="1" transform="matrix(1, 0, 0, 1, 157.179256, 87.816372)" />
+			<circle class="st0" cx="220.7" cy="105.5" r="1" transform="matrix(1, 0, 0, 1, 157.179256, 87.816372)" />
+			<circle class="st0" cx="726.476" cy="72.476" r="1.2" />
+			<circle class="st0" cx="778.676" cy="79.876" r="1" />
+			<circle class="st0" cx="748.176" cy="74.976" r="3.9" />
+			<circle class="st0" cx="618.041" cy="39.814" r="2.5" />
+			<circle class="st0" cx="213.396" cy="194.637" r="1" />
+			<circle class="st0" cx="707.741" cy="162.114" r="1" />
+			<circle class="st0" cx="549.741" cy="38.414" r="1" />
+			<circle class="st0" cx="251.896" cy="229.237" r="1" />
+			<circle class="st0" cx="759.85" cy="26.178" r="1" />
+			<circle class="st0" cx="803.721" cy="89.03" r="0.6" />
+			<circle class="st0" cx="775.221" cy="127.63" r="2.5" />
+			<circle class="st0" cx="816.821" cy="162.53" r="0" />
+			<circle class="st0" cx="260.676" cy="246.153" r="1" />
+		</pattern>
+	</defs>
+	<rect x="0" y="0" width="100%" height="100%" fill="url(#stars)"></rect>
+</svg>

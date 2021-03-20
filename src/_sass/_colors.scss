@@ -1,62 +1,53 @@
 :root {
-	// light mode
+	--white: hsla(0, 0%, 100%, 1);
+	--black: hsla(0, 0%, 6.7%, 1);
+	--blueBlack: hsla(207, 15%, 12%, 1);
+	--pink: hsla(327, 100%, 53%, 1);
+	--purple: hsla(328, 69%, 41%, 1);
+	--yellow: hsla(53, 100%, 59%, 1);
+	--offWhite: hsla(61, 87%, 93%, 1);
+	--cyan: hsla(186, 100%, 59%, 1);
+	--blueGreen: hsla(186, 94%, 36%, 1);
+	--yellowGreen: hsla(76, 69%, 41%, 1);
+	--greenYellow: hsla(76, 100%, 56%, 1);
+	--green: hsla(152, 69%, 41%, 1);
+	--neonGreen: hsla(152, 100%, 51%, 1);
+	--grayBlue: hsla(206, 21%, 36%, 1);
+	--darkBlue: hsla(206, 14%, 11%, 1);
+	--maroon: hsla(0, 9%, 12%, 1);
+	--army: hsla(61, 18%, 37%, 1);
+	--blue: hsla(204, 16%, 12%, 1);
+	--slate: hsla(206, 27%, 64%, 1);
 
-	// colors
-	--white: #ffffff;
-	--silver: #cccccc;
-	--black: #111111;
-	--pink: #ff1493;
-	--darkPink: #DB00B0;
-	--yellow: #ffde00;
-	--green: #6cff00;
-	--limeGreen: #adff2f;
-	--darkBlue: #063243;
-	--darkerBlue: #00212e;
-	--lightBlue: #00b8ff;
-	--mutedBlue: #33758e;
-	--paleBlue: #a3b7d0;
+	--bodyBG: var(--blueBlack);
+	--bodyText: var(--offWhite);
 
-	// uses
-	--bodyBG: var(--white);
-	--bodyText: var(--black);
-	--site-footer-bg: var(--darkBlue);
-	--site-footer-text: var(--silver);
-	--site-footer-link: var(--yellow);
-	--site-footer-link--hover: var(--green);
-	--linkColor: var(--darkPink);
-	--linkColor--hover: var(--mutedBlue);
-	--codeBgColor: var(--silver);
-	--highlightedColor: var(--mutedBlue);
-	--imageBorderColor: var(--paleBlue);
-	--skipLinkBgColor: var(--darkBlue);
-	--quoteBgColor: var(--white);
-	--quoteTextColor: var(--black);
-	--quoteBorderColor: var(--silver);
-	--quoteBoxShadowColor: var(--limeGreen);
-	--blogHeadingColor: var(--pink);
-	--blogHeadingShadow: var(--black);
-	--blogSummaryColor: var(--mutedBlue);
-	--footnoteArrowColor: var(--mutedBlue);
-	--pageHeaderBgColor: var(--white);
-	--pageHeaderBorderColor: var(--silver);
-	--pageHeaderBoxShadowColor: var(--white);
-	--datelineColor: var(--darkBlue);
-	--siteNavBgColor: var(--white);
-	--siteNavLinkColor: var(--black);
-	--siteNavLinkColor--hover: var(--black);
-	--siteNavShapeColor: var(--lightBlue);
-	--tableHeadBorderColor: var(--darkBlue);
-	--tableHeadCellColor: var(--darkBlue);
-	--tableBodyBorderColor: var(--silver);
-	--socialIconFill: var(--yellow);
-	--socialIconFill--hover: var(--green);
+	--bulletColor: var(--pink);
 
-	--introHeading: var(--white);
-	--introHeadingBG: var(--darkPink);
-	--introHeadingShadow: var(--black);
-	--introShadow: var(--lightBlue);
+	--linkColor: var(--pink);
+	--linkColor--hover: var(--blueGreen);
 
-	--sectionHeadingBG: var(--lightBlue);
-	--sectionHeading: var(--white);
-	--sectionHeadingShadow: var(--darkBlue);
+	--highlightedColor: var(--greenYellow);
+
+	--codeBgColor: var(--grayBlue);
+	--codeColor: var(--white);
+	--codeSnippetShadow: var(--blueGreen);
+
+	--blogSummaryColor: var(--white);
+	--blogSubheadingColor: var(--white);
+	--blogSubheadingBG: var(--black);
+	--blogSubheadingShadow: var(--black);
+
+	--imageShadow: var(--black);
+
+	--quoteBgColor: var(--black);
+	--quoteTextColor: var(--slate);
+	--quoteBoxShadowColor: var(--slate);
+
+	--footnotesHighlightColor: var(--yellow);
+
+	--socialIconFill: var(--blueGreen);
+	--socialIconFill--hover: var(--pink);
+
+	--siteFooterColor: var(--slate);
 }

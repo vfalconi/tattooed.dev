@@ -1,7 +1,14 @@
 ul:not([class]):not([style]),
 ol:not([class]):not([style]) {
 	margin: rem(18) 0;
-	padding-left: rem(48);
+	padding-left: 0;
+
+	li + li { margin-top: rem(16); }
+
+	li::marker {
+		color: var(--bulletColor);
+		font-weight: bold;
+	}
 }
 
 .flat-list {

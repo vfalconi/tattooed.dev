@@ -5,9 +5,12 @@
 body {
 	background-color: var(--bodyBG);
 	color: var(--bodyText);
-	font-family: "LatoLatin", sans-serif;
+	font-family: Geneva, Tahoma, sans-serif;
 	font-size: em(18);
 	line-height: 1.7;
+}
+.font-loaded {
+	font-family: "LatoLatin", Geneva, Tahoma, sans-serif;
 }
 
 a {
@@ -28,6 +31,7 @@ a {
 }
 
 code:not([class]) {
+	color: var(--codeColor);
 	background-color: var(--codeBgColor);
 	font-size: em(14, 18);
 	line-height: 1.29;
@@ -41,6 +45,7 @@ code:not([class]) {
 .highlighted {
 	font-weight: 900;
 	color: var(--highlightedColor);
+	text-shadow: 1px 1px var(--blue);
 }
 
 .homepage-portrait {

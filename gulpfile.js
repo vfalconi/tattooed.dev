@@ -37,30 +37,24 @@ gulp.task('buildPrismCss', () => {
 
 // javascript
 gulp.task('javascript', () => {
-	return pipeline(
-		gulp.src(['./src/_js/*.js', '!./src/_js/sw.js']),
-		tiny(),
-		gulp.dest(gulpBuildPath)
-	);
+	return pipeline(gulp.src(['./src/_js/*.js', './node_modules/fontfaceobserver/fontfaceobserver.js', '!./src/_js/sw.js']), tiny(), gulp.dest(gulpBuildPath));
 });
 
 gulp.task('serviceworker', () => {
 	return pipeline(gulp.src(['./src/_js/sw.js']), tiny(), gulp.dest(rootPath));
 });
 
+gulp.task('gsap', () => {
+	return pipeline(gulp.src(['./node_modules/gsap/dist/gsap.js', './node_modules/gsap/dist/EasePack.js']), tiny(), gulp.dest(gulpBuildPath));
+});
+
 // watcher
 gulp.task('watch', () => {
-	gulp.parallel('buildPrismCss');
+	gulp.parallel('buildPrismCss', 'gsap');
 	gulp.watch('./src/_sass/**/*.scss', gulp.parallel('css'));
-	gulp.watch(
-		['./src/_js/**/*.js', '!./src/_js/sw.js'],
-		gulp.parallel('javascript')
-	);
+	gulp.watch(['./src/_js/**/*.js', '!./src/_js/sw.js'], gulp.parallel('javascript'));
 	gulp.watch('./src/_js/sw.js', gulp.parallel('serviceworker'));
 });
 
 // build
-gulp.task(
-	'build',
-	gulp.parallel('css', 'buildPrismCss', 'javascript', 'serviceworker')
-);
+gulp.task('build', gulp.parallel('css', 'buildPrismCss', 'javascript', 'serviceworker', 'gsap'));

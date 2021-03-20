@@ -11,21 +11,8 @@
 	}
 }
 
-.header-mark {
-	grid-row: 1;
-	grid-column: 2;
-	padding: rem(16) 0;
-	align-self: center;
-	width: min-content;
-
-	@media screen and (min-width: rem(738)) {
-		transform: scale(1.4) translateX(#{rem(-32)});
-	}
-}
-
 .site-nav-wrapper {
-	grid-row: 1;
-	grid-column: 3;
+	grid-area: left-content;
 
 	@media screen and (min-width: rem(738)) {
 		align-self: end;

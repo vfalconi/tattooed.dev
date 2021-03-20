@@ -1,6 +1,6 @@
 .site-nav {
 	display: flex;
-	margin: 0;
+	margin: rem(32) 0 0;
 	padding-left: 0;
 	list-style: none;
 }
@@ -26,31 +26,4 @@
 .nav-link:focus,
 .nav-link:hover {
 	color: var(--siteNavLinkColor--hover);
-	transform: translateY(#{rem(-10)});
-}
-
-
-
-.nav-link-shape {
-	display: block;
-	position: absolute;
-	top: 0;
-	right: 0;
-	left: 0;
-	bottom: 0;
-	z-index: -1;
-	transform: translateY(100%) scale(1) rotate(0);
-	opacity: 0;
-	transition: transform 0.2s linear, opacity 0.2s linear;
-}
-
-.nav-link--current-section .nav-link-shape,
-.nav-link:focus .nav-link-shape,
-.nav-link:hover .nav-link-shape {
-	transform: translateY(0) scale(1.2) rotate(180deg);
-	opacity: .5;
-}
-
-.link-shape {
-	fill: var(--siteNavShapeColor);
 }

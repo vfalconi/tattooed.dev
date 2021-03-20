@@ -1,4 +1,4 @@
-const version = 'v3::static';
+/*const version = 'v3::static';
 const staticAssets = [
 	'/assets/head.js',
 	'/assets/prism.css',
@@ -60,3 +60,4 @@ self.addEventListener('fetch', (evt) => {
 		evt.waitUntil(update(request).then(refresh));
 	}
 });
+*/
