@@ -1,93 +1,70 @@
 .landscape-wrapper {
-	background-color: var(--black);
-	display: grid;
-	grid-template-columns: 1fr;
-	grid-template-rows: 1fr;
-}
+	padding-top: rem(128);
 
-.starscape,
-.landscape {
-	width: 100%;
-	max-height: rem(600);
-}
-
-.star-layer {
-	grid-column: 1;
-	grid-row: 1;
-	max-height: rem(600);
-}
-
-.star--animate:nth-child(odd) {
-	animation: 2s linear 0s infinite blink;
-}
-.star--animate:nth-child(even) {
-	animation: 4s ease-in 0s infinite blink;
-}
-
-@keyframes blink {
-	0% {
-		opacity: 1;
-		fill: #FEE728;
-		stroke: #6ACCE6;
+	img {
+		max-width: 100%;
+		height: auto;
+		display: block;
+		margin-left: auto;
 	}
-	50% {
-		opacity: .25;
-		fill: #6ACCE6;
-		stroke: #FEE728;
-	}
-	100% {
-		opacity: 1;
-		fill: #FEE728;
-		stroke: #6ACCE6;
-	}
-}
-
-.landscape-layer {
-	grid-column: 1;
-	grid-row: 1;
-	max-height: rem(600);
-}
-
-#landscape-moon {
-
-}
-
-.moon {
-	max-width: rem(1030);
-}
-
-#landscape-mountains {
-	align-self: end;
 }
 
 .homepage {
-	display: grid;
-	grid-template-columns: [full-start left-start] 1fr [left-end right-start] 1fr [right-end full-end];
-	grid-gap: rem(32);
-	transform: translateY(#{rem(-120)});
-	max-width: rem(900);
-	margin-right: auto;
-	margin-bottom: rem(-152);
-	margin-left: auto;
+	background-color: var(--homepageBG);
 	padding: rem(32);
-}
+	grid-column: full;
 
-.welcome {
-	grid-column: left;
-	grid-row: 1;
+	@media screen and (min-width: rem(825)) {
+		display: grid;
+		grid-template-columns: [full-start left-start] 1fr [left-end right-start] 1fr [right-end full-end];
+		grid-template-rows: max-content;
+		grid-gap: rem(32);
+	}
 }
 
 .homepage-picture {
 	grid-column: right;
 	grid-row: 1;
+	align-self: start;
+	position: relative;
+	max-width: max-content;
+
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 1rem; right: 1rem; bottom: 1rem; left: 1rem;
+		border: 4px solid #20B370;
+		mix-blend-mode: color-dodge;
+	}
+
+	img {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
 }
 
 .homepage__content {
-	grid-column: full;
+	margin-bottom: rem(32);
+
+	@media screen and (min-width: rem(825)) {
+		grid-column: left;
+		grid-row: 1 / 3;
+		background-color: var(--homepageBG);
+		padding: rem(32);
+	}
+
+	@media screen and (min-width: rem(1140)) {
+		transform: translateY(#{rem(-64)});
+	}
 }
 
-.intro-img {
-	max-width: 100%;
-	height: auto;
-	display: block;
+.homepage__heading {
+	margin-top: 0;
+}
+
+.homepage__identity {
+	grid-column: right;
+	grid-row: 2;
 }
