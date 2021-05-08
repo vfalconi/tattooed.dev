@@ -1,7 +1,6 @@
-/*const version = 'v3::static';
+const version = 'v3::static';
 const staticAssets = [
-	'/assets/head.js',
-	'/assets/prism.css',
+	'/assets/prism-tomorrow.css',
 	'/assets/prism.js',
 	'/assets/fathom.js',
 	'/assets/fonts/lato/LatoLatin-Regular.woff2',
@@ -20,7 +19,7 @@ const staticAssets = [
 	'/assets/img/homepage-portrait-2x.webp',
 	'/assets/img/homepage-portrait-1x.jpg',
 	'/assets/img/homepage-portrait-1.5x.jpg',
-	'/assets/img/homepage-portrait-2.jpg',
+	'/assets/img/homepage-portrait-2x.jpg',
 ];
 const fromCache = (request) => {
 	return caches.open(version).then((cache) => cache.match(request));
@@ -60,4 +59,3 @@ self.addEventListener('fetch', (evt) => {
 		evt.waitUntil(update(request).then(refresh));
 	}
 });
-*/
