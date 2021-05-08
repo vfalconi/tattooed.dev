@@ -15,11 +15,3 @@
 .site-footer-content {
 	color: var(--siteFooterColor);
 }
-
-#tentacle {
-	position: fixed;
-	top: 0;
-	right: 0;
-	z-index: -1;
-	max-width: rem(500);
-}

@@ -49,8 +49,7 @@
 				{% if forloop.index <= 3 and post.rssOnly != true %}
 					<article class="summary">
 						<h3 class="summary-heading"><a href="{{ post.url }}">{{ post.title }}</a></h3>
-						{% if post.description %}<p class="summary-description">{{ post.description }}</p>{% endif %}
-						<p class="summary-dateline"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %e" }}</time></p>
+						{% if post.description %}<p class="summary-description"><time class="summary-dateline" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %e %Y" }}</time> &mdash; {{ post.description }}</p>{% endif %}
 					</article>
 				{% endif %}
 			{% endfor %}
