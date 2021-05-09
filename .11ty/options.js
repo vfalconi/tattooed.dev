@@ -1,7 +1,7 @@
 module.exports.options = {
 	htmlTemplateEngine: 'njk',
 	dataTemplateEngine: 'njk',
-	templateFormats: ['njk', 'html'],
+	templateFormats: [ 'html', 'txt' ],
 	dir: {
 		input: 'src/templates',
 		data: '_data',
