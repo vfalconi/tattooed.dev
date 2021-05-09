@@ -3,3 +3,7 @@ const { CMSEntries } = require('./lib/CMSEntries');
 module.exports.blogPosts = async () => {
 	return await CMSEntries.get(process.env.BUILD_BLOG_ENDPOINT);
 };
+
+module.exports.books = async () => {
+	return await CMSEntries.get(process.env.BUILD_BOOKS_ENDPOINT);
+};

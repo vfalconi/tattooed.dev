@@ -18,11 +18,11 @@ class CMSEntries {
 
 	static parse(entries) {
 		const parsedEntries = entries.map(entry => {
-			entry.parsed = md(entry.post);
-			entry.slug = entry.url;
+			if (entry.url) entry.slug = entry.url;
+			if (entry.parsed) entry.parsed = md(entry.post);
 
-			entry.published_at = CMSEntries.timestampToObject(entry.published_at);
-			entry.dateCreated.date = CMSEntries.timestampToObject(entry.dateCreated.date);
+			if (entry.published_at) entry.published_at = CMSEntries.timestampToObject(entry.published_at);
+			if (entry.dateCreated.date) entry.dateCreated.date = CMSEntries.timestampToObject(entry.dateCreated.date);
 
 			if (entry.dateUpdated) {
 				entry.dateUpdated.date = CMSEntries.timestampToObject(entry.dateUpdated.date);

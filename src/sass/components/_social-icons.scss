@@ -1,0 +1,24 @@
+.social-profiles {
+	display: flex;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.social-profile {
+	margin-right: rem(16);
+
+	span {
+		position: absolute;
+		z-index: -1;
+		opacity: 0;
+	}
+}
+
+.social-icon svg {
+	fill: var(--socialIconFill);
+}
+
+.social-icon:hover svg {
+	fill: var(--socialIconFill--hover);
+}

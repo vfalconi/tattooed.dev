@@ -1,0 +1,14 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+	<div class="bookshelf">
+		<h1>Bookshelf</h1>
+		{% for book in collections.books %}
+			<article>
+				<h2>{{ book.title }}</h2>
+				<p>by {{ book.author }}</p>
+				<p>finished on {{ book.dateCreated.date|htmlDateString }}</p>
+			</article>
+		{% endfor %}
+	</div>
+{% endblock %}
