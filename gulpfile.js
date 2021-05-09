@@ -13,7 +13,7 @@ const rootPath = process.env.BUILD_DIR;
 // css
 gulp.task('css', () => {
 	const normalize = gulp.src('./node_modules/normalize.css/normalize.css');
-	const siteStyles = gulp.src('./src/_sass/styles.scss');
+	const siteStyles = gulp.src('./src/sass/styles.scss');
 
 	return pipeline(
 		merge(normalize, siteStyles),
@@ -37,24 +37,20 @@ gulp.task('buildPrismCss', () => {
 
 // javascript
 gulp.task('javascript', () => {
-	return pipeline(gulp.src(['./src/_js/*.js', './node_modules/fontfaceobserver/fontfaceobserver.js', '!./src/_js/sw.js']), tiny(), gulp.dest(gulpBuildPath));
+	return pipeline(gulp.src(['./src/javascript/*.js', './node_modules/fontfaceobserver/fontfaceobserver.js', '!./src/javascript/sw.js']), tiny(), gulp.dest(gulpBuildPath));
 });
 
 gulp.task('serviceworker', () => {
-	return pipeline(gulp.src(['./src/_js/sw.js']), tiny(), gulp.dest(rootPath));
-});
-
-gulp.task('gsap', () => {
-	return pipeline(gulp.src(['./node_modules/gsap/dist/gsap.js', './node_modules/gsap/dist/EasePack.js']), tiny(), gulp.dest(gulpBuildPath));
+	return pipeline(gulp.src(['./src/javascript/sw.js']), tiny(), gulp.dest(rootPath));
 });
 
 // watcher
 gulp.task('watch', () => {
-	gulp.parallel('buildPrismCss', 'gsap');
-	gulp.watch('./src/_sass/**/*.scss', gulp.parallel('css'));
-	gulp.watch(['./src/_js/**/*.js', '!./src/_js/sw.js'], gulp.parallel('javascript'));
-	gulp.watch('./src/_js/sw.js', gulp.parallel('serviceworker'));
+	gulp.parallel('buildPrismCss');
+	gulp.watch('./src/sass/**/*.scss', gulp.parallel('css'));
+	gulp.watch(['./src/javascript/**/*.js', '!./src/javascript/sw.js'], gulp.parallel('javascript'));
+	gulp.watch('./src/javascript/sw.js', gulp.parallel('serviceworker'));
 });
 
 // build
-gulp.task('build', gulp.parallel('css', 'buildPrismCss', 'javascript', 'serviceworker', 'gsap'));
+gulp.task('build', gulp.parallel('css', 'buildPrismCss', 'javascript', 'serviceworker'));

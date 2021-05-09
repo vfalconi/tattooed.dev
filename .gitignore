@@ -1,6 +1,7 @@
 node_modules
 build
 build-log
-src/assets/img
+assets/img
+assets/fonts
 build.lock
 *.env

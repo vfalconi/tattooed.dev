@@ -1,5 +1,7 @@
 const { DateTime } = require('luxon');
 
+// TODO: make these more DRY
+
 module.exports.htmlDateString = (dateObj) => {
 	const date = dateObj instanceof Date ? dateObj : new Date(dateObj);
 	const format = 'LLLL d, yyyy';
@@ -31,4 +33,9 @@ module.exports.trim = (str) => {
 	if (str.startsWith(chr)) result = result.slice(chr.length);
 	if (str.endsWith(chr)) result = result.slice(0, result.length - chr.length);
 	return result;
+};
+
+module.exports.date = (obj, format = null) => {
+	if (format === null) format = 'yyyy-mm-dd';
+	return DateTime.fromJSDate(obj).toFormat(format);
 };
