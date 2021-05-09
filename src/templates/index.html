@@ -1,0 +1,81 @@
+{% extends "layouts/base.html" %}
+
+{% block header %}
+	<div class="landscape-wrapper">
+		<img src="/assets/img/mountains.svg" alt="" width="600" height="338" role="presentation" />
+	</div>
+{% endblock %}
+
+{% block content %}
+	<div class="homepage">
+		<div class="homepage__content">
+			<h1 class="homepage__heading">Hi. I'm Vince Falconi.</h1>
+			<p>I am a security-minded web developer, but I am also <span class="highlighted" data-description>a tattoo-collector</span>, <span class="highlighted" data-description>a weightlifter</span>, and <span class="highlighted" data-description>a gardener</span>.</p>
+			<p>You've found my digital garden where I tinker with code and <a href="/wrote">write</a>.</p>
+
+			<h2 class="section-heading">Recent Posts</h2>
+			{% for post in collections.blogPosts %}
+				{% if loop.index <= 3 and post.rssOnly != true %}
+					<article class="summary">
+						<h3 class="summary-heading"><a href="{{ post.url }}">{{ post.title }}</a></h3>
+						{% if post.description %}
+							<p class="summary-description">
+								<time class="summary-dateline" datetime="{{ post.date | machineTimeISO }}">{{ post.published_at|date('MMMM d yyyy') }}</time>
+								&mdash;
+								{{ post.description }}
+							</p>
+						{% endif %}
+					</article>
+				{% endif %}
+			{% endfor %}
+			<div class="more-link">
+				<a href="/wrote">Blog archive</a>
+			</div>
+		</div>
+		<div class="homepage-picture">
+			<picture>
+				<source srcset="/assets/img/homepage-portrait-1x.avif" type="image/avif" sizes="1x" />
+				<source srcset="/assets/img/homepage-portrait-1.5x.avif" type="image/avif" sizes="1.5x" />
+				<source srcset="/assets/img/homepage-portrait-2x.avif" type="image/avif" sizes="2x" />
+				<source srcset="/assets/img/homepage-portrait-1x.webp" type="image/webp" sizes="1x" />
+				<source srcset="/assets/img/homepage-portrait-1.5x.webp" type="image/webp" sizes="1.5x" />
+				<source srcset="/assets/img/homepage-portrait-2x.webp" type="image/webp" sizes="2x" />
+				<source srcset="/assets/img/homepage-portrait-1.5x.jpg" type="image/jpeg" sizes="1.5x" />
+				<source srcset="/assets/img/homepage-portrait-2x.jpg" type="image/jpeg" sizes="2" />
+				<img src="/assets/img/homepage-portrait-1x.jpg" alt="A bald man with a dark beard, with grey around his mouth, smiling and waving. He is wearing a dark blue shirt with small white dots, with the sleeves rolled up just past his wrists." width="600" height="400" />
+			</picture>
+		</div>
+		<div class="homepage__identity">
+			<h2 class="section-heading">Known Identities</h2>
+			<nav role="navigation" class="social-nav" aria-label="Social profiles">
+				<ul class="social-profiles">
+					<li class="social-profile">
+						<a href="https://twitter.com/{{ site.profiles.twitter }}" class="social-icon" aria-label="twitter">
+							<svg viewBox="0 0 24 24" width="24" height="24" role="presentation" aria-hidden="true"><use href="#twitter"></use></svg>
+						</a>
+					</li>
+					<li class="social-profile">
+						<a href="https://github.com/{{ site.profiles.github }}" class="social-icon" aria-label="github">
+							<svg viewBox="0 0 24 24" width="24" height="24" role="presentation" aria-hidden="true"><use href="#github"></use></svg>
+						</a>
+					</li>
+					<li class="social-profile">
+						<a href="https://keybase.io/{{ site.profiles.keybase }}" class="social-icon" aria-label="keybase">
+							<svg viewBox="0 0 24 24" width="24" height="24" role="presentation" aria-hidden="true"><use href="#keybase"></use></svg>
+						</a>
+					</li>
+					<li class="social-profile">
+						<a href="/feed.xml" class="social-icon" aria-label="rss">
+							<svg viewBox="0 0 24 24" width="24" height="24" role="presentation" aria-hidden="true"><use href="#rss"></use></svg>
+						</a>
+					</li>
+					<li class="social-profile">
+						<a href="/uses/" class="social-icon" aria-label="uses">
+							<svg viewBox="0 0 24 24" width="24" height="24" role="presentation" aria-hidden="true"><use href="#uses"></use></svg>
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+{% endblock %}

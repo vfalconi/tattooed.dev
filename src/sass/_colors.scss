@@ -1,0 +1,57 @@
+:root {
+	--white: hsla(0, 0%, 100%, 1);
+	--black: hsla(0, 0%, 6.7%, 1);
+	--blueBlack: hsla(207, 15%, 12%, 1);
+	--pink: hsla(327, 100%, 53%, 1);
+	--purple: hsla(328, 69%, 41%, 1);
+	--yellow: hsla(53, 100%, 59%, 1);
+	--offWhite: hsla(61, 87%, 93%, 1);
+	--cyan: hsla(186, 100%, 59%, 1);
+	--blueGreen: hsla(186, 94%, 36%, 1);
+	--yellowGreen: hsla(76, 69%, 41%, 1);
+	--greenYellow: hsla(76, 100%, 56%, 1);
+	--green: hsla(152, 69%, 41%, 1);
+	--neonGreen: hsla(152, 100%, 51%, 1);
+	--grayBlue: hsla(206, 21%, 36%, 1);
+	--darkBlue: hsla(206, 14%, 11%, 1);
+	--maroon: hsla(0, 9%, 12%, 1);
+	--army: hsla(61, 18%, 37%, 1);
+	--blue: hsla(204, 16%, 12%, 1);
+	--slate: hsla(206, 27%, 64%, 1);
+
+	--bodyBG: var(--blueBlack);
+	--bodyText: var(--offWhite);
+
+	--bulletColor: var(--pink);
+
+	--linkColor: var(--pink);
+	--linkColor--hover: var(--blueGreen);
+
+	--highlightedColor: var(--greenYellow);
+
+	--homepageBG: var(--blueBlack);
+	--homepageContent: var(--black);
+	--homepageContentBorder: #20B370;
+
+	--codeBgColor: var(--grayBlue);
+	--codeColor: var(--white);
+	--codeSnippetShadow: var(--blueGreen);
+
+	--blogSummaryColor: var(--white);
+	--blogSubheadingColor: var(--white);
+	--blogSubheadingBG: var(--black);
+	--blogSubheadingShadow: var(--black);
+
+	--imageShadow: var(--black);
+
+	--quoteBgColor: var(--black);
+	--quoteTextColor: var(--slate);
+	--quoteBoxShadowColor: var(--slate);
+
+	--footnotesHighlightColor: var(--yellow);
+
+	--socialIconFill: var(--blueGreen);
+	--socialIconFill--hover: var(--pink);
+
+	--siteFooterColor: var(--slate);
+}

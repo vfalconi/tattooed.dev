@@ -1,0 +1,17 @@
+#starscape {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	z-index: -1;
+	overflow: hidden;
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: 1fr;
+
+	canvas {
+		grid-row: 1;
+		grid-column: 1;
+	}
+}

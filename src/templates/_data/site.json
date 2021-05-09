@@ -1,0 +1,28 @@
+{
+	"title": "vince falconi | tattooed.dev",
+	"email": "vince.falconi@gmail.com",
+	"description": "My name is Vince. I make things on the web.",
+	"profiles" : {
+		"twitter": "vincefalconi",
+		"github": "vfalconi",
+		"keybase": "vincefalconi"
+	},
+	"baseurl": "",
+	"url": "https://tattooed.dev",
+	"ogp" : {
+		"title": "tattooed.dev",
+		"url": "https://tattooed.dev",
+		"image": "/assets/img/homepage-portrait.jpg",
+		"description": "My name is Vince. I make things on the web."
+	},
+	"feed": {
+		"author": {
+			"name": "vince falconi"
+		},
+		"subtitle": "My name is Vince, and I make things on the web.",
+		"filename": "feed.xml",
+		"path": "feed/feed.xml",
+		"url": "https://tattooed.dev/feed.xml",
+		"id": "https://tattooed.dev/"
+	}
+}

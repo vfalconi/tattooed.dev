@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width">
+<script src="{% timestamp '/assets/fontfaceobserver.js' %}"></script>
+<script src="{% timestamp '/assets/head.js' %}" async></script>
+<link rel="stylesheet" type="text/css" href="{% timestamp '/assets/styles.css' %}" />
+
+<link rel="preconnect dns-prefetch" href="https://stats.tattooed.dev" />
+
+<title>{% if title %}{{ title | lower }} | {% endif %}{{ site.title }}</title>
+<meta name="description" content="{{ description|default(site.description) }}">
+
+<link rel="author" type="text/plain" href="{{ site.url }}/humans.txt" />
+<link rel="canonical" href="{{ site.url }}/{{ post.permalink | default('') }}" />
+<link rel="alternate" type="application/rss+xml" href="https://tattooed.dev/feed.xml" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{{ post.title | default(site.ogp.title) }}" />
+<meta property="og:url" content="{{ site.url }}/{{ post.permalink | default('') }}" />
+<meta property="og:image" content="{{ site.url }}{{ cover_image.uri | default(site.ogp.image) }}" />
+<meta property="og:site_name" content="{{ site.ogp.title }}" />
+<meta property="og:description" content="{{ post.description | default(site.ogp.description) }}" />
+<meta property="og:locale" content="en_US" />
+
+{% if post.cover_image.uri %}
+	<meta name="twitter:card" content="summary_large_image" />
+{% else %}
+	<meta name="twitter:card" content="summary" />
+{% endif %}
+<meta name="twitter:site" content="@vincefalconi" />
+<meta name="twitter:creator" content="@vincefalconi" />
+<meta name="twitter:title" content="{{ post.title | default(site.ogp.title) }}" />
+<meta name="twitter:description" content="{{ post.description | default(site.ogp.description) }}" />
+<meta name="twitter:image" content="{{ site.url }}{{ post.cover_image.uri | default(site.ogp.image) }}" />
+
+<div id="starscape"></div>
+<script src="/assets/stars.js" defer></script>
+
+{% include 'sprites.html' %}
+
+<a class="skip-link" href="#content">Skip to main content</a>
+{% block header %}{% endblock %}
+<main class="container" tabindex="-1" id="content">
+	{% block content %}{% endblock %}
+</main>
+{% block footer %}{% endblock %}

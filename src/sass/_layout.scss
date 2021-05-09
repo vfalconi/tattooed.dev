@@ -1,0 +1,14 @@
+:root {
+	--grid-max-width: #{rem(1200)};
+	--grid-offset: #{rem(128)};
+	--grid-gap: #{rem(32)};
+	--root-grid: [full-start left-gutter-start] minmax(var(--grid-gap), var(--grid-offset)) [left-gutter-end wide-start left-sidebar-start left-content-start] repeat(4, 1fr) [left-sidebar-end right-content-start center-content-start] repeat(6, 1fr) [center-content-end left-content-end right-sidebar-start] repeat(4, 1fr) [right-content-end right-sidebar-end wide-end right-gutter-start] calc(100vw - var(--grid-max-width)) [right-gutter-end full-end];
+}
+
+.container {
+	@media screen and (min-width: rem(1000)) {
+		display: grid;
+		grid-template-columns: var(--root-grid);
+		grid-gap: var(--grid-gap);
+	}
+}
