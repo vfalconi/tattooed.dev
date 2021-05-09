@@ -3,7 +3,7 @@
 }
 
 body {
-	background-color: var(--black);
+	background-color: var(--bodyBG);
 	color: var(--bodyText);
 	font-family: Geneva, Tahoma, sans-serif;
 	font-size: 150%;
@@ -60,4 +60,9 @@ code:not([class]) {
 
 .sprites {
 	display: none;
+}
+
+::selection {
+  background-color: var(--selection);
+	color: var(--selectionText);
 }

@@ -19,8 +19,11 @@
 	--blue: hsla(204, 16%, 12%, 1);
 	--slate: hsla(206, 27%, 64%, 1);
 
-	--bodyBG: var(--blueBlack);
+	--bodyBG: var(--black);
 	--bodyText: var(--offWhite);
+
+	--selection: var(--cyan);
+	--selectionText: var(--darkBlue);
 
 	--bulletColor: var(--pink);
 

@@ -55,9 +55,6 @@
 	@media screen and (min-width: rem(980)) {
 		grid-column: left;
 		grid-row: 1 / 3;
-	}
-
-	@media screen and (min-width: rem(1140)) {
 		transform: translateY(#{rem(-96)});
 	}
 }

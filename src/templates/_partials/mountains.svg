@@ -15,7 +15,7 @@
 		.st7{fill:#1A2024;}
 		.st8{fill:#ACACAC;}
 		.st9{opacity:0.38;fill:#121212;}
-		.tentacle{fill:#08020b;}
+		.tentacle{fill:#000;}
 	</style>
 	<g transform="matrix(1, 0, 0, 1, 493.603851, 277.095001)">
 		<rect x="-1426.396" y="-277.095" height="1080" width="1920" fill="url(#glow)" transform="matrix(-1, 0, 0, 1, 0, 0)"/>
