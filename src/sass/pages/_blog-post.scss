@@ -1,0 +1,101 @@
+:root {
+	--blogHeadingSize: #{em(($baseFontSize * 2), $baseFontSize)};
+	--blogSubheadingSize: #{em(($baseFontSize * 1.5), $baseFontSize)};
+	--blogSummarySize: #{em($baseFontSize, $baseFontSize)};
+
+	@media screen and (min-width: rem(600)) {
+		--blogHeadingSize: #{em(($baseFontSize * 3), $baseFontSize)};
+		--blogSummarySize: #{em(($baseFontSize * 1.25), $baseFontSize)};
+	}
+
+	@media screen and (min-width: rem(800)) {
+		--blogHeadingSize: #{em(($baseFontSize * 4), $baseFontSize)};
+		--blogSubheadingSize: #{em(($baseFontSize * 2.5), $baseFontSize)};
+		--blogSummarySize: #{em(($baseFontSize * 1.5), $baseFontSize)};
+	}
+
+	@media screen and (min-width: rem(1000)) {
+		--blogHeadingSize: #{em(($baseFontSize * 5), $baseFontSize)};
+		--blogSummarySize: #{em(($baseFontSize * 1.75), $baseFontSize)};
+	}
+}
+
+.blog-post {
+	grid-area: wide;
+	@media screen and (max-width: rem(999)) {
+		padding: rem(64);
+	}
+}
+
+.blog-heading {
+	font-size: var(--blogHeadingSize);
+	color: var(--blogHeadingColor);
+	line-height: 1.25;
+	font-weight: 900;
+	text-shadow: 2px 2px var(--bodyBG), 4px 4px var(--blogHeadingShadow);
+
+	@media screen and (min-width: rem(600)) {
+		text-shadow: 3px 3px var(--bodyBG), 5px 5px var(--blogHeadingShadow);
+	}
+}
+
+.blog-timemark {
+	font-size: .75em;
+	font-style: italic;
+}
+
+.blog-summary {
+	font-size: var(--blogSummarySize);
+	font-style: italic;
+	color: var(--blogSummaryColor);
+}
+
+.blog-post h2:not([class]) {
+	font-size: var(--blogSubheadingSize);
+	color: var(--blogSubheadingColor);
+	line-height: 1.25;
+	position: relative;
+
+	@media screen and (min-width: rem(1000)) {
+		width: max-content;
+	}
+
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: var(--blogSubheadingBG);
+		z-index: -1;
+		transform: scaleY(.35) rotate(3deg);
+		opacity: .5;
+	}
+
+	&:nth-of-type(odd):before {
+		transform: scaleY(.35) rotate(-5deg);
+	}
+}
+
+.blog-post img {
+	display: block;
+	margin: rem(40) auto;
+	//border: 8px solid var(--imageBorderColor);
+	//padding: rem(16);
+	box-shadow: rem(16)	rem(-16) var(--bodyBG), rem(24) rem(-24) var(--imageShadow),
+		rem(-16)	rem(16) var(--bodyBG), rem(-24) rem(24) var(--imageShadow);
+	width: 100%;
+	height: auto;
+	box-sizing: border-box;
+}
+
+
+
+#blog-tentacle {
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: -1;
+}

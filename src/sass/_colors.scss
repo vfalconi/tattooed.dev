@@ -40,18 +40,20 @@
 	--codeColor: var(--white);
 	--codeSnippetShadow: var(--blueGreen);
 
+	--blogHeadingColor: var(--yellow);
+	--blogHeadingShadow: var(--pink);
 	--blogSummaryColor: var(--white);
 	--blogSubheadingColor: var(--white);
-	--blogSubheadingBG: var(--black);
-	--blogSubheadingShadow: var(--black);
+	--blogSubheadingBG: var(--green);
 
 	--imageShadow: var(--black);
 
-	--quoteBgColor: var(--black);
-	--quoteTextColor: var(--slate);
-	--quoteBoxShadowColor: var(--slate);
+	--quoteBgColor: var(--blueBlack);
+	--quoteTextColor: var(--white);
 
-	--footnotesHighlightColor: var(--yellow);
+	--footnotesHighlightColor: var(--neonGreen);
+	--footnoteButtonBackground: var(--neonGreen);
+	--footnoteButtonColor: var(--black);
 
 	--socialIconFill: var(--blueGreen);
 	--socialIconFill--hover: var(--pink);

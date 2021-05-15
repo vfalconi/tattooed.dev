@@ -1,0 +1,18 @@
+.archive {
+	grid-area: wide;
+}
+
+.archive-section {
+	@media screen and (min-width: rem(450)) {
+		display: flex;
+	}
+}
+
+.archive-section+.archive-section {
+	margin-top: rem(64);
+}
+
+.archive-section-heading {
+	margin-top: 0;
+	margin-right: rem(64);
+}

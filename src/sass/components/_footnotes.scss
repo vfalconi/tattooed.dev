@@ -1,0 +1,29 @@
+.footnotes {
+	margin-top: rem(32);
+}
+
+.footnotes__heading {
+	font-size: em(($baseFontSize * 1), $baseFontSize);
+}
+
+.footnote {
+	position: relative;
+	font-size: em(($baseFontSize * .75), $baseFontSize);
+	margin-bottom: rem(24);
+}
+
+.footnote:target {
+	color: var(--footnotesHighlightColor);
+	font-size: em(($baseFontSize * 1.25), $baseFontSize);
+}
+
+.footnotes__return {
+	display: none;
+}
+
+.js .footnote:target .footnotes__return {
+	display: block;
+	background-color: var(--footnoteButtonBackground);
+	color: var(--footnoteButtonColor);
+	border: none;
+}

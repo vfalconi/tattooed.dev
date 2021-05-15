@@ -1,0 +1,18 @@
+.quote {
+	background-color: var(--quoteBgColor);
+	color: var(--quoteTextColor);
+	padding: rem(32);
+	margin-top: rem(64);
+	margin-left: 0;
+	margin-bottom: rem(64);
+	box-sizing: border-box;
+
+	blockquote {
+		margin: 0;
+	}
+
+	figcaption {
+		margin-top: rem(24);
+		text-align: right;
+	}
+}

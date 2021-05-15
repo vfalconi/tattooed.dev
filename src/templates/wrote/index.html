@@ -1,0 +1,44 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+	<div class="archive">
+		<header>
+			<h1 class="page-heading">Blog Archive</h1>
+		</header>
+		{% for post in collections.blogPosts %}
+		{% set currentDate = post.published_at|date('yyyy') %}
+		{% if currentDate != myDate|default(null) %}
+			{% if not loop.first %}</div></section>{% endif %}
+			<section class="archive-section left-content">
+				<h2 class="archive-section-heading">{{ currentDate }}</h2>
+				{% set myDate = currentDate %}
+				<div class="blog-summary-wrapper">
+		{% endif %}
+			<article class="summary">
+				<h3 class="summary-heading">
+					<a href="/{{ post.permalink }}">{{ post.title }}</a>
+				</h3>
+				{% if post.description %}
+					<p class="summary-description">{{ post.description }}</p>
+				{% endif %}
+				<p class="summary-dateline">
+					<time datetime="{{ post.published_at|machineTime }}">{{ post.published_at|date('MMMM d') }}</time>
+				</p>
+			</article>
+		{% if loop.last %}</section>{% endif %}
+	{% endfor %}
+	</div>
+
+<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		"itemListElement": [{
+			"@type": "ListItem",
+			"position": 1,
+			"name": "Blog Archive",
+			"item": "https://tattooed.dev/wrote"
+		}]
+	}
+</script>
+{% endblock %}

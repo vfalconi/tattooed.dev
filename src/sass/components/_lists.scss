@@ -1,0 +1,53 @@
+ul:not([class]):not([style]),
+ol:not([class]):not([style]) {
+	margin: rem(18) 0;
+	padding-left: 0;
+
+	li + li { margin-top: rem(16); }
+
+	li::marker {
+		color: var(--bulletColor);
+		font-weight: bold;
+	}
+}
+
+.flat-list {
+	margin: rem(18) 0;
+	padding-left: 0;
+	list-style: none;
+
+	li {
+		margin-left: rem(18);
+		text-indent: rem(-18);
+	}
+}
+
+.flat-list--two-column {
+	@media screen and (min-width: rem(400)) {
+		columns: 2;
+	}
+}
+
+.flat-list--three-column {
+
+	@media screen and (min-width: rem(400)) {
+		columns: 2;
+	}
+
+	@media screen and (min-width: rem(600)) {
+		columns: 3;
+	}
+}
+
+
+.def-list__title {
+	font-weight: bold;
+}
+
+.def-list__definition {
+	margin-left: 0;
+}
+
+.def-list__title+.def-list__definition {
+	margin-bottom: rem(32);
+}

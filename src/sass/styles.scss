@@ -6,9 +6,16 @@
 @import 'layout';
 @import 'headings';
 
-@import 'pages/homepage';
+@import 'pages/archive';
+@import 'pages/blog-post';
 @import 'pages/bookshelf';
+@import 'pages/homepage';
 
+@import 'components/blockquote';
+@import 'components/code-snippets';
+@import 'components/footnotes';
+@import 'components/lists';
+@import 'components/post-summary';
 @import 'components/skip-link';
 @import 'components/social-icons';
 @import 'components/starscape';

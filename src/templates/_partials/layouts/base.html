@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns#">
 <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width">
 <script src="{% timestamp '/assets/fontfaceobserver.js' %}"></script>
 <script src="{% timestamp '/assets/head.js' %}" async></script>
 <link rel="stylesheet" type="text/css" href="{% timestamp '/assets/styles.css' %}" />
+{% if includePrism %}
+	<link href="{% timestamp '/assets/prism-tomorrow.css' %}" rel="stylesheet">
+	<script src="{% timestamp '/assets/prism.js' %}" async></script>
+{% endif %}
 
 <link rel="preconnect dns-prefetch" href="https://stats.tattooed.dev" />
 
@@ -43,6 +46,6 @@
 <a class="skip-link" href="#content">Skip to main content</a>
 {% block header %}{% endblock %}
 <main class="container" tabindex="-1" id="content">
-	{% block content %}{% endblock %}
+	{% block content %}{{ content|safe }}{% endblock %}
 </main>
 {% block footer %}{% endblock %}
