@@ -1,0 +1,79 @@
+.webmentions {
+	background-color: hsla(206, 14%, 11%, .75);
+	box-shadow: 0 0 5px #111 inset, 0 0 5px #0003;
+	border-radius: 2px;
+	padding: var(--webmentionsPadding, #{rem(16)});
+	font-family: monospace;
+
+	--linkColor: var(--theme_webmentionsLinkColor, var(--pink));
+	--linkColorHover: var(--theme_webmentionsLinkColorHover, var(--cyan));
+
+	@media (min-width: #{rem(580)}) {
+		--webmentionsPadding: #{rem(32)};
+	}
+}
+
+.webmentions__heading {
+	font-size: 110%;
+	letter-spacing: 0.03ch;
+	font-weight: normal;
+	margin: 0;
+}
+
+.webmentions__mention {
+	margin: 0;
+	padding-block: rem(16);
+
+	@media (min-width: #{rem(580)}) {
+		padding-block: rem(32);
+	}
+}
+
+.webmention__quote {
+	margin: 1rem 0;
+	padding-left: rem(16);
+	border-left: 4px dotted var(--theme_webmentionsQuoteBorder, var(--yellowGreen));
+}
+
+.webmention__date {
+	font-size: 85%;
+	margin-block: rem(8);
+	font-style: italic;
+}
+
+
+
+.webmentions__form {
+	margin-block: rem(32);
+}
+
+.webmentions__form-copy {
+	font-size: 100%;
+}
+
+.webmentions__input {
+	display: block;
+	font-size: 85%;
+	width: 100%;
+	margin-top: 1rem;
+	border-radius: 4px;
+	padding: rem(8);
+	box-sizing: border-box;
+	font-family: monospace;
+}
+
+.webmentions__submit {
+	font-size: 85%;
+	background-color: var(--theme_webmentionsSubmitBG, var(--green));
+	color: var(--black);
+	border: none;
+	padding: .5rem 1rem;
+	border-radius: 4px;
+	margin-top: 1rem;
+	font-family: monospace;
+	cursor: pointer;
+
+	&:active {
+		background-color: var(--theme_webmentionsActiveBG, var(--neonGreen));
+	}
+}

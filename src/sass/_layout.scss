@@ -1,0 +1,25 @@
+.container {
+	--containerPadding: 32px;
+	box-sizing: border-box;
+	padding: calc(var(--containerPadding) / 2) var(--containerPadding);
+
+	@media (min-width: 800px) {
+		--containerPadding: 64px;
+	}
+
+	@media (min-width: 1280px) {
+		--containerPadding: 0;
+	}
+}
+
+.container {
+	width: min(#{rem(800)}, 100%);
+
+	@media (min-width: 800px) {
+		margin-inline: auto;
+	}
+}
+
+.standard-page {
+	min-height: 50vh;
+}

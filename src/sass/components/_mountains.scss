@@ -1,0 +1,20 @@
+.mountains {
+	max-width: rem(800);
+	margin-left: auto;
+}
+
+body:has(.blog-post) {
+	--blogTentacles: block;
+	--pageTentacles: none;
+}
+
+#TENTACLES {
+	display: var(--pageTentacles);
+}
+
+#blog-tentacle {
+	display: var(--blogTentacles, none);
+}
+
+.phase { opacity: 0; }
+.phase--active { opacity: 1; }

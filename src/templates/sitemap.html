@@ -1,0 +1,55 @@
+---
+permalink: sitemap.xml
+# TODO: figure out how to get nunjucks to parse xml files
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<url>
+		<loc>{{ site.url }}/</loc>
+		<lastmod>{{ '2/22/2023'|machineTime }}</lastmod>
+	</url>
+
+	<url>
+		<loc>{{ site.url }}/colophon/</loc>
+		<lastmod>{{ '2/22/2023'|machineTime }}</lastmod>
+	</url>
+
+	<url>
+		<loc>{{ site.url }}/for-hire/</loc>
+		<lastmod>{{ '2/22/2023'|machineTime }}</lastmod>
+	</url>
+
+	{% set mostRecentPhotoPost = null %}
+	{% set mostRecentBlogPost = null %}
+	{% for post in collections.blogPosts %}
+		{% if post.secret == false %}
+			{% if post.date > mostRecentBlogPost %}
+				{% set mostRecentBlogPost = post.date %}
+			{% endif %}
+			{% if post.photos|length > 0 and post.date > mostRecentPhotoPost %}
+				{% set mostRecentPhotoPost = post.date %}
+			{% endif %}
+			<url>
+				<loc>{{ site.url }}/{{ post.permalink }}</loc>
+				<lastmod>{{ post.date|machineTime }}</lastmod>
+			</url>
+		{% endif %}
+	{% endfor %}
+
+	<url>
+		<loc>{{ site.url }}/bookshelf/</loc>
+		{% set bookYears = collections.books|getKeys|reverse %}
+		{% set mostRecentBook = collections.books[bookYears[0]]|reverse %}
+		<lastmod>{{ mostRecentBook[0].date|machineTime }}</lastmod>
+	</url>
+
+	<url>
+		<loc>{{ site.url }}/photographed/</loc>
+		<lastmod>{{ mostRecentPhotoPost|machineTime }}</lastmod>
+	</url>
+
+	<url>
+		<loc>{{ site.url }}/wrote/</loc>
+		<lastmod>{{ mostRecentBlogPost|machineTime }}</lastmod>
+	</url>
+</urlset>

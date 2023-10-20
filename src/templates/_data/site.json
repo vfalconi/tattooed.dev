@@ -1,0 +1,38 @@
+{
+	"title": "vince falconi | tattooed.dev",
+	"email": "vince.falconi@gmail.com",
+	"generator": "Eleventy v1.0.1",
+	"description": "My name is Vince. I make things on the web.",
+	"profiles" : {
+		"Mastodon": "https://hachyderm.io/@papayaga",
+		"GitHub": "https://github.com/vfalconi",
+		"Keyoxide": "https://keyoxide.org/hkp/85149DFF4FE0728FE7292DB50127D00E14457035"
+	},
+	"baseurl": "",
+	"url": "https://www.tattooed.dev",
+	"ogp" : {
+		"title": "tattooed.dev",
+		"url": "https://www.tattooed.dev",
+		"image": "https://assets.tattooed.dev/images/og-preview.jpg",
+		"description": "My name is Vince. I make things on the web."
+	},
+	"feed": {
+		"author": {
+			"name": "vince falconi"
+		},
+		"subtitle": "My name is Vince, and I make things on the web.",
+		"filename": "feed.xml",
+		"path": "feed/feed.xml",
+		"url": "https://www.tattooed.dev/feed.xml",
+		"id": "8dd210db-242a-42ac-b9f2-ca7d6468b4c8",
+		"books": {
+			"id": "54cde6ca-d4f0-4f12-a2d3-1be202ee6e6e"
+		},
+		"movies": {
+			"id": "7c9aef38-63d2-4986-a57f-278bb4e09c3f"
+		},
+		"photos": {
+			"id": "71630d80-4d5b-4865-82aa-5771c7f9fdd3"
+		}
+	}
+}

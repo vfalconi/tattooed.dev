@@ -1,0 +1,57 @@
+{% macro cachebust(path) %}{% spaceless %}
+	{% set breaker = assetHashes[path] %}
+	{{ path }}{% if breaker != null  %}?cb={{ breaker|truncate(7, true, '') }}{% endif %}
+{% endspaceless %}{% endmacro %}
+
+{% macro blockquote(content) %}
+	<figure class="quote">
+		<blockquote class="quote__text">
+			{{ content.text|md|safe }}
+		</blockquote>
+		{% if content.source != null or content.cite != null %}
+			<figcaption class="quote__caption">
+				{{ content.source|md|safe }}
+				{% if content.cite is defined and content.cite != null %}
+					<cite class="quote__cite">{{ content.cite|md|safe }}</cite>
+				{% endif %}
+			</figcaption>
+		{% endif %}
+	</figure>
+{% endmacro %}
+
+{% macro image(content) %}
+	{% set imageElements %}
+		{% for img in content.image %}
+			<picture>
+				{% for optimized in img.optimizedVersions %}
+					<source srcset="{{ optimized.path }}" type="{{ optimized.mimeType }}" />
+				{% endfor %}
+				<img
+					{% if content.caption == null %}class="blog-image--{{ content.alignment }}"{% endif %}
+					src="{{ img.path }}"
+					width="{{ img.width }}"
+					height="{{ img.height }}"
+					loading="lazy"
+					alt="{{ img.altText }}" />
+			</picture>
+		{% endfor %}
+	{% endset %}
+
+	{% if content.caption is defined and content.caption != null %}
+		<figure>
+			{{ imageElements|safe }}
+			<figcaption>
+				{{ content.caption }}
+			</figcaption>
+		</figure>
+	{% else %}
+		{{ imageElements|safe }}
+	{% endif %}
+{% endmacro %}
+
+{% macro codeblock(content) %}
+	<figure class="code-snippet">
+		{% if content.filename is defined and content.filename != null %}<figcaption>{{ content.filename }}</figcaption>{% endif %}
+		<pre><code class="language-{{ content.syntax }}">{{ content.snippet }}</code></pre>
+	</figure>
+{% endmacro %}

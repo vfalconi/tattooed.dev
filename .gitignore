@@ -1,0 +1,8 @@
+node_modules
+build
+build-log
+assets/img
+assets/fonts
+build.lock
+*.env
+.DS_STORE

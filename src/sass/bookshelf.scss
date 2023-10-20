@@ -1,0 +1,47 @@
+@import 'fn';
+
+.books {
+	display: flex;
+	flex-wrap: wrap;
+	gap: rem(32);
+}
+
+.book {
+	--bookPadding: #{rem(16)};
+	--bookCoverWidth: #{rem(75)};
+	display: var(--bookLayout, flex);
+	align-items: start;
+	gap: rem(16);
+	background-color: var(--theme_bookBG);
+	padding: var(--bookPadding);
+	border-bottom: 4px solid var(--theme_bookBorder);
+	width: var(--bookWidth, 100%);
+	box-sizing: border-box;
+
+	@media (min-width: #{rem(692)}) {
+		--bookLayout: block;
+		--bookCoverWidth: #{rem(150)};
+		--bookWidth: calc(var(--bookCoverWidth) + (var(--bookPadding) * 2));
+		--bookMargin: #{rem(16)};
+	}
+}
+
+.book__cover {
+	display: block;
+	margin-bottom: var(--bookMargin, 0);
+	width: var(--bookCoverWidth);
+}
+
+.book__title {
+	font-size: em(18, 24);
+	margin: 0;
+}
+
+.book__author {
+	font-size: em(16, 24);
+}
+
+.book__format {
+	fill: var(--theme_bookFormat);
+	max-width: rem(24);
+}

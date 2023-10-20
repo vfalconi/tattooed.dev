@@ -1,0 +1,41 @@
+---
+pagination:
+  data: collections.photos
+  size: 1
+  alias: photo
+  addAllPagesToCollections: true
+layout: layouts/base.html
+includePrism: true
+permalink: '{{ photo.permalink }}'
+pageCss: blog.css
+---
+<article class="photo-blog-post h-entry container">
+	<header>
+		<h1 class="page-heading p-name">{{ photo.title }}</h1>
+		<p>This photo is part of the post <a href="/{{ photo.parentEntry }}">{{ photo.parentTitle }}</a></p>
+	</header>
+	{% set picture %}
+		<picture>
+			{% for mimeType, sources in photo.optimizedVersions %}
+				{% set srcs = [] %}
+				{% for source in sources %}
+					{% set srcHref = source.path ~ ' ' ~ source.resolution|replace('dppx', 'x') %}
+					{% set srcs = (srcs.push(srcHref), srcs) %}
+				{% endfor %}
+				<source srcset="{{ srcs|join(',') }}" type="{{ mimeType }}" />
+			{% endfor %}
+			<img src="{{ photo.path }}" width="{{ photo.width }}" height="{{ photo.height }}" loading="lazy" alt="{{ photo.altText }}" />
+		</picture>
+	{% endset %}
+
+	{% if photo.caption %}
+		<figure class="photo-set__photo {% if photo.width < 800 %}photo-set--vertical{% endif %}">
+			{{ picture|safe }}
+			<figcaption class="photo-set__caption">{{ photo.caption|md|safe }}</figcaption>
+		</figure>
+	{% else %}
+		<div class="photo-set__photo {% if photo.width < 800 %}photo-set--vertical{% endif %}">
+			{{ picture|safe }}
+		</div>
+	{% endif %}
+</article>

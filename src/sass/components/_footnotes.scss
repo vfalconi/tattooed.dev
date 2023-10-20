@@ -1,0 +1,30 @@
+.footnotes {
+	margin-top: rem(32);
+	clear: both;
+}
+
+.footnotes__heading {
+	font-size: 1em;
+}
+
+.footnote {
+	position: relative;
+	font-size: .75em;
+	margin-bottom: rem(24);
+}
+
+.footnote:target {
+	color: var(--theme_footnoteFocusColor, var(--neonGreen));
+	font-size: 1.25em;
+}
+
+.footnotes__return {
+	display: none;
+}
+
+.js .footnote:target .footnotes__return {
+	display: block;
+	background-color: var(--theme_footnoteReturnBG, (--neonGreen));
+	color: var(--theme_footnoteReturnColor, var(--black));
+	border: none;
+}

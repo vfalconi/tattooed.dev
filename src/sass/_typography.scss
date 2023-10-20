@@ -1,0 +1,54 @@
+.page-heading {
+	font-size: var(--pageHeadingSize, 2.5em);
+	color: var(--theme_pageHeadingColor);
+	font-weight: bold;
+	margin-block: 0 rem(32);
+	line-height: 1.1;
+
+	@media screen and (min-width: rem(600)) {
+		--pageHeadingSize: 3.5em;
+	}
+
+	@media screen and (min-width: rem(800)) {
+		--pageHeadingSize: 4em;
+	}
+
+	@media screen and (min-width: rem(1000)) {
+		--pageHeadingSize: 5em;
+	}
+}
+
+.subheading {
+	font-size: var(--pageSubheadingSize, 1.5em);
+	color: var(--theme_pageSubheadingColor);
+	font-weight: bold;
+	margin-top: 3rem;
+	margin-bottom: 1rem;
+	line-height: 1.1;
+
+	@media screen and (min-width: rem(800)) {
+		--pageSubheadingSize: 2.5em;
+	}
+}
+
+
+
+.stinger {
+	font-size: 300%;
+	line-height: 1.2;
+	margin-bottom: 1rem;
+}
+
+
+
+.prominent-content {
+	font-size: 150%;
+}
+
+
+
+p > code {
+	color: var(--theme_codeColor);
+	font-size: 85%;
+	font-weight: bold;
+}

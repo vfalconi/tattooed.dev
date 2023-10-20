@@ -1,0 +1,10 @@
+.code-snippet {
+	margin: 3em 0;
+	padding: 0;
+}
+
+code[class*=language-],
+pre[class*=language-] {
+	font-family: monospace !important;
+	font-size: .85em !important;
+}

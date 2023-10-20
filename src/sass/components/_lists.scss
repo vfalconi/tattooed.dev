@@ -1,0 +1,48 @@
+:has(> :where(ol, ul):not(:where([class],[style])) :where(li:nth-child(12))) {
+	container-type: inline-size;
+}
+
+:where(ol, ul):not(:where([class],[style])) {
+	margin: rem(18) 0;
+	padding-left: 0;
+	columns: var(--columnsCount, 1);
+
+	li + li { margin-top: rem(16); }
+
+	li::marker {
+		color: var(--theme_listMarkerColor, var(--greenYellow));
+		font-weight: bold;
+	}
+}
+
+@container (min-width: #{rem(400)}) {
+	:where(ol, ul):not(:where([class],[style])) {
+		--columnsCount: 2;
+	}
+}
+
+@container (min-width: #{rem(600)}) {
+	:where(ol, ul):not(:where([class],[style])) {
+		--columnsCount: 3;
+	}
+}
+
+:is(ol,ul):not(:where([class], [style])):nth-child(n+21)
+
+:where(ul):not(:where([class], [style])) {
+	list-style: none;
+
+	li {
+		position: relative;
+
+		&::after {
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 100%;
+			content: "✵";
+			color: var(--theme_listMarkerColor, var(--greenYellow));
+			transform: translateX(-1ch) rotate(180deg);
+		}
+	}
+}

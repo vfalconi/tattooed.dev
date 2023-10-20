@@ -1,0 +1,47 @@
+{% extends 'layouts/base.html' %}
+
+{% set pageCss = 'archive.css' %}
+{% set canonical = 'wrote/' %}
+
+{% block content %}
+	<div class="archive container">
+		<h1 class="page-heading">Blog Archive</h1>
+		{% for post in collections.blogPosts %}
+			{% set currentDate = post.published_at|date('yyyy') %}
+			{% if currentDate != myDate|default(null) %}
+				{% if not loop.first %}</div></section>{% endif %}
+				<section class="archive-section left-content">
+				<h2 class="archive-section-heading">{{ currentDate }}</h2>
+				{% set myDate = currentDate %}
+				<div class="blog-summary-wrapper">
+			{% endif %}
+			{% if post.secret == false and post.rssOnly == false %}
+				<article class="summary">
+					<h3 class="summary-heading">
+						<a href="/{{ post.permalink }}">{{ post.title }}</a>
+					</h3>
+					{% if post.description %}
+						<p class="summary-description">{{ post.description }}</p>
+					{% endif %}
+					<p class="summary-dateline">
+						<time datetime="{{ post.published_at|machineTime }}">{{ post.published_at|date('MMMM d') }}</time>
+					</p>
+				</article>
+			{% endif %}
+		{% if loop.last %}</section>{% endif %}
+	{% endfor %}
+	</div>
+
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [{
+				"@type": "ListItem",
+				"position": 1,
+				"name": "Blog Archive",
+				"item": "https://www.tattooed.dev/wrote"
+			}]
+		}
+	</script>
+{% endblock %}

@@ -1,0 +1,201 @@
+---
+pagination:
+  data: collections.blogPosts
+  size: 1
+  alias: post
+  addAllPagesToCollections: true
+layout: layouts/base.html
+includePrism: true
+allowWebmentions: {{ post.allowWebmentions }}
+permalink: '{{ post.permalink }}'
+containerLayout: narrow
+pageCss: blog.css
+hideTentacles: true
+---
+{% import 'macros.html' as macros %}
+<article class="blog-post h-entry container">
+	<header class="blog-header">
+		<h1 class="page-heading p-name">{{ post.title }}</h1>
+		<div class="blog-header__children">
+			{% if post.description %}
+				<p role="doc-subtitle" class="blog-summary p-summary">{{ post.description|safe }}</p>
+			{% endif %}
+			<p class="blog-timemark">
+				<time class="dt-published" datetime="{{ post.published_at|machineTime }}">{{ post.published_at|htmlDateString }}</time>{% if post.updated %}, and updated <time class="dt-updated" datetime="{{ post.updated|machineTime }}">{{ post.updated|htmlDateString }}</time>{% endif %}
+			</p>
+		</div>
+	</header>
+
+	<div class="blog-post__body e-content">
+
+		{% for content in post.blogPostContent %}
+			{% if content.type == 'markdown' %}
+				{{ content.content|md|safe }}
+			{% elseif content.type == 'pullQuote' %}
+				{{ macros.blockquote(content) }}
+			{% elseif content.type == 'image' %}
+				{{ macros.image(content) }}
+			{% elseif content.type == 'codeBlock' %}
+				{{ macros.codeblock(content) }}
+			{% endif %}
+		{% endfor %}
+
+		{% if post.photos|length > 0 %}
+			<div class="photo-set">
+				{% for photo in post.photos %}
+					{% set picture %}
+						<picture>
+							{% for mimeType, sources in photo.optimizedVersions %}
+								{% set srcs = [] %}
+								{% for source in sources %}
+									{% set srcHref = source.path ~ ' ' ~ source.resolution|replace('dppx', 'x') %}
+									{% set srcs = (srcs.push(srcHref), srcs) %}
+								{% endfor %}
+								<source srcset="{{ srcs|join(',') }}" type="{{ mimeType }}" />
+							{% endfor %}
+							<img src="{{ photo.path }}" width="{{ photo.width }}" height="{{ photo.height }}" loading="lazy" alt="{{ photo.altText }}" />
+						</picture>
+					{% endset %}
+
+					<figure class="photo-set__photo {% if photo.width < 800 %}photo-set--vertical{% endif %}">
+						{{ picture|safe }}
+						<figcaption class="photo-set__caption">
+							{{ photo.caption|md|safe }}
+							<a href="/{{ photo.permalink }}" class="photo-set__permalink">Photo Permalink</a>
+						</figcaption>
+					</figure>
+				{% endfor %}
+			</div>
+		{% endif %}
+
+		{% if post.footnotes|length > 0 %}
+			<section class="footnotes">
+				<h2 class="footnotes__heading">Footnotes</h2>
+				<ol class="footnotes__list">
+					{% for note in post.footnotes %}
+						<li class="footnote" id="note{{ loop.index }}">
+							{{ note|md|safe }}
+							<button data-footnote-return class="footnotes__return">Return</button>
+						</li>
+					{% endfor %}
+				</ol>
+			</section>
+		{% endif %}
+	</div>
+
+	<footer class="blog-footer">
+		<div class="blog-footer__picture">
+			<picture>
+				<source
+					type="image/avif"
+					srcset="https://assets.tattooed.dev/images/pages/profile-picture.2x.avif 2x,
+									https://assets.tattooed.dev/images/pages/profile-picture.15x.avif 1.5x,
+									https://assets.tattooed.dev/images/pages/profile-picture.1x.avif 1x" />
+				<source
+					type="image/webp"
+					srcset="https://assets.tattooed.dev/images/pages/profile-picture.2x.webp 2x,
+									https://assets.tattooed.dev/images/pages/profile-picture.15x.webp 1.5x,
+									https://assets.tattooed.dev/images/pages/profile-picture.1x.webp 1x" />
+				<source
+					type="image/jpeg"
+					srcset="https://assets.tattooed.dev/images/pages/profile-picture.2x.jpg 2x,
+									https://assets.tattooed.dev/images/pages/profile-picture.15x.jpg 1.5x" />
+				<img src="https://assets.tattooed.dev/images/pages/profile-picture.1x.jpg" alt="Vince's typical developer headshot. He's on a blank, black background with a white t-shirt and a black hoodie." width="100" height="100" loading="lazy" />
+			</picture>
+		</div>
+		<div class="blog-footer__body">
+			<p>I'm Vince Falconi, a full-stack web developer based in Mississippi.</p>
+			<p>I aim to make the web fast, accessible, and secure. Or at least better than when I got here.</p>
+		</div>
+		<dl class="blog-footer__meta">
+			<dt class="blog-footer__meta-title">Permalink</dt>
+			<dd class="blog-footer__meta-note"><a href="/{{ post.permalink }}">/{{ post.permalink }}</a></dd>
+		</dl>
+	</footer>
+</article>
+<aside class="webmentions container">
+	<h2 class="webmentions__heading">Webmentions</h2>
+	{% for mention in post.mentions %}
+		{% if mention['wm-private'] == false %}
+			<figure class="webmentions__mention p-comment h-entry" id="mention-{{ mention['wm-id'] }}">
+				<figcaption>
+					<span class="p-author h-card">{{ mention.author.name}}</span>,
+					<cite class="p-name"><a href="{{ mention['wm-source'] }}" class="u-url" rel="noreferrer noopener">{{ mention.name }}</a></cite>
+					<div class="webmention__date">
+						<time class="dt-published" datetime="{{ mention.published|machineTime }}">{{ mention.published|htmlDateString }}</time>
+					</div>
+				</figcaption>
+				<blockquote class="webmention__quote p-content">{{ mention.content.text|truncate(280) }}</blockquote>
+			</figure>
+		{% endif %}
+	{% endfor %}
+
+	<div class="webmentions__form">
+		<p class="webmentions__form-copy">Was it something I said? I hope not. Unless it was a good thing. I don't know, you tell me, using <a href="https://indieweb.org/Webmention" rel="noreferrer noopener">webmentions</a>.</p>
+
+		<form action="https://webmention.io/www.tattooed.dev/webmention" method="post">
+			<label for="mention-input" class="webmentions__form-copy">Drop your URL where you mentioned this post:</label>
+			<input class="webmentions__input" id="mention-input" type="url" name="source" required placeholder="https://wafflehouse.com/press/vince-falconi-named-number-1-fan" />
+			<input type="hidden" name="target" value="https://www.tattooed.dev/{{ post.permalink }}">
+			<button class="webmentions__submit" type="submit">webmention</button>
+		</form>
+	</div>
+</aside>
+<script src="/assets/blogpost.js" defer></script>
+<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@graph": [{
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [{
+				"@type": "ListItem",
+				"position": 1,
+				"name": "Wrote",
+				"item": "https://www.tattooed.dev/wrote/"
+			},{
+				"@type": "ListItem",
+				"position": 1,
+				"name": "{{ post.title }}",
+				"item": "https://www.tattooed.dev/wrote/{{ post.permalink }}"
+			}]
+		},
+		{
+			"@context":"http://schema.org",
+			"@type":"BlogPosting",
+			"@id":"https://www.tattooed.dev/wrote/post.permalink }}",
+			"dateCreated": "{{ post.published_at | machineTime }}",
+			"datePublished": "{{ post.published_at | machineTime }}",
+			{% if modified %}"dateModified": "{{ modified | machineTime }}",{% endif %}
+			"mainEntityOfPage": {
+				"@type": "WebPage",
+				"@id": "https://www.tattooed.dev"
+			},
+			"headline":"{{ post.title }}",
+			"description":"{{ post.description }}",
+			"articleSection": "posts",
+			"image": {
+				"@type": "ImageObject",
+				"url": "{{ post.cover_image.url|default(site.ogp.image) }}"
+			},
+			"author": [
+				{
+					"@type": "Person",
+					"name": "Vince Falconi"
+				}
+			],
+			"creator": [
+				"Vince Falconi"
+			],
+			"publisher": {
+				"@type": "Organization",
+				"name": "Vince Falconi",
+				"logo": {
+					"@type": "imageObject",
+					"url": "https://assets.tattooed.dev/images/pages/small-profile.jpg",
+					"width": "100"
+				}
+			}
+		}]
+	}
+</script>

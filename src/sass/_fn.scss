@@ -1,0 +1,12 @@
+@use "sass:math";
+//	Px->Em Function
+$browser-em-context: 16;
+
+@function em($pixels, $context: $browser-em-context) {
+  @return math.div($pixels, $context) * 1em;
+}
+
+//	Px->Rem Function
+@function rem($pixels) {
+	@return math.div($pixels, 16) * 1rem;
+}

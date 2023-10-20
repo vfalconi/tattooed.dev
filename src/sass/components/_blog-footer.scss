@@ -1,0 +1,72 @@
+.blog-footer {
+	display: grid;
+	gap: rem(32);
+	grid-template-columns: 1fr;
+	grid-template-areas:
+		'picture'
+		'bio'
+		'meta';
+
+	background-color: var(--theme_blogFooterBG);
+	background-image: url(https://assets.tattooed.dev/images/pages/topography.svg);
+	background-size: 75%;
+	color: var(--theme_blogFooterColor);
+	border-bottom: 4px solid var(--theme_blogFooterBorder);
+	padding: rem(16);
+	margin-block: rem(64);
+	box-shadow: 0 0 5px #111 inset, 0 0 5px #0003;
+	border-radius: 2px;
+
+	--linkColor: var(--theme_blogFooterLinkColor);
+	--linkColorHover: var(--theme_blogFooterLinkColorHover);
+
+	@media (min-width: #{rem(580)}) {
+		padding: rem(32);
+		grid-template-columns: #{rem(100)} 1fr;
+		grid-template-areas:
+			'picture bio'
+			'meta meta';
+	}
+}
+
+.blog-footer__picture {
+	grid-area: picture;
+	border-radius: 50%;
+	width: rem(100);
+	overflow: hidden;
+	align-self: start;
+}
+
+.blog-footer__body {
+	grid-area: bio;
+
+	p:nth-of-type(1) {
+		color: var(--cyan);
+		font-weight: 700;
+		margin-top: 0;
+	}
+}
+
+.blog-footer__meta-title,
+.blog-footer__meta-note {
+	font-family: monospace;
+	font-size: 85%;
+	margin-left: 0;
+}
+
+.blog-footer__meta-title {
+	text-align: end;
+}
+
+.blog-footer__meta {
+	grid-area: meta;
+	gap: rem(4) rem(32);
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+
+	@media (min-width: #{rem(580)}) {
+		display: grid;
+		grid-template-columns: max-content 1fr;
+	}
+}

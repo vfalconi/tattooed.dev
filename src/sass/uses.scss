@@ -1,0 +1,11 @@
+.def-list__title {
+	font-weight: bold;
+}
+
+.def-list__definition {
+	margin-left: 0;
+}
+
+.def-list__title+.def-list__definition {
+	margin-bottom: rem(32);
+}

@@ -1,0 +1,30 @@
+{% extends 'layouts/base.html' %}
+
+{% set containerLayout = 'wide' %}
+{% set pageCss = [ 'archive.css', 'bookshelf.css' ] %}
+{% set canonical = 'bookshelf/' %}
+
+{% block content %}
+	<div class="standard-page bookshelf container">
+		<h1 class="page-heading">Bookshelf</h1>
+
+		{% set bookYears = collections.books|getKeys %}
+
+		{% for year in bookYears | reverse %}
+			<section class="archive-section">
+				<h2 class="archive-section-heading">{{ year }}</h2>
+				<div class="books">
+					{% for book in collections.books[year] %}
+						<article class="book">
+							<img class="book__cover" src="{{ book.cover.url }}" loading="lazy" width="200" alt="" role="presentation" aria-hidden />
+							<div class="book__details">
+								<h3 class="book__title">{{ book.title }}</h3>
+								<p class="book__author">by {{ book.author }}</p>
+							</div>
+						</article>
+					{% endfor %}
+				</div>
+			</section>
+		{% endfor %}
+	</div>
+{% endblock %}

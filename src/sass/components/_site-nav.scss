@@ -1,0 +1,54 @@
+.site-nav {
+	grid-area: nav;
+}
+
+.site-nav__list {
+	display: flex;
+	list-style: none;
+	flex-direction: column;
+	justify-content: center;
+	align-items: end;
+	padding-inline: rem(32);
+	gap: rem(24);
+}
+
+.site-nav__link {
+	font-family: ui-monospace,
+             Menlo, Monaco,
+             "Cascadia Mono", "Segoe UI Mono",
+             "Roboto Mono",
+             "Oxygen Mono",
+             "Ubuntu Monospace",
+             "Source Code Pro",
+             "Fira Mono",
+             "Droid Sans Mono",
+             "Courier New", monospace;
+	letter-spacing: var(--headingsKerning, 0);
+	font-weight: bold;
+	font-size: 150%;
+	color: var(--theme_navLinkColor, var(--offWhite));
+	line-height: 1;
+	text-decoration: none;
+	text-transform: uppercase;
+	border-radius: 8px;
+}
+
+
+
+.site-nav__lich:hover {
+	--navLichBGAHover: var(--theme_navLichBGAHover, rgb(125,20,100));
+	--navLichBGBHover: var(--theme_navLichBGBHover, rgb(206,32,164));
+}
+
+
+.nav-lich {
+	max-width: 100px;
+}
+
+.lich-background-main-a {
+	fill: var(--navLichBGAHover, var(--theme_navLichBGA, hsl(186, 100%, 24.5%))) !important;
+}
+
+.lich-background-main-b {
+	fill: var(--navLichBGBHover, var(--theme_navLichBGB, hsl(186, 100%, 59%))) !important;
+}

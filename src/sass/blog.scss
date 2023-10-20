@@ -1,0 +1,145 @@
+@import 'fn';
+@import 'components/blockquote';
+@import 'components/blog-footer';
+@import 'components/code-snippets';
+@import 'components/footnotes';
+@import 'components/photo-set';
+@import 'components/webmentions';
+
+.blog-header {
+	display: flex;
+	gap: 4rem;
+	flex-direction: column;
+	color: var(--greenYellow);
+
+	.page-heading {
+		margin: 0;
+		transform: translateY(.21lh);
+	}
+}
+
+.blog-header__children {
+	display: flex;
+	font-size: var(--size, 1em);
+	gap: 4rem;
+
+	@media screen and (min-width: rem(600)) {
+		--size: 1.25em;
+	}
+}
+
+.blog-timemark {
+	position: relative;
+	flex-grow: 0;
+	flex-shrink: 0;
+	margin: 0;
+	transform: translateY(-3rem);
+	line-height: 1;
+
+	&::after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 100%;
+		width: 100vw;
+		height: 1px;
+		background-color: var(--cyan);
+		transform: translateY(calc(1rem / 2)) translateX(-1rem);
+	}
+}
+
+.blog-summary {
+	flex: 1 1 auto;
+	margin: 0;
+}
+
+
+
+.blog-post__body {
+	font-size: 125%;
+}
+
+.blog-post__body > p:not([class]):not([style]) {
+	margin-block: 2.5rem;
+}
+
+.blog-post__body > p:nth-of-type(1)::first-letter {
+	font-size: var(--size, 3em);
+	float: left;
+	line-height: 1;
+	margin-right: 1rem;
+	color: var(--theme_pageHeadingColor);
+	font-weight: bold;
+
+	@media screen and (min-width: rem(600)) {
+		--size: 3.5em;
+	}
+
+	@media screen and (min-width: rem(800)) {
+		--size: 4em;
+	}
+
+	@media screen and (min-width: rem(1000)) {
+		--size: 5em;
+	}
+}
+
+
+
+.blog-post h2:not([class]) {
+	color: var(--theme_pageHeadingColor);
+	line-height: 1.25;
+	position: relative;
+	font-weight: 700;
+	text-shadow: 4px 4px var(--theme_bodyTextShadow);
+	font-size: var(--size, 1.5em);
+
+	&:before {
+		content: "🌢";
+		display: inline-block;
+		filter: brightness(.5);
+		opacity: .5;
+		padding-right: calc(var(--containerPadding) / 4);
+	}
+
+	@media screen and (min-width: rem(800)) {
+		--size: 2em;
+
+		&:before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			transform: translate(-100%);
+		}
+	}
+}
+
+
+
+.blog-image--block-center {
+	display: block;
+	margin: 0 auto;
+}
+
+
+
+.blog-post--photo,
+.blog-post + .webmentions {
+	margin-bottom: 2rem;
+}
+
+
+
+
+
+
+
+#blog-tentacle {
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: -2;
+	width: min(60vw, 500px);
+	transform: rotate(180deg);
+}

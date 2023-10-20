@@ -1,0 +1,176 @@
+{% import 'macros.html' as macros %}
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
+	<link rel="preconnect dns-prefetch" href="https://assets.tattooed.dev" />
+	<link rel="preload" as="font" type="font/woff2" href="https://assets.tattooed.dev/fonts/lato/LatoLatin-Regular-subset.woff2" crossorigin="anonymous" />
+	<link rel="preload" as="font" type="font/woff2" href="https://assets.tattooed.dev/fonts/lato/LatoLatin-Italic-subset.woff2" crossorigin="anonymous" />
+	<link rel="preload" as="font" type="font/woff2" href="https://assets.tattooed.dev/fonts/lato/LatoLatin-Bold-subset.woff2" crossorigin="anonymous" />
+	<script src="{{ macros.cachebust('/assets/head.js') }}" type="module" async></script>
+	<link rel="stylesheet" type="text/css" href="{{ macros.cachebust('/assets/global.css') }}" />
+	{% if pageCss is not null %}
+		{% if pageCss|isString %}
+			{% set pageCss = [ pageCss ] %}
+		{% endif %}
+
+		{% for css in pageCss %}
+			<link rel="stylesheet" href="{{ macros.cachebust('/assets/' ~ css) }}" />
+		{% endfor %}
+	{% endif %}
+	{% if includePrism %}
+		<link href="{{ macros.cachebust('/assets/prism-theme.css') }}" rel="stylesheet" />
+		<script src="{{ macros.cachebust('/assets/prism-1.17.1.js') }}" async></script>
+	{% endif %}
+
+	<title>{% if title %}{{ title | lower }} | {% endif %}{{ site.title }}</title>
+	<meta name="description" content="{{ description|default(site.description) }}" />
+	<meta name="generator" content="{{ site.generator }}" />
+	{% if isSecret == true or post.secret == true %}
+		<meta name="robots" content="noindex, nofollow, noodp" />
+	{% endif %}
+
+	<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌕</text></svg>" />
+	<link rel="pgpkey" type="application/pgp-keys" href="https://keys.openpgp.org/vks/v1/by-fingerprint/85149DFF4FE0728FE7292DB50127D00E14457035" />
+	<link rel="canonical" href="{{ site.url }}/{{ post.permalink | default(canonical | default('')) }}" />
+	<link rel="alternate" type="application/rss+xml" href="https://www.tattooed.dev/feed.xml" />
+
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="{{ post.title | default(site.ogp.title) }}" />
+	<meta property="og:url" content="{{ site.url }}/{{ post.permalink | default('') }}" />
+	<meta property="og:image" content="{{ post.cover_image.uri | default(site.ogp.image) }}" />
+	<meta property="og:image:width" content="{{ post.cover_image.width | default(800) }}" />
+	<meta property="og:image:height" content="{{ post.cover_image.height | default(800) }}" />
+	<meta property="og:site_name" content="{{ site.ogp.title }}" />
+	<meta property="og:description" content="{{ post.description | default(site.ogp.description) }}" />
+	<meta property="og:locale" content="en_US" />
+
+	{% if post.allowWebmentions == true %}
+		<link rel="webmention" href="https://webmention.io/www.tattooed.dev/webmention" />
+		<link rel="pingback" href="https://webmention.io/www.tattooed.dev/xmlrpc" />
+	{% endif %}
+
+	{% if post.cover_image.uri %}
+		<meta name="twitter:card" content="summary_large_image" />
+	{% else %}
+		<meta name="twitter:card" content="summary" />
+	{% endif %}
+	<meta name="twitter:site" content="@vincefalconi" />
+	<meta name="twitter:creator" content="@vincefalconi" />
+	<meta name="twitter:title" content="{{ post.title | default(site.ogp.title) }}" />
+	<meta name="twitter:description" content="{{ post.description | default(site.ogp.description) }}" />
+	<meta name="twitter:image" content="{{ post.cover_image.uri | default(site.ogp.image) }}" />
+</head>
+<body>
+	<div class="scroll-wrapper">
+		{% if omitNav == null %}
+			<a class="skip-link" href="#content">Skip to main content</a>
+			<nav id="site-nav" class="site-nav" aria-label="Site navigation">
+				<ul class="site-nav__list">
+					<li>
+						<a href="/" class="site-nav__link site-nav__lich">
+							<div class="nav-lich">
+								<svg width="100%" height="100%" viewBox="0 0 1469 2109" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:1.5;">
+									<defs>
+										<style>
+											.lich-background-main-a {
+												fill: var(--theme_lichBGMainA, hsl(186, 100%, 24.5%));
+											}
+											.lich-background-main-b {
+												fill: var(--theme_lichBGMainB, hsl(186, 100%, 59%));
+											}
+											.lich-skull-base {
+												fill: var(--theme_lichSkull, hsl(64deg 33% 84%));
+											}
+											.lich-skull-eyes {
+												fill: var(--theme_lichSkullEyes, rgb(38,38,38));
+											}
+											.lich-skull-nose {
+												fill: var(--theme_lichSkullNose, rgb(38,38,38));
+											}
+											.lich-crown-back {
+												fill: var(--theme_lichCrownBack, rgb(145,115,0));
+											}
+											.lich-crown-front {
+												fill: var(--theme_lichCrownFront, rgb(255,202,0));
+											}
+											.lich-crown-ridge {
+												stroke: var(--theme_lichCrownRidge, rgb(234,147,19));
+											}
+										</style>
+									</defs>
+									<g transform="matrix(1,0,0,1,-282,-46)">
+										<path class="lich-background-main-a" d="M994.961,45.354L282.52,1218.9L1027.09,2154.33L1750.87,1661.1L994.961,45.354Z"/>
+										<path class="lich-background-main-b" transform="matrix(0.711894,-8.71819e-17,8.71819e-17,0.711894,296.561,390.124)" d="M960.452,-74.101L160.41,1197.66L1106.72,2218.04L1843.78,1597.39L960.452,-74.101Z"/>
+									</g>
+									<g id="lich" transform="matrix(1,0,0,1,171.543,263.921)">
+										<path class="lich-skull-base" transform="matrix(1.55692,-0.0548068,0.0525451,1.49267,-3251.92,-743.808)" d="M2177.48,1108.61L2683.35,1124.51L2647.87,1454.24L2542.71,1543.96L2508.45,1499.31L2530.82,1602.85L2268.85,1594.95L2305.01,1483.98L2268.78,1538.23L2155.34,1410.89L2177.48,1108.61Z" style=";stroke: hsl(64deg 33% 44%);stroke-width: 2px;"/>
+										<path class="lich-skull-eyes" transform="matrix(1.57101,-0.176816,0.20208,1.79548,-3456.75,-638.53)" d="M2235.79,1126.42L2227.4,1200.22L2357.62,1265.68L2401.21,1117.22L2235.79,1126.42Z"/>
+										<path class="lich-skull-eyes" transform="matrix(-1.6858,-0.185888,-0.193162,1.75177,4860.27,-555.545)" d="M2235.79,1126.42L2227.4,1200.22L2357.62,1265.68L2401.21,1117.22L2235.79,1126.42Z"/>
+										<path class="lich-skull-nose" transform="matrix(-3.28476,-0.626684,-0.709468,3.13299,9156.22,-779.221)" d="M2375.54,1106.98L2369.46,1153.45L2385.51,1128.94L2375.54,1106.98Z"/>
+										<path class="lich-skull-nose" transform="matrix(3.32792,-0.461522,0.794146,3.11582,-8213.68,-1151.77)" d="M2375.54,1106.98L2369.46,1153.45L2385.51,1128.94L2375.54,1106.98Z"/>
+										<path class="lich-crown-back" transform="matrix(1.4936,0,0,1.4936,-2965.98,-1253.27)" d="M2079.26,1165.59L2133.39,997.064C2133.39,997.064 2233.48,1117.74 2234.19,1109.78C2234.89,1101.83 2293.77,1030.19 2293.77,1030.19L2384.52,1119.37L2464.37,1021.24L2526.88,1114.58L2629.14,1027.81L2694.16,1157.8L2376.23,1327.74L2079.26,1165.59Z"/>
+										<path class="lich-crown-front" transform="matrix(1.4936,0,0,1.4936,-2965.98,-1264.27)" d="M1985.8,959.618L2085.75,1448.15L2377.49,1472.3L2667.38,1458.08L2789.23,949.944L2584.79,1171.84L2533.49,974.075L2452.11,1165.66L2408.41,846.554L2306.3,1166.09L2219.72,973.282L2176.58,1170.75L1985.8,959.618Z"/>
+										<path class="lich-crown-ridge" transform="matrix(1.4936,0,0,1.4936,-2965.98,-1253.27)" d="M2641.18,1410.68L2737.85,1057.07" style="fill:none;stroke-width:8.37px;"/>
+										<path class="lich-crown-ridge" transform="matrix(1.4936,0,0,2.14874,-2965.98,-1971.2)" d="M2372.09,1254.84L2350.63,1162.47L2383.59,1095.84L2405.21,1164.52L2372.09,1254.84Z" style="fill:none;stroke-width:6.76px;"/>
+										<path class="lich-crown-ridge" transform="matrix(1.4936,0,0,1.4936,-2965.98,-1253.27)" d="M2058.37,1167.46L2109.13,1420.78L2169.21,1424.37" style="fill:none;stroke-width:7.23px;"/>
+										<path class="lich-crown-ridge" transform="matrix(0.999945,-0.0105181,0.0105181,0.999945,-462.456,-278.991)" d="M852.404,862.901L816.408,942.503L904.107,1154.63" style="fill:none;stroke-width:12.5px;stroke-linecap:round;"/>
+										<path class="lich-crown-ridge" transform="matrix(-0.982598,-0.185744,-0.185744,0.982598,1768.67,-112.967)" d="M882.705,830.483L845.452,913.865L904.107,1154.63" style="fill:none;stroke-width:12.5px;stroke-linecap:round;"/>
+									</g>
+								</svg>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="/wrote/" class="site-nav__link">Writing</a>
+					</li>
+					<li>
+						<a href="/photographed/" class="site-nav__link">Photos</a>
+					</li>
+				</ul>
+			</nav>
+		{% endif %}
+		<main tabindex="-1" id="content" data-layout="{{ containerLayout|default('') }}">
+			{% block header %}{% endblock %}
+			{% block content %}{{ content|safe }}{% endblock %}
+		</main>
+
+		{% if hideLandscape|default(null) == null %}
+			<div class="moonscape-wrapper">
+				{% include 'moon.svg' %}
+			</div>
+			<div class="landscape-wrapper">
+				<div class="mountains">
+					{% include 'mountains.svg' %}
+					<script src="{{ macros.cachebust('/assets/moon.js') }}" async type="module"></script>
+				</div>
+			</div>
+		{% endif %}
+	</div>
+	<footer class="page-footer">
+		<div data-layout="{{ containerLayout|default('') }}">
+			{% block footer %}{% endblock %}
+			<nav class="page-footer__social-nav" aria-label="Feed, other pages, social profiles">
+				<ul class="social-nav__list">
+					<li><a href="/feed.xml">RSS</a></li>
+					<li><a href="/bookshelf/">Bookshelf</a></li>
+					{% for profile, profileUrl in site.profiles %}
+						<li><a href="{{ profileUrl }}" rel="me">{{ profile }}</a></li>
+					{% endfor %}
+					<li><a href="/colophon/">Colophon</a></li>
+				</ul>
+			</nav>
+			<a href="/for-hire/" class="work-link">Work with me</a>
+			<p class="legal">&copy;{{ now|date('y') }} I'm not sure what kind of legal disclaimer I need to put here, but having one makes me feel fancy, and who doesn't like to feel fancy?</p>
+			<p class="legal">I'm not tracking you, nor am I capturing any information about you without asking. If you find an issue with this site's security, that's not good, but <a href="/.well-known/security.txt">you can let me know</a>.</p>
+			<p class="legal">My blog posts are covered by <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> and code samples are covered by whatever license belongs to them. If they don't have one, the <a href="http://www.wtfpl.net/">WTFPL</a> is in effect.</p>
+			<p class="legal">This site is built with <a href="https://www.11ty.dev/">Eleventy</a>.</p>
+		</div>
+	</footer>
+
+	{% block endofbody %}{% endblock %}
+	<div id="blog-tentacle">
+		{% include 'blog-tentacle.svg' %}
+	</div>
+</body>

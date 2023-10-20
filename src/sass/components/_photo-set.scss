@@ -1,0 +1,34 @@
+.photo-set {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.photo-set__photo {
+	border: 4px solid var(--theme_photoSetBorder, var(--blueBlack));
+	max-width: rem(800);
+	margin: 0;
+}
+
+.photo-set--vertical {
+	max-width: rem(400);
+}
+
+.photo-set__caption {
+	background-color: var(--theme_photoSetCaptionBG, var(--blueBlack));
+	color: white;
+	margin: 0;
+	padding: 1rem;
+
+	p {
+		margin: 0;
+	}
+
+	p + p {
+		margin-top: 1rem;
+	}
+}
+
+.photo-set__permalink {
+	font-size: 75%;
+}

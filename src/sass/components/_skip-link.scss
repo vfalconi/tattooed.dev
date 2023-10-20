@@ -1,0 +1,23 @@
+.skip-link:not(:focus):not(:active) {
+	clip: rect(0 0 0 0);
+	clip-path: inset(100%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+.skip-link {
+	background-color: var(--theme_skipLinkBG, var(--blueBlack));
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	display: block;
+	z-index: 999999;
+	text-align: center;
+	padding: 3rem;
+	margin: 2rem;
+	font-size: em(48, 18);
+}

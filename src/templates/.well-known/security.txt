@@ -1,0 +1,15 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Contact: mailto:security@tattooed.dev
+Expires: 2023-12-01T06:00:00.000Z
+Encryption: https://keys.openpgp.org/vks/v1/by-fingerprint/85149DFF4FE0728FE7292DB50127D00E14457035
+Preferred-Languages: en
+Canonical: https://www.tattooed.dev/.well-known/security.txt
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYIAB0WIQSFFJ3/T+Byj+cpLbUBJ9AOFEVwNQUCY7nn2gAKCRABJ9AOFEVw
+NV3pAQC2cAOzZOmQFIMa2Ou47pZfTgsZOFvmb1txCV6D6EpQnwD/YLZmNxUW228M
+8BpBfkaWHGA7q/gX6QZxgtvM11PAmAs=
+=J74J
+-----END PGP SIGNATURE-----

@@ -1,0 +1,97 @@
+@import 'colors';
+
+:root {
+	--baseFonts: Geneva, Tahoma, sans-serif;
+	font-size: 16px;
+}
+
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+	background-image: paint(starscape);
+	background-color: var(--theme_bodyBG);
+	background-attachment: fixed;
+	color: var(--theme_bodyTextColor);
+	font-family: var(--baseFonts);
+	line-height: 1.7;
+	position: relative;
+}
+
+.fonts-loaded {
+	--baseFonts: "Lato", Geneva, Tahoma, sans-serif;
+}
+
+
+
+::selection {
+	text-shadow: 0 0 transparent;
+  background-color: var(--theme_selectionBG);
+	color: var(--theme_selectionColor);
+}
+
+
+
+main *:not(:is(input, textarea, button)) {
+	text-shadow: 1px 1px var(--theme_bodyTextShadow);
+}
+
+
+
+svg {
+	display: block;
+}
+
+img {
+	display: block;
+	height: auto;
+	max-width: 100%;
+}
+
+
+
+a {
+	color: var(--linkColor, var(--theme_linkColor));
+	font-weight: 700;
+
+	&:hover {
+		color: var(--linkColorHover, var(--theme_linkColorHover));
+	}
+}
+
+
+
+.sprites {
+	display: none;
+}
+
+
+
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+
+
+.highlighted {
+	font-weight: bold;
+	color: var(--theme_highlightedColor);
+	text-shadow: 1px 1px var(--theme_bodyTextShadowvar);
+}
+
+hr {
+	height: 1px;
+	border: none;
+	background-color: var(--theme_hrColor1);
+	margin-block: 4rem;
+	opacity: .5;
+}

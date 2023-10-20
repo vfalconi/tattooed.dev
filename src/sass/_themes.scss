@@ -1,0 +1,29 @@
+@layer base, theme;
+
+@layer base {
+	:root {
+		--theme_bodyBG: var(--black);
+		--theme_bodyTextColor: #fff;
+		--theme_bodyTextShadow: var(--blueBlack);
+		--theme_selectionBG: var(--cyan);
+		--theme_selectionColor: var(--darkBlue);
+		--theme_linkColor: var(--cyan);
+		--theme_linkColorHover: var(--pink);
+		--theme_highlightedColor: var(--greenYellow);
+		--theme_pageHeadingColor: var(--greenYellow);
+		--theme_pageSubheadingColor: var(--yellowGreen);
+		--theme_codeColor: var(--yellowGreen);
+		--theme_bookBG: var(--darkBlue);
+		--theme_bookBorder: var(--blueGreen);
+		--theme_bookFormat: var(--cyan);
+		--theme_homepagePhotoBorder: var(--grayBlue);
+		--theme_quoteBorder: var(--greenYellow);
+		--theme_blogFooterBG: var(--darkBlue);
+		--theme_blogFooterColor: #fff;
+		--theme_blogFooterBorder: var(--yellowGreen);
+		--theme_blogFooterLinkColor: var(--pink);
+		--theme_blogFooterLinkColorHover: var(--cyan);
+		--theme_hrColor1: var(--cyan);
+		--theme_hrColor2: var(--darkBlue);
+	}
+}

@@ -1,0 +1,44 @@
+---
+permalink: feed.xml
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<title>{{ site.title }}</title>
+	<subtitle>{{ site.description }}</subtitle>
+	<link href="{{ site.url }}/{{ permalink }}" rel="self"/>
+	<link href="{{ site.url }}/" />
+	{% set latestEntry = collections.blogPosts|latest %}
+	<updated>{{ latestEntry.published_at|dateToRfc3339 }}</updated>
+	<id>urn:uuid:{{ site.feed.id }}</id>
+	<author>
+		<name>{{ site.feed.author.name }}</name>
+	</author>
+	{% import 'macros.html' as macros %}
+	{% for entry in collections.blogPosts %}
+		{% if entry.secret == false %}
+			{% set entryPermalink = site.url ~ '/' ~ entry.permalink %}
+			<entry>
+				<title>{{ entry.title }}</title>
+				<link href="{{ entryPermalink }}"/>
+				<updated>{{ entry.published_at|dateToRfc3339 }}</updated>
+				<id>urn:uuid:{{ entry.uuid }}</id>
+				<content type="html">
+					{% set content %}
+						{% for content in entry.blogPostContent %}
+							{% if content.type == 'markdown' %}
+								{{ content.content|md|safe }}
+							{% elseif content.type == 'pullQuote' %}
+								{{ macros.blockquote(content) }}
+							{% elseif content.type == 'image' %}
+								{{ macros.image(content) }}
+							{% elseif content.type == 'codeBlock' %}
+								{{ macros.codeblock(content) }}
+							{% endif %}
+						{% endfor %}
+					{% endset %}
+					{{ content }}
+				</content>
+			</entry>
+		{% endif %}
+	{% endfor %}
+</feed>
