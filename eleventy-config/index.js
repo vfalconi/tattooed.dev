@@ -1,4 +1,3 @@
-require('dotenv').config();
 const options = require('./options');
 const data = require('./data');
 const collections = require('./collections');

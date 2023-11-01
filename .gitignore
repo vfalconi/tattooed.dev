@@ -6,3 +6,4 @@ assets/fonts
 build.lock
 *.env
 .DS_STORE
+!gulpfile.js/*

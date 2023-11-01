@@ -1,3 +1,4 @@
+require('dotenv').config();
 const config = require('./eleventy-config');
 
 module.exports = function (eleventyConfig) {
