@@ -1,0 +1,11 @@
+---
+pagination:
+  data: collections.blogPosts
+  size: 1
+  alias: post
+permalink: '{{ post.permalink }}/id.txt'
+containerLayout: narrow
+pageCss: blog.css
+hideTentacles: true
+---
+{{ post.uuid }}

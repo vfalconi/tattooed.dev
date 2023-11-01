@@ -8,8 +8,8 @@
 	<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/lato/LatoLatin-Italic-subset.woff2" />
 	<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/lato/LatoLatin-Bold-subset.woff2" />
 	<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/shlop-shloppy/6ad80901-77f1-4050-91f7-d4f08d7f6123-subset.woff2" />
-	<script src="{{ macros.cachebust('/assets/head.js') }}" async></script>
-	<link rel="stylesheet" type="text/css" href="{{ macros.cachebust('/assets/global.css') }}" />
+	<script src="/assets/head" async></script>
+	<link rel="stylesheet" type="text/css" href="/assets/global.css" />
 	<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌕</text></svg>" />
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="Not found." />
@@ -188,7 +188,7 @@
 				</svg>
 			</div>
 		</div>
-		<script src="{{ macros.cachebust('/assets/moon.js') }}" async></script>
+		<script src="{{ '/assets/moon.js'|getAssetHash }}" async></script>
 	</main>
 </body>
 </html>

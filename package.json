@@ -5,9 +5,15 @@
 	"scripts": {
 		"start": "gulp build & gulp watch & eleventy --serve",
 		"build": "gulp build & BUILD_ENVIRONMENT=production eleventy",
+		"build:css": "gulp build:css",
+		"build:js": "gulp build:js",
+		"watch": "gulp watch",
+		"watch:css": "gulp watch:css",
+		"watch:js": "gulp watch:js",
 		"test": "node ./node_modules/mocha/bin/mocha",
 		"start:debug": "gulp build & gulp watch & DEBUG=Eleventy* eleventy --serve",
-		"deploy": "gulp deploy"
+		"cleanup": "gulp cleanup",
+		"cleanup:posts": "gulp cleanup:posts"
 	},
 	"repository": {
 		"type": "git",
@@ -27,6 +33,7 @@
 		"chai": "^4.3.6",
 		"dotenv": "^8.2.0",
 		"fontfaceobserver": "^2.1.0",
+		"glob": "^10.3.10",
 		"gsap": "^3.6.0",
 		"gulp": "^4.0.2",
 		"gulp-browserify": "^0.5.1",
